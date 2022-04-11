@@ -66,16 +66,7 @@ module.exports = {
         ],
       },
     },
-    // TODO: Either uncomment this part of the code if the website is being hosted on Netlify and install "gatsby-plugin-netlify" or delete it
-    // {
-    //   resolve: 'gatsby-plugin-netlify',
-    //   // TODO: Either uncomment this part of the code if fonts are stored in /static/fonts/ or delete it
-    //   // options: {
-    //   //   headers: {
-    //   //     '/fonts/*': ['Cache-Control: public, max-age: 31536000, immutable'],
-    //   //   },
-    //   // },
-    // },
+    'gatsby-plugin-netlify',
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
