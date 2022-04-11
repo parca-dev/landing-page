@@ -1,11 +1,43 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-// TODO: Implement mobile menu functionality and delete eslint comment below, example — https://user-images.githubusercontent.com/20713191/144221747-70dc933e-a5bd-4586-9019-08117afc13e0.png
+import LogoSvg from 'images/logo.inline.svg';
+
+import CtaButtons from '../cta-buttons';
+import Link from '../link';
+
+const navigation = [
+  {
+    label: 'Documentation',
+    url: '/',
+  },
+  {
+    label: 'Tutorials',
+    url: '/',
+  },
+];
+
 // eslint-disable-next-line no-unused-vars
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
-  <header className="safe-paddings">
-    <div className="container">Header!</div>
+  <header className="safe-paddings absolute inset-x-0 top-0">
+    <div className="container-max flex items-center justify-between">
+      <Link className="px-5 py-4.5" to="/">
+        <span className="sr-only">Parca logo</span>
+        <LogoSvg className="h-7 w-auto" />
+      </Link>
+      <nav className="flex items-center space-x-10 px-5 py-2.5">
+        <ul className="flex space-x-6">
+          {navigation.map(({ label, url }) => (
+            <li key={label}>
+              <Link size="sm" theme="black" to={url}>
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <CtaButtons />
+      </nav>
+    </div>
   </header>
 );
 

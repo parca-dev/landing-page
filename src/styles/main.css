@@ -6,11 +6,15 @@
 @import './fonts.css';
 @import './global.css';
 @import './grid-gap.css';
+@import './with-link.css';
 
 /* Components */
 @import './container.css';
+@import './heading.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';
 @import './safe-paddings.css';
 @import './scrollbar-hidden.css';
+@import './text-gradient.css';
+@import './flat-breaks.css';

@@ -1,0 +1,41 @@
+@layer components {
+  .gradient-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  .violet-gradient-text {
+    background: linear-gradient(264.04deg, #f14aff 15.67%, #401aff 82.95%);
+    @apply gradient-text;
+  }
+
+  .orange-gradient-text {
+    background: linear-gradient(267.19deg, #ffe600 4.02%, #fd6a00 73.58%);
+    @apply gradient-text;
+  }
+
+  .green-gradient-text {
+    background: linear-gradient(268.85deg, #57f906 -0.04%, #00ccc0 59.56%);
+    @apply gradient-text;
+  }
+
+  .with-violet-gradient-text {
+    span {
+      @apply violet-gradient-text;
+    }
+  }
+
+  .with-orange-gradient-text {
+    span {
+      @apply orange-gradient-text;
+    }
+  }
+
+  .with-green-gradient-text {
+    span {
+      @apply green-gradient-text;
+    }
+  }
+}

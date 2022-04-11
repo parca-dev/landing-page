@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
-// const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -7,32 +7,28 @@ module.exports = {
     container: false,
   },
   theme: {
-    // TODO: Uncomment this part of the code and the import of "defaultTheme" above, and complete TODOs
-    // fontFamily: {
-    //   // TODO: Add font families
-    //   //       Delete "mono" if it isn't needed
-    //   sans: ['', ...defaultTheme.fontFamily.sans],
-    //   mono: ['', ...defaultTheme.fontFamily.mono],
-    // },
+    fontFamily: {
+      sans: ['"poppins"', ...defaultTheme.fontFamily.sans],
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
       transparent: colors.transparent,
-      // TODO: Add colors
-      // Make sure that they are prepared in the Figma and follow the naming primary/secondary/gray-${number}
-      // Example of correctly prepared colors in Figma — https://user-images.githubusercontent.com/20713191/143586876-5e834233-9639-4166-9811-b00e63820d98.png
-      // Example of incorrectly prepared colors in Figma — https://user-images.githubusercontent.com/20713191/143586974-6986149f-aee3-450c-a1dd-26e73e3aca02.png
-      // black: '',
-      // white: '',
-      // primary: {
-      //   1: '',
-      // },
-      // secondary: {
-      //   1: '',
-      // },
-      // gray: {
-      //   1: '',
-      // },
+      white: '#FFFFFF',
+      black: '#181A1B',
+      blue: '#401AFF',
+      pink: '#F14AFF',
+      orange: '#FD6A00',
+      yellow: '#FFD500',
+      gray: {
+        10: '#293A3D',
+        40: '#73888C',
+        50: '#8FA0A3',
+        60: '#ABB8BA',
+        70: '#C7D0D1',
+        80: '#E3E7E8',
+        90: '#F1F3F3',
+      },
     }),
     screens: {
       '2xl': { max: '1919px' },
@@ -41,6 +37,19 @@ module.exports = {
       md: { max: '1023px' },
       sm: { max: '767px' },
       xs: { max: '359px' },
+    },
+    extend: {
+      spacing: {
+        4.5: '1.125rem', // 18px
+      },
+      fontSize: {
+        '6xl': ['3.625rem', defaultTheme.lineHeight.tight],
+        '2xl': [defaultTheme.fontSize['2xl'][0], defaultTheme.lineHeight.snug],
+        lg: [defaultTheme.fontSize.lg[0], defaultTheme.lineHeight.snug],
+      },
+      backgroundImage: {
+        'violet-gradient': 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',
+      },
     },
   },
   plugins: [require('tailwindcss-safe-area')],

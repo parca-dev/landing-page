@@ -4,18 +4,17 @@ import React from 'react';
 
 import Link from 'components/shared/link';
 
-// Example of the code — https://user-images.githubusercontent.com/20713191/144215307-35538500-b9f0-486d-abed-1a14825bb75c.png
 const styles = {
-  // TODO: Add base styles
-  base: '',
-  // TODO: Add sizes. Better to write down all sizes and go from higher to lower, e.g. "xl", "lg", "md", "sm", "xs"
-  //       The name of the size cannot be lower than the font size that being used, e.g. "sm" size cannot have font-size "xs"
-  //       Check out an example by a link above for better understanding
-  size: {},
-  // TODO: Add themes. Better to name the theme using this pattern: "${color-name}-${theme-type}", e.g. "black-filled"
-  //       If there is no dividing between theme types, then feel free to use just color names, e.g. "black"
-  //       Check out an example by a link above for better understanding
-  theme: {},
+  base: 'leading-none inline-flex items-center',
+  size: {
+    sm: 'text-sm h-10 px-4.5 py-[13px] font-medium ',
+    '2xl': 'text-[22px] font-medium px-[60px] py-[26px]',
+  },
+  theme: {
+    'black-filled': 'text-white bg-black',
+    'black-outline': 'text-black border-2 border-black',
+    'violet-gradient-filled': 'text-white bg-violet-gradient',
+  },
 };
 
 const Button = ({ className: additionalClassName, to, size, theme, children, ...otherProps }) => {

@@ -22,6 +22,7 @@ const HTML = ({
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
       />
+      <link rel="stylesheet" href="https://use.typekit.net/pjl2mkk.css" />
       {fontsPaths.map((fontPath, index) => (
         <link
           rel="preload"
