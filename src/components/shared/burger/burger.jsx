@@ -7,14 +7,12 @@ const ANIMATION_DURATION = 0.2;
 
 const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
   <motion.button
-    // TODO: Add border color, e.g. "border-white"
     className={clsx('relative h-10 w-10', additionalClassName)}
     type="button"
     animate={isToggled ? 'toggled' : 'initial'}
     onClick={onClick}
   >
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
       className="absolute top-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
       variants={{
         initial: {
@@ -30,7 +28,6 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
       className="absolute top-[19px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
       variants={{
         initial: {
@@ -44,7 +41,6 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
       className="absolute top-[27px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
       variants={{
         initial: {
@@ -60,7 +56,6 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
       className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-black"
       variants={{
         initial: {
@@ -76,7 +71,6 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
       className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-black"
       variants={{
         initial: {

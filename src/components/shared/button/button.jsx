@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'components/shared/link';
 
 const styles = {
-  base: 'leading-none inline-flex items-center',
+  base: 'leading-none inline-flex items-center duration-200 transition-colors',
   size: {
     sm: 'text-sm h-10 px-4.5 py-[13px] font-medium ',
     '2xl':
