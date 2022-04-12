@@ -23,32 +23,32 @@ const Community = () => {
     query {
       image1: file(relativePath: { eq: "pages/home/community/image-1.jpg" }) {
         childImageSharp {
-          gatsbyImageData(width: 384)
+          gatsbyImageData(width: 500)
         }
       }
       image2: file(relativePath: { eq: "pages/home/community/image-2.jpg" }) {
         childImageSharp {
-          gatsbyImageData(width: 384)
+          gatsbyImageData(width: 500)
         }
       }
       image3: file(relativePath: { eq: "pages/home/community/image-3.jpg" }) {
         childImageSharp {
-          gatsbyImageData(width: 384)
+          gatsbyImageData(width: 500)
         }
       }
       image4: file(relativePath: { eq: "pages/home/community/image-4.jpg" }) {
         childImageSharp {
-          gatsbyImageData(width: 384)
+          gatsbyImageData(width: 500)
         }
       }
       image5: file(relativePath: { eq: "pages/home/community/image-5.jpg" }) {
         childImageSharp {
-          gatsbyImageData(width: 384)
+          gatsbyImageData(width: 500)
         }
       }
       image6: file(relativePath: { eq: "pages/home/community/image-6.jpg" }) {
         childImageSharp {
-          gatsbyImageData(width: 384)
+          gatsbyImageData(width: 500)
         }
       }
     }
