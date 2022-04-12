@@ -101,7 +101,7 @@ const Community = () => {
               'grid-gap-x mt-16 grid grid-cols-3 gap-y-16',
               'lg:mt-12 lg:gap-y-14',
               'md:mt-10 md:grid-cols-2 md:gap-y-11',
-              'sm:scrollbar-hidden sm:mt-6 sm:flex sm:gap-x-0 sm:space-x-4 sm:overflow-auto sm:pl-4 sm:after:basis-4'
+              'sm:scrollbar-hidden sm:mt-6 sm:flex sm:gap-x-0 sm:space-x-4 sm:overflow-auto sm:pl-4 sm:after:shrink-0 sm:after:grow-0 sm:after:basis-4'
             )}
           >
             {items.map(({ cover, description }, index) => (
