@@ -22,9 +22,9 @@ const navigation = [
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
   <header className="safe-paddings absolute inset-x-0 top-0">
     <div className="flex max-w-full items-center justify-between">
-      <Link className="px-5 py-4.5" to="/">
+      <Link className="px-5 py-4.5 lg:px-7 lg:py-3.5 sm:py-5 sm:pl-4" to="/">
         <span className="sr-only">Parca logo</span>
-        <LogoSvg className="h-7 w-auto" />
+        <LogoSvg className="h-7 w-auto sm:h-6" />
       </Link>
       <nav className="flex items-center space-x-10 px-5 py-2.5 md:hidden">
         <ul className="flex space-x-6">
@@ -38,7 +38,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
         </ul>
         <CtaButtons />
       </nav>
-      <div className="hidden px-1 py-2.5 md:block">
+      <div className="hidden px-5 py-2.5 md:block sm:pr-2">
         <Burger />
       </div>
     </div>

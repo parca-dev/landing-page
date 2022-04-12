@@ -46,6 +46,7 @@ module.exports = {
         '6xl': ['3.625rem', defaultTheme.lineHeight.tight],
         '2xl': [defaultTheme.fontSize['2xl'][0], defaultTheme.lineHeight.snug],
         lg: [defaultTheme.fontSize.lg[0], defaultTheme.lineHeight.snug],
+        base: [defaultTheme.fontSize.base[0], defaultTheme.lineHeight.snug],
       },
       backgroundImage: {
         'violet-gradient': 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',

@@ -15,7 +15,11 @@ const Hero = () => (
         </span>
         <span className="ml-auto sm:mr-auto sm:ml-0">Bottlenecks</span>
       </h1>
-      <Button className="mt-24" size="2xl" theme="violet-gradient-filled">
+      <Button
+        className="mt-24 lg:mt-[60px] md:mt-10 sm:mt-[84px]"
+        size="2xl"
+        theme="violet-gradient-filled"
+      >
         Try it Now
       </Button>
     </div>

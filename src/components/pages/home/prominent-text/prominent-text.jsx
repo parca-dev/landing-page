@@ -17,7 +17,7 @@ const ProminentText = ({ text, theme, withEBPF }) => (
           dangerouslySetInnerHTML={{ __html: text }}
         />
         {withEBPF && (
-          <EBPFSvg className="absolute right-[-4.9%] bottom-[-41%] h-auto w-20 xl:right-0 lg:w-[60px]" />
+          <EBPFSvg className="absolute right-[-4.9%] bottom-[-41%] h-auto w-20 xl:right-0 lg:bottom-[-35%] lg:w-[60px] sm:bottom-[-18%] sm:right-[5%] sm:h-auto sm:w-12" />
         )}
       </div>
     </div>

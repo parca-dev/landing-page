@@ -101,7 +101,7 @@ const Community = () => {
               'grid-gap-x mt-16 grid grid-cols-3 gap-y-16',
               'lg:mt-12 lg:gap-y-14',
               'md:mt-10 md:grid-cols-2 md:gap-y-11',
-              'sm:scrollbar-hidden sm:mt-6 sm:flex sm:overflow-auto sm:pl-4 sm:after:basis-4'
+              'sm:scrollbar-hidden sm:mt-6 sm:flex sm:gap-x-0 sm:space-x-4 sm:overflow-auto sm:pl-4 sm:after:basis-4'
             )}
           >
             {items.map(({ cover, description }, index) => (
@@ -115,11 +115,13 @@ const Community = () => {
                     alt="Cover"
                   />
                   <PlayIcon
-                    className="absolute top-4 left-4 h-12 w-12 lg:h-10 lg:w-10 md:h-11 md:w-11"
+                    className="absolute top-4 left-4 h-12 w-12 lg:h-10 lg:w-10 md:h-11 md:w-11 sm:top-2.5 sm:left-2.5 sm:h-8 sm:w-8"
                     aria-hidden
                   />
                 </div>
-                <p className="mt-4 text-lg">{description}</p>
+                <p className="mt-4 text-lg md:mt-3 md:text-base md:leading-snug sm:text-sm sm:leading-snug">
+                  {description}
+                </p>
               </li>
             ))}
           </ul>

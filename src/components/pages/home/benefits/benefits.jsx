@@ -28,15 +28,15 @@ const items = [
 ];
 
 const Benefits = () => (
-  <section className="safe-paddings mt-96 lg:mt-64 md:mt-48 sm:mt-28">
+  <section className="safe-paddings mt-96 lg:mt-64 lg:overflow-hidden lg:pb-28 md:mt-[132px] md:pb-16 sm:mt-[86px] sm:pb-12">
     <div className="container">
       <h2
-        className="with-green-gradient-text heading-6xl max-w-[1040px]"
+        className="with-green-gradient-text heading-6xl max-w-[1040px] lg:max-w-[782px]"
         dangerouslySetInnerHTML={{ __html: title }}
       />
       <ul className="grid-gap-x mt-20 grid grid-cols-2 gap-y-16 lg:mt-16 lg:gap-y-14 md:mt-11 md:gap-y-11 sm:mt-10 sm:grid-cols-1 sm:gap-y-8">
         {items.map(({ title, description }, index) => (
-          <li className="max-w-[520px] lg:max-w-[405px] md:max-w-[346px] sm:max-w-none" key={index}>
+          <li className="max-w-[520px] lg:max-w-[405px] md:max-w-[305px] sm:max-w-none" key={index}>
             <h3 className="heading-2xl uppercase">{title}</h3>
             <p
               className="mt-4 text-lg lg:mt-3 md:mt-2 md:text-base md:leading-snug"
@@ -45,9 +45,9 @@ const Benefits = () => (
           </li>
         ))}
       </ul>
-      <div className="relative ml-[-3.1%] mt-16 sm:mt-10">
+      <div className="relative ml-[-3.1%] mt-16 lg:mx-[-3.5%] lg:mt-[50px] sm:mt-8">
         <img
-          className="absolute right-0 bottom-[-9%] -z-10"
+          className="absolute right-0 bottom-[-9%] -z-10 lg:bottom-[-12.5%] lg:right-[-8%] md:right-[-10%] md:bottom-[-10%] md:h-auto md:w-[284px] sm:right-[-15%] sm:bottom-[-19%] sm:w-[190px]"
           width={320}
           height={320}
           src={decorSvg}
@@ -55,7 +55,14 @@ const Benefits = () => (
           loading="lazy"
           aria-hidden
         />
-        <img src={dashboardSvg} width={1192} height={748} alt="Parca dashboard" loading="lazy" />
+        <img
+          className="lg:w-full"
+          src={dashboardSvg}
+          width={1192}
+          height={748}
+          alt="Parca dashboard"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>

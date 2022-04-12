@@ -22,9 +22,9 @@ const navigation = [
 
 const Footer = () => (
   <footer className="safe-paddings">
-    <div className="container relative flex justify-between py-16 lg:py-10 md:py-11 sm:flex-col sm:space-y-10 sm:py-10">
+    <div className="container relative flex justify-between py-16 lg:py-10 md:py-11 sm:flex-col sm:overflow-hidden sm:pt-10 sm:pb-12">
       <img
-        className="absolute top-0 left-[15%] w-[27.5%] lg:left-[14%] lg:w-[19.5%] md:hidden sm:right-4 sm:left-auto sm:block sm:w-1/2"
+        className="absolute top-0 left-[15%] w-[27.5%] lg:left-[14%] lg:w-[19.5%] md:hidden sm:left-auto sm:top-[-6%] sm:right-[5%] sm:block sm:w-[52%]"
         src={decorSvg}
         width={335}
         height={180}
@@ -32,7 +32,7 @@ const Footer = () => (
         alt=""
         aria-hidden
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col lg:pt-2 md:pb-2 sm:py-0">
         <Link to="/">
           <span className="sr-only">Parca logo</span>
           <LogoSvg className="h-7 w-auto" />
@@ -44,11 +44,11 @@ const Footer = () => (
           </a>
         </span>
       </div>
-      <nav className="flex max-w-[625px] items-baseline space-x-[74px] lg:space-x-14 md:items-start md:space-x-[70px] sm:flex-col sm:space-x-0 sm:space-y-10">
-        <ul className="flex space-x-11 lg:space-x-14 md:py-2.5 sm:space-x-11 xs:flex-col xs:space-x-0 xs:space-y-8">
+      <nav className="flex max-w-[625px] items-baseline space-x-[74px] lg:space-x-14 md:items-start md:space-x-[70px] sm:mt-10 sm:flex-col sm:space-x-0 sm:space-y-10">
+        <ul className="flex space-x-11 lg:space-x-14 md:py-2.5 sm:space-x-11 sm:py-0 xs:flex-col xs:space-x-0 xs:space-y-8">
           {navigation.map((menu, index) => (
             <li key={index}>
-              <ul className="flex flex-col space-y-6">
+              <ul className="flex flex-col space-y-6 sm:space-y-4">
                 {menu.map(({ label, url }, idx) => (
                   <li className="inline leading-none" key={idx}>
                     <Link className="whitespace-nowrap" size="sm" theme="black" to={url}>
