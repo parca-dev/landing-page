@@ -11,16 +11,16 @@ const linkText = 'Learn more';
 const linkUrl = '/';
 
 const Profiling = () => (
-  <section className="safe-paddings mt-52">
+  <section className="safe-paddings mt-52 lg:mt-40 lg:overflow-hidden md:mt-28 sm:mt-20">
     <div className="container">
-      <h2 className="heading-6xl max-w-[1042px]">{title}</h2>
-      <p className="mt-4 max-w-[904px] text-2xl">{description}</p>
-      <Link className="mt-8" to={linkUrl} size="2xl" theme="blue">
+      <h2 className="heading-6xl max-w-[1048px]">{title}</h2>
+      <p className="mt-4 max-w-[904px] text-2xl lg:text-xl md:mt-3 md:text-lg">{description}</p>
+      <Link className="mt-8 lg:mt-7 md:mt-6 sm:mt-4" to={linkUrl} size="2xl" theme="blue">
         {linkText}
       </Link>
     </div>
     <img
-      className="mx-auto mt-20 w-full max-w-[1920px]"
+      className="mx-auto mt-20 w-full max-w-[1920px] lg:mt-14 lg:w-[198%] lg:max-w-none md:mt-11 md:w-[268%] sm:mt-8"
       src={dataSvg}
       alt="Profiling data"
       width={1920}

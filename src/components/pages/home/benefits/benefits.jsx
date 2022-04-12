@@ -1,6 +1,7 @@
 import React from 'react';
 
 import dashboardSvg from './images/dashboard.svg';
+import decorSvg from './images/decor.svg';
 
 const title = 'Build faster and <span>more reliable</span> apps with parca';
 const items = [
@@ -22,33 +23,40 @@ const items = [
   {
     title: 'Reduce carbon emission',
     description:
-      'Parca name comes from <strong>Program for Arctic Regional Climate Assessment (PARCA)</strong> and the practice of ice core profiling that has been done as part of it to study climate change. Hopefully with this open source project we can reduce some carbon emissions produced by unnecessary resource usage of data centers.',
+      'Parca name comes from <span class="font-medium">Program for Arctic Regional Climate Assessment (PARCA)</span> and the practice of ice core profiling that has been done as part of it to study climate change. Hopefully with this open source project we can reduce some carbon emissions produced by unnecessary resource usage of data centers.',
   },
 ];
 
 const Benefits = () => (
-  <section className="safe-paddings mt-96">
+  <section className="safe-paddings mt-96 lg:mt-64 md:mt-48 sm:mt-28">
     <div className="container">
       <h2
         className="with-green-gradient-text heading-6xl max-w-[1040px]"
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <ul className="grid-gap-x mt-20 grid grid-cols-2 gap-y-16">
+      <ul className="grid-gap-x mt-20 grid grid-cols-2 gap-y-16 lg:mt-16 lg:gap-y-14 md:mt-11 md:gap-y-11 sm:mt-10 sm:grid-cols-1 sm:gap-y-8">
         {items.map(({ title, description }, index) => (
-          <li className="max-w-[520px]" key={index}>
+          <li className="max-w-[520px] lg:max-w-[405px] md:max-w-[346px] sm:max-w-none" key={index}>
             <h3 className="heading-2xl uppercase">{title}</h3>
-            <p className="mt-4" dangerouslySetInnerHTML={{ __html: description }} />
+            <p
+              className="mt-4 text-lg lg:mt-3 md:mt-2 md:text-base md:leading-snug"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
           </li>
         ))}
       </ul>
-      <img
-        className="ml-[-3%] mt-20"
-        src={dashboardSvg}
-        width={1214}
-        height={796}
-        alt="Parca dashboard"
-        loading="lazy"
-      />
+      <div className="relative ml-[-3.1%] mt-16 sm:mt-10">
+        <img
+          className="absolute right-0 bottom-[-9%] -z-10"
+          width={320}
+          height={320}
+          src={decorSvg}
+          alt=""
+          loading="lazy"
+          aria-hidden
+        />
+        <img src={dashboardSvg} width={1192} height={748} alt="Parca dashboard" loading="lazy" />
+      </div>
     </div>
   </section>
 );

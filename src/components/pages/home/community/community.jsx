@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
@@ -80,33 +81,49 @@ const Community = () => {
     },
   ];
   return (
-    <section className="safe-paddings mt-96 bg-black pt-40 pb-[200px] text-white">
+    <section className="safe-paddings mt-96 bg-black pt-40 pb-[200px] text-white lg:mt-64 lg:pt-28 lg:pb-36 md:mt-48 md:pt-20 md:pb-24 sm:mt-28 sm:pt-14 sm:pb-20">
       <div className="container">
         <h2 className="heading-6xl">{title}</h2>
-        <ul className="mt-16 flex space-x-11">
+        <ul className="mt-16 flex space-x-11 lg:mt-12 lg:space-x-8 md:mt-10 md:space-x-7 sm:mt-7 sm:space-x-5">
           {icons.map(({ label, icon: Icon }) => (
             <li key={label}>
-              <Icon className="h-[104px] w-[104px]" aria-label={label} />
+              <Icon
+                className="h-[104px] w-[104px] lg:h-20 lg:w-20 md:h-[72px] md:w-[72px] sm:h-14 sm:w-14"
+                aria-label={label}
+              />
             </li>
           ))}
         </ul>
-        <h3 className="heading-5xl mt-40">{subtitle}</h3>
-        <ul className="grid-gap-x mt-16 grid grid-cols-3 gap-y-16">
-          {items.map(({ cover, description }, index) => (
-            <li key={index}>
-              <div className="relative">
-                <GatsbyImage
-                  className="rounded-lg"
-                  imgClassName="rounded-lg"
-                  image={getImage(cover)}
-                  loading="lazy"
-                />
-                <PlayIcon className="absolute top-4 left-4 h-12 w-12" aria-hidden />
-              </div>
-              <p className="mt-4 text-lg">{description}</p>
-            </li>
-          ))}
-        </ul>
+        <h3 className="heading-5xl mt-40 lg:mt-32 md:mt-20 sm:mt-16">{subtitle}</h3>
+        <div className="sm:-mx-4">
+          <ul
+            className={clsx(
+              'grid-gap-x mt-16 grid grid-cols-3 gap-y-16',
+              'lg:mt-12 lg:gap-y-14',
+              'md:mt-10 md:grid-cols-2 md:gap-y-11',
+              'sm:scrollbar-hidden sm:mt-6 sm:flex sm:overflow-auto sm:pl-4 sm:after:basis-4'
+            )}
+          >
+            {items.map(({ cover, description }, index) => (
+              <li className="sm:shrink-0 sm:grow-0 sm:basis-[242px]" key={index}>
+                <div className="relative">
+                  <GatsbyImage
+                    className="rounded-lg"
+                    imgClassName="rounded-lg"
+                    image={getImage(cover)}
+                    loading="lazy"
+                    alt="Cover"
+                  />
+                  <PlayIcon
+                    className="absolute top-4 left-4 h-12 w-12 lg:h-10 lg:w-10 md:h-11 md:w-11"
+                    aria-hidden
+                  />
+                </div>
+                <p className="mt-4 text-lg">{description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

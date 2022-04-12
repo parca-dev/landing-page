@@ -16,7 +16,9 @@ const ProminentText = ({ text, theme, withEBPF }) => (
           className={clsx('heading-6xl flat-none lg:flat-breaks', themeClassNames[theme])}
           dangerouslySetInnerHTML={{ __html: text }}
         />
-        {withEBPF && <EBPFSvg className="absolute right-[-4.9%] bottom-[-41%] h-auto w-20" />}
+        {withEBPF && (
+          <EBPFSvg className="absolute right-[-4.9%] bottom-[-41%] h-auto w-20 xl:right-0 lg:w-[60px]" />
+        )}
       </div>
     </div>
   </section>

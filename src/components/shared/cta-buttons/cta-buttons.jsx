@@ -15,7 +15,7 @@ const CtaButtons = ({ className }) => (
   <div className={clsx('flex items-center space-x-5', className)}>
     {buttons.map(({ logo: Logo, label, url, theme }) => (
       <Button
-        className={clsx('relative', Logo && 'pl-12')}
+        className={clsx('relative justify-center md:w-full sm:w-auto', Logo && 'pl-11')}
         key={label}
         to={url}
         theme={theme}

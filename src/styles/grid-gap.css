@@ -1,6 +1,6 @@
 @layer base {
   .grid-gap-x {
-    @apply gap-x-8 xl:gap-x-6 lg:gap-x-4;
+    @apply gap-x-8 lg:gap-x-7 md:gap-x-5;
   }
 
   .grid-gap-y {

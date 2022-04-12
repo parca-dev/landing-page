@@ -8,7 +8,8 @@ const styles = {
   base: 'leading-none inline-flex items-center',
   size: {
     sm: 'text-sm h-10 px-4.5 py-[13px] font-medium ',
-    '2xl': 'text-[22px] font-medium px-[60px] py-[26px]',
+    '2xl':
+      'text-[22px] font-medium px-[60px] py-[26px] lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12',
   },
   theme: {
     'black-filled': 'text-white bg-black',

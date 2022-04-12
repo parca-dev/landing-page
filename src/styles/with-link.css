@@ -9,7 +9,7 @@
   }
   .with-link-blue-5xl {
     a {
-      @apply link-blue underline-offset-[10px];
+      @apply link-blue underline-offset-[10px] lg:underline-offset-8 md:underline-offset-[6px] sm:underline-offset-4;
     }
   }
 }

@@ -7,7 +7,8 @@ const styles = {
   base: 'inline-flex duration-200 transition-colors',
   size: {
     sm: 'text-sm font-medium leading-none',
-    '2xl': 'text-2xl leading-none font-semibold underline-offset-4',
+    '2xl':
+      'text-2xl leading-none font-semibold underline-offset-4 lg:text-xl lg:leading-none sm:text-base sm:leading-none',
   },
   theme: {
     blue: 'text-blue underline',
