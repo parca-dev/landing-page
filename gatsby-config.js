@@ -5,8 +5,8 @@ require('dotenv').config();
 module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
-    siteTitle: 'Pixel Point Gatsby Tailwind Starter',
-    siteDescription: 'Site Description',
+    siteTitle: 'Parca - Open Source infrastructure-wide continuous profiling',
+    siteDescription: 'Open Source infrastructure-wide continuous profiling',
     siteImage: '/images/social-preview.jpg',
     siteLanguage: 'en',
     siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || 'http://localhost:8000',
