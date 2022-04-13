@@ -3,7 +3,10 @@ import React, { useEffect, useRef } from 'react';
 import Button from 'components/shared/button';
 import useWindowSize from 'hooks/use-window-size';
 
-const ibmplexmonoFont = new FontFace('IBM Plex Mono', 'url(/fonts/ibmplexmono-light.woff2)');
+const isBrowser = typeof window !== 'undefined';
+
+const ibmplexmonoFont =
+  isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplexmono-light.woff2)');
 
 const getPixelRatio = (context) => {
   const backingStore =
@@ -15,7 +18,7 @@ const getPixelRatio = (context) => {
     context.backingStorePixelRatio ||
     1;
 
-  const isDevicePixelRatio = typeof window !== 'undefined' && window.devicePixelRatio;
+  const isDevicePixelRatio = isBrowser && window.devicePixelRatio;
 
   return (isDevicePixelRatio || 1) / backingStore;
 };
