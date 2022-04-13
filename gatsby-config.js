@@ -66,7 +66,15 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
+          '/*': ['X-Frame-Options: DENY', 'X-XSS-Protection: 1; mode=block'],
+        },
+      },
+    },
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
