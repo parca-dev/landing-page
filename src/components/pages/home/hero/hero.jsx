@@ -42,16 +42,16 @@ const Hero = () => {
     const context = canvas.getContext('2d');
 
     const ratio = getPixelRatio(context);
-
     const cvWidth = width * ratio;
     const cvHeight = height * ratio;
     canvas.width = cvWidth;
     canvas.height = cvHeight;
-    canvas.style.width = `${cvWidth}px`;
-    canvas.style.height = `${cvHeight}px`;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.scale(ratio, ratio);
 
-    const x = Math.round(cvWidth / 25);
-    const y = Math.round(cvHeight / 25);
+    const x = Math.round(width / 25);
+    const y = Math.round(height / 25);
 
     ibmplexmonoFont.load().then((font) => {
       document.fonts.add(font);
