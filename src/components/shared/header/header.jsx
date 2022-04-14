@@ -22,23 +22,23 @@ const navigation = [
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
   <header className="safe-paddings absolute inset-x-0 top-0 z-20">
     <div className="flex max-w-full items-center justify-between">
-      <Link className="bg-white px-5 py-4.5 lg:px-7 lg:py-3.5 sm:py-5 sm:pl-4" to="/">
+      <Link className="bg-black px-5 py-4.5 lg:px-7 lg:py-3.5 sm:py-5 sm:pl-4" to="/">
         <span className="sr-only">Parca logo</span>
-        <LogoSvg className="h-7 w-auto sm:h-6" />
+        <LogoSvg className="h-7 w-auto text-white sm:h-6" />
       </Link>
-      <nav className="flex items-center space-x-10 bg-white px-5 py-2.5 md:hidden">
+      <nav className="flex items-center space-x-10 bg-black px-5 py-2.5 md:hidden">
         <ul className="flex space-x-6">
           {navigation.map(({ label, url }) => (
             <li key={label}>
-              <Link size="sm" theme="black" to={url}>
+              <Link size="sm" theme="white" to={url}>
                 {label}
               </Link>
             </li>
           ))}
         </ul>
-        <CtaButtons />
+        <CtaButtons isBlackBg />
       </nav>
-      <div className="hidden bg-white px-5 py-2.5 md:block sm:pr-2">
+      <div className="hidden bg-black px-5 py-2.5 md:block sm:pr-2">
         <Burger />
       </div>
     </div>

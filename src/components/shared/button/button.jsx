@@ -13,7 +13,9 @@ const styles = {
   },
   theme: {
     'black-filled': 'text-white bg-black',
+    'white-filled': 'text-black bg-white',
     'black-outline': 'text-black border-2 border-black',
+    'white-outline': 'text-white border-2 border-white',
     'violet-gradient-filled': 'text-white bg-violet-gradient',
   },
 };

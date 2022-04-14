@@ -1,7 +1,10 @@
+import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import Button from 'components/shared/button';
 import useWindowSize from 'hooks/use-window-size';
+
+import Title from './title';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -10,7 +13,6 @@ const ibmplexmonoFont =
 
 const getPixelRatio = () => {
   const isDevicePixelRatio = isBrowser && window.devicePixelRatio;
-
   return isDevicePixelRatio || 1;
 };
 
@@ -21,19 +23,51 @@ function getRandomString(length) {
   return string;
 }
 
+const arrowVariants = {
+  initial: { pathLength: 0 },
+  animate: { pathLength: 1 },
+};
+
+const buttonVariants = {
+  initial: {
+    background: '#fff',
+    color: '#181A1B',
+  },
+  animate: {
+    backgroundImage: 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',
+    color: '#fff',
+  },
+};
+
 const Hero = () => {
-  const ref = useRef();
+  const canvasRef = useRef();
+  const [sectionRef, inView] = useInView({
+    triggerOnce: true,
+  });
   const { width, height } = useWindowSize();
 
+  const titleControls = useAnimation();
+  const arrowControls = useAnimation();
+  const buttonControls = useAnimation();
+
   useEffect(() => {
-    const canvas = ref.current;
+    const fn = async () => {
+      if (inView) {
+        await titleControls.start('animate');
+        await arrowControls.start('animate');
+        await buttonControls.start('animate');
+      }
+    };
+    fn();
+  }, [arrowControls, buttonControls, inView, titleControls]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
 
     const ratio = getPixelRatio();
-    const cvWidth = width * ratio;
-    const cvHeight = height * ratio;
-    canvas.width = cvWidth;
-    canvas.height = cvHeight;
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
     context.scale(ratio, ratio);
@@ -47,31 +81,51 @@ const Hero = () => {
       for (let i = 0; i < y; i += 1) {
         for (let j = 0; j < x; j += 1) {
           context.font = '300 16px IBM Plex Mono';
-          context.fillStyle = '#E3E7E8';
-          context.fillText(getRandomString(2), 22 + j * 34, 16 + i * 28);
+          context.fillStyle = '#242828';
+          context.fillText(getRandomString(2), 12 + j * 34, i * 28);
         }
       }
     });
-  }, [width, height]);
+  }, [height, width]);
 
   return (
-    <section className="safe-paddings relative flex h-screen w-screen items-center justify-center overflow-hidden sm:justify-start">
-      <canvas className="absolute -z-10" ref={ref} />
-      <div className="container-max flex flex-col sm:mx-0">
-        <h1 className="flex flex-col text-[38px] font-extrabold uppercase leading-none lg:text-3xl lg:leading-none md:text-2xl md:leading-none sm:text-[22px] sm:leading-none ">
-          <span className="mr-auto bg-white px-2.5 py-2.5">Track</span>
-          <span className="-my-1.5 bg-white px-2.5 text-[8.6rem] lg:text-[106px] md:text-[80px] sm:inline-flex sm:flex-col sm:text-[68px] xs:text-6xl xs:leading-none">
-            <span>
-              Memory<span className="sm:hidden">.</span>
-            </span>
-            <span>CPU.IO.</span>
-          </span>
-          <span className="ml-auto bg-white px-2.5 py-2.5 sm:mr-auto sm:ml-0">Bottlenecks</span>
-        </h1>
-        <div className="mt-24 self-start bg-white p-2.5 lg:mt-[60px] md:mt-10 sm:mt-[84px]">
-          <Button size="2xl" theme="black-filled">
+    <section
+      className="safe-paddings relative flex h-screen w-screen items-center justify-center overflow-hidden bg-black sm:justify-start"
+      ref={sectionRef}
+    >
+      <canvas className="absolute" ref={canvasRef} />
+      <div className="container-max z-10 flex flex-col sm:mx-0">
+        <div className="relative">
+          <Title titleControls={titleControls} />
+          <svg
+            className="absolute right-32 top-[calc(100%+1.25rem)] "
+            width="825"
+            height="132"
+            viewBox="0 0 825 132"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <motion.path
+              d="M823 0V121H3M3 121L14.625 111.375M3 121L14.625 130.625"
+              stroke="#ffffff"
+              strokeWidth="3"
+              initial="initial"
+              variants={arrowVariants}
+              transition={{ duration: 0.15 }}
+              animate={arrowControls}
+            />
+          </svg>
+        </div>
+        <div className="mt-24 self-start bg-black p-2.5 lg:mt-[60px] md:mt-10 sm:mt-[84px]">
+          <motion.a
+            className="inline-flex items-center px-[60px] py-[26px] text-[22px] font-medium leading-none  transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
+            initial="initial"
+            variants={buttonVariants}
+            transition={{ duration: 0.1 }}
+            animate={buttonControls}
+          >
             Try it Now
-          </Button>
+          </motion.a>
         </div>
       </div>
     </section>

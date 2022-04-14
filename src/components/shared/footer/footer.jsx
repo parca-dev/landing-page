@@ -63,8 +63,8 @@ const Footer = () => (
         <CtaButtons className="shrink-0 md:h-full md:grow md:flex-col-reverse md:justify-between md:space-x-0 sm:h-auto sm:flex-row sm:space-x-5" />
       </nav>
       <span className="mt-10 hidden text-sm font-medium sm:block">
-        Design by{' '}
-        <a href="https://pixelpoint.io/" target="_blank" rel="noopener noreferrer">
+        Design by {/* eslint-disable-next-line react/jsx-no-target-blank */}
+        <a href="https://pixelpoint.io/" target="_blank" rel="noopener">
           Pixel Point
         </a>
       </span>

@@ -13,6 +13,7 @@ const styles = {
   theme: {
     blue: 'text-blue underline',
     black: 'text-black',
+    white: 'text-white',
   },
 };
 
