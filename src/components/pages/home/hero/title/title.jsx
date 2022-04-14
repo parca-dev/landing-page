@@ -23,15 +23,14 @@ const titleItems = [
 ];
 
 const itemVariants = {
-  initial: () => ({
+  initial: ({ background }) => ({
     opacity: 0,
-    backgroundColor: '#fff',
-  }),
-  animate: ({ background, delay }) => ({
-    opacity: 1,
     ...(background && { background }),
     ...textGradientStyles,
-
+  }),
+  animate: ({ delay }) => ({
+    opacity: 1,
+    background: '#fff',
     transition: {
       opacity: {
         duration: OPACITY_DURATION,
@@ -40,10 +39,10 @@ const itemVariants = {
       background: { duration: BG_DURATION, delay: delay.background },
     },
   }),
-  out: () => ({
-    opacity: 1,
-    backgroundColor: '#fff',
-  }),
+  // out: () => ({
+  //   opacity: 1,
+  //   backgroundColor: '#fff',
+  // }),
 };
 
 const Title = ({ titleControls }) => {
