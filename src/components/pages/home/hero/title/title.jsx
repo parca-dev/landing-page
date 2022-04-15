@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-export const OPACITY_DURATION = 0.05;
+export const OPACITY_DURATION = 0.06;
 export const BG_DURATION = 0.15;
 export const BG_DELAY = 0.3;
 
@@ -61,6 +61,8 @@ const Title = ({ titleControls }) => {
       return newItem;
     });
   }, []);
+
+  console.log(itemsWithAnimationData);
 
   return (
     <h1 className="flex flex-col text-[38px] font-extrabold uppercase leading-none text-white lg:text-3xl lg:leading-none md:text-2xl md:leading-none sm:text-[22px] sm:leading-none">
