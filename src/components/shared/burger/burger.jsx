@@ -7,15 +7,13 @@ const ANIMATION_DURATION = 0.2;
 
 const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
   <motion.button
-    // TODO: Add border color, e.g. "border-white"
-    className={clsx('relative h-10 w-10 rounded-full border-2', additionalClassName)}
+    className={clsx('relative h-10 w-10', additionalClassName)}
     type="button"
     animate={isToggled ? 'toggled' : 'initial'}
     onClick={onClick}
   >
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute top-[11px] left-[8px] block h-0.5 w-5 rounded-full"
+      className="absolute top-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
       variants={{
         initial: {
           top: 11,
@@ -30,8 +28,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute top-[17px] left-[12px] block h-0.5 w-3 rounded-full"
+      className="absolute top-[19px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
       variants={{
         initial: {
           display: 'block',
@@ -44,8 +41,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute bottom-[11px] left-[8px] block h-0.5 w-5 rounded-full"
+      className="absolute top-[27px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
       variants={{
         initial: {
           bottom: 11,
@@ -60,8 +56,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full"
+      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-black"
       variants={{
         initial: {
           rotate: '0deg',
@@ -76,8 +71,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full"
+      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-black"
       variants={{
         initial: {
           rotate: '0deg',

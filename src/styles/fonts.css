@@ -1,4 +1,9 @@
-/* TODO: Import fonts. Please keep in mind we use only woff2 format! */
 @layer base {
-  /* Your code goes here... */
+  @font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('/fonts/ibmplexmono-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
 }

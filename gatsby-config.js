@@ -5,8 +5,8 @@ require('dotenv').config();
 module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
-    siteTitle: 'Pixel Point Gatsby Tailwind Starter',
-    siteDescription: 'Site Description',
+    siteTitle: 'Parca - Open Source infrastructure-wide continuous profiling',
+    siteDescription: 'Open Source infrastructure-wide continuous profiling',
     siteImage: '/images/social-preview.jpg',
     siteLanguage: 'en',
     siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || 'http://localhost:8000',
@@ -66,16 +66,15 @@ module.exports = {
         ],
       },
     },
-    // TODO: Either uncomment this part of the code if the website is being hosted on Netlify and install "gatsby-plugin-netlify" or delete it
-    // {
-    //   resolve: 'gatsby-plugin-netlify',
-    //   // TODO: Either uncomment this part of the code if fonts are stored in /static/fonts/ or delete it
-    //   // options: {
-    //   //   headers: {
-    //   //     '/fonts/*': ['Cache-Control: public, max-age: 31536000, immutable'],
-    //   //   },
-    //   // },
-    // },
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
+          '/*': ['X-Frame-Options: DENY', 'X-XSS-Protection: 1; mode=block'],
+        },
+      },
+    },
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
