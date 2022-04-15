@@ -6,7 +6,7 @@
 @import './fonts.css';
 @import './global.css';
 @import './grid-gap.css';
-@import './with-link.css';
+@import './link.css';
 
 /* Components */
 @import './container.css';
@@ -16,5 +16,5 @@
 @import './remove-autocomplete-styles.css';
 @import './safe-paddings.css';
 @import './scrollbar-hidden.css';
-@import './text-gradient.css';
+@import './gradient-text.css';
 @import './flat-breaks.css';
