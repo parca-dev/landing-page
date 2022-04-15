@@ -29,20 +29,17 @@ const itemVariants = {
     ...textGradientStyles,
   }),
   animate: ({ delay }) => ({
-    opacity: 1,
+    opacity: [0, 1, 0, 0, 0, 0.5, 1],
     background: '#fff',
     transition: {
       opacity: {
         duration: OPACITY_DURATION,
         delay: delay.opacity,
+        times: [0, 0, 0.16, 0.33, 0.66, 1],
       },
       background: { duration: BG_DURATION, delay: delay.background },
     },
   }),
-  // out: () => ({
-  //   opacity: 1,
-  //   backgroundColor: '#fff',
-  // }),
 };
 
 const Title = ({ titleControls }) => {

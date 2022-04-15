@@ -26,19 +26,26 @@ function getRandomString(length) {
   return string;
 }
 
-const arrowVariants = {
+const arrowLineVariants = {
   initial: { pathLength: 0 },
-  animate: { pathLength: 1 },
+  animate: { pathLength: 1, transition: { duration: 0.15 } },
 };
 
-const buttonVariants = {
+const arrowPointerVariants = {
+  initial: { pathLength: 0 },
+  animate: { pathLength: 1, transition: { duration: 0.01 } },
+};
+
+const buttonGradientVariants = {
   initial: {
-    background: '#fff',
-    color: '#181A1B',
+    opacity: 0,
   },
   animate: {
-    backgroundImage: 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',
-    color: '#fff',
+    opacity: [1, 0, 0, 0, 0.5, 1],
+    transition: {
+      duration: 0.18,
+      times: [0, 0.16, 0.33, 0.66, 1],
+    },
   },
 };
 
@@ -50,19 +57,21 @@ const Hero = () => {
   const { width, height } = useWindowSize();
 
   const titleControls = useAnimation();
-  const arrowControls = useAnimation();
-  const buttonControls = useAnimation();
+  const arrowLineControls = useAnimation();
+  const arrowPointerControls = useAnimation();
+  const buttonGradientControls = useAnimation();
 
   useEffect(() => {
     const fn = async () => {
       if (inView) {
         await titleControls.start('animate');
-        await arrowControls.start('animate');
-        await buttonControls.start('animate');
+        await arrowLineControls.start('animate');
+        await arrowPointerControls.start('animate');
+        await buttonGradientControls.start('animate');
       }
     };
     fn();
-  }, [arrowControls, buttonControls, inView, titleControls]);
+  }, [arrowLineControls, arrowPointerControls, buttonGradientControls, inView, titleControls]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -80,18 +89,19 @@ const Hero = () => {
 
     ibmplexmonoFont.load().then((font) => {
       document.fonts.add(font);
-
-      for (let i = 0; i < y; i += 1) {
-        for (let j = 0; j < x; j += 1) {
-          context.font = '300 16px IBM Plex Mono';
-          context.fillStyle = '#242828';
-          context.fillText(
-            getRandomString(2),
-            TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
-            i * (TEXT_GAP + TEXT_HEIGHT)
-          );
+      document.fonts.ready.then(() => {
+        for (let i = 0; i < y; i += 1) {
+          for (let j = 0; j < x; j += 1) {
+            context.font = '300 16px IBM Plex Mono';
+            context.fillStyle = '#242828';
+            context.fillText(
+              getRandomString(2),
+              TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
+              i * (TEXT_GAP + TEXT_HEIGHT)
+            );
+          }
         }
-      }
+      });
     });
   }, [height, width]);
 
@@ -106,33 +116,46 @@ const Hero = () => {
           <Title titleControls={titleControls} />
           <svg
             className="absolute right-32 top-[calc(100%+1.25rem)] "
-            width="825"
+            width="823"
             height="132"
-            viewBox="0 0 825 132"
+            viewBox="0 0 823 132"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <motion.path
-              d="M823 0V121H3M3 121L14.625 111.375M3 121L14.625 130.625"
-              stroke="#ffffff"
-              strokeWidth="3"
+              d="M822 0V121H2"
+              stroke="white"
+              strokeWidth="2"
               initial="initial"
-              variants={arrowVariants}
-              transition={{ duration: 0.15 }}
-              animate={arrowControls}
+              variants={arrowLineVariants}
+              animate={arrowLineControls}
+            />
+            <motion.path
+              d="M14 111.5L2 121L14 130.5"
+              stroke="white"
+              strokeWidth="2"
+              initial="initial"
+              variants={arrowPointerVariants}
+              animate={arrowPointerControls}
             />
           </svg>
         </div>
         <div className="mt-24 self-start bg-black p-2.5 lg:mt-[60px] md:mt-10 sm:mt-[84px]">
-          <motion.a
-            className="inline-flex items-center px-[60px] py-[26px] text-[22px] font-medium leading-none  transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
-            initial="initial"
-            variants={buttonVariants}
-            transition={{ duration: 0.1 }}
-            animate={buttonControls}
+          <a
+            className="relative inline-flex items-center bg-black px-[60px] py-[26px] text-[22px] font-medium leading-none text-white transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
+            href="#"
           >
-            Try it Now
-          </motion.a>
+            <motion.span
+              className="absolute top-0 left-0 right-0 bottom-0 h-full w-full"
+              style={{
+                backgroundImage: 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',
+              }}
+              initial="initial"
+              animate={buttonGradientControls}
+              variants={buttonGradientVariants}
+            />
+            <span className="relative">Try it Now</span>
+          </a>
         </div>
       </div>
     </section>
