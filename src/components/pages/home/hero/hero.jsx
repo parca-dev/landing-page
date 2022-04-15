@@ -75,8 +75,11 @@ const Hero = () => {
         await arrowPointerControls.start('animate');
         await buttonGradientControls.start('animate');
       }
-      await titleControls.start('static');
-      await buttonGradientControls.start('static');
+
+      if (isMobileWidth) {
+        await titleControls.set('static');
+        await buttonGradientControls.set('static');
+      }
     };
     fn();
   }, [
