@@ -15,7 +15,7 @@ const textGradientStyles = {
 
 const titleItems = [
   {
-    value: 'Memory<span class="sm:hidden">.</span>',
+    value: 'Memory.',
     background: 'linear-gradient(264.04deg, #f14aff 15.67%, #401aff 82.95%)',
   },
   { value: 'CPU.', background: 'linear-gradient(267.19deg, #ffe600 4.02%, #fd6a00 73.58%)' },
@@ -40,9 +40,13 @@ const itemVariants = {
       background: { duration: BG_DURATION, delay: delay.background },
     },
   }),
+  static: () => ({
+    opacity: 1,
+    background: '#fff',
+  }),
 };
 
-const Title = ({ titleControls }) => {
+const Title = ({ titleControls, isMobile }) => {
   const itemsWithAnimationData = useMemo(() => {
     let previousDelay = 0;
     return titleItems.map((item, index) => {
@@ -62,17 +66,15 @@ const Title = ({ titleControls }) => {
     });
   }, []);
 
-  console.log(itemsWithAnimationData);
-
   return (
     <h1 className="flex flex-col text-[38px] font-extrabold uppercase leading-none text-white lg:text-3xl lg:leading-none md:text-2xl md:leading-none sm:text-[22px] sm:leading-none">
       <span className="mr-auto bg-black px-2.5 py-2.5">Track</span>
-      <span className="k -my-1.5 bg-black px-2.5 text-[8.6rem] text-white lg:text-[106px] md:text-[80px] sm:inline-flex sm:flex-col sm:text-[68px] xs:text-6xl xs:leading-none">
+      <span className="-my-1.5 bg-black px-2.5 text-[8.6rem] text-white lg:space-x-2.5 lg:text-[106px] md:text-[80px] sm:inline-flex sm:flex-wrap sm:space-x-0 sm:text-[68px] xs:text-6xl xs:leading-none">
         {itemsWithAnimationData.map(({ value, background, delay }, index) => (
           <motion.span
             key={index}
             dangerouslySetInnerHTML={{ __html: value }}
-            initial="initial"
+            initial={isMobile ? 'static' : 'initial'}
             variants={itemVariants}
             animate={titleControls}
             custom={{ background, delay }}
@@ -83,8 +85,14 @@ const Title = ({ titleControls }) => {
     </h1>
   );
 };
+
 Title.propTypes = {
   titleControls: PropTypes.object.isRequired,
+  isMobile: PropTypes.bool,
+};
+
+Title.defaultProps = {
+  isMobile: false,
 };
 
 export default Title;

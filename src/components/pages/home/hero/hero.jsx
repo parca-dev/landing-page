@@ -4,11 +4,14 @@ import { useInView } from 'react-intersection-observer';
 
 import useWindowSize from 'hooks/use-window-size';
 
+import ArrowSmSvg from './images/arrow-sm.inline.svg';
 import Title from './title';
 
 const TEXT_GAP = 12;
 const TEXT_WIDTH = 22;
 const TEXT_HEIGHT = 16;
+const MOBILE_WIDTH = 767;
+
 const isBrowser = typeof window !== 'undefined';
 
 const ibmplexmonoFont =
@@ -28,7 +31,7 @@ function getRandomString(length) {
 
 const arrowLineVariants = {
   initial: { pathLength: 0 },
-  animate: { pathLength: 1, transition: { duration: 0.15 } },
+  animate: { pathLength: 1, transition: { duration: 0.15, type: 'tween' } },
 };
 
 const arrowPointerVariants = {
@@ -47,6 +50,9 @@ const buttonGradientVariants = {
       times: [0, 0.16, 0.33, 0.66, 1],
     },
   },
+  static: {
+    opacity: 1,
+  },
 };
 
 const Hero = () => {
@@ -55,7 +61,7 @@ const Hero = () => {
     triggerOnce: true,
   });
   const { width, height } = useWindowSize();
-
+  const isMobileWidth = width <= MOBILE_WIDTH;
   const titleControls = useAnimation();
   const arrowLineControls = useAnimation();
   const arrowPointerControls = useAnimation();
@@ -63,15 +69,24 @@ const Hero = () => {
 
   useEffect(() => {
     const fn = async () => {
-      if (inView) {
+      if (inView && !isMobileWidth) {
         await titleControls.start('animate');
         await arrowLineControls.start('animate');
         await arrowPointerControls.start('animate');
         await buttonGradientControls.start('animate');
       }
+      await titleControls.start('static');
+      await buttonGradientControls.start('static');
     };
     fn();
-  }, [arrowLineControls, arrowPointerControls, buttonGradientControls, inView, titleControls]);
+  }, [
+    arrowLineControls,
+    arrowPointerControls,
+    buttonGradientControls,
+    inView,
+    titleControls,
+    isMobileWidth,
+  ]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -111,11 +126,11 @@ const Hero = () => {
       ref={sectionRef}
     >
       <canvas className="absolute" ref={canvasRef} />
-      <div className="container-max z-10 flex flex-col sm:mx-0">
+      <div className="max-width z-10 flex flex-col sm:mx-0">
         <div className="relative">
-          <Title titleControls={titleControls} />
+          <Title titleControls={titleControls} isMobile={isMobileWidth} />
           <svg
-            className="absolute right-32 top-[calc(100%+1.25rem)] "
+            className="absolute right-32 top-[calc(100%+1.25rem)] lg:right-24 lg:top-full lg:h-auto lg:w-[600px] md:right-28 md:w-[400px] sm:hidden"
             width="823"
             height="132"
             viewBox="0 0 823 132"
@@ -139,8 +154,9 @@ const Hero = () => {
               animate={arrowPointerControls}
             />
           </svg>
+          <ArrowSmSvg className="absolute left-48 top-[calc(100%-1.5rem)] hidden w-[150px] sm:block xs:w-[110px]" />
         </div>
-        <div className="mt-24 self-start bg-black p-2.5 lg:mt-[60px] md:mt-10 sm:mt-[84px]">
+        <div className="mt-24 self-start bg-black p-2.5 lg:mt-[50px] md:mt-5 sm:mt-16 xs:mt-8">
           <a
             className="relative inline-flex items-center bg-black px-[60px] py-[26px] text-[22px] font-medium leading-none text-white transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
             href="#"
