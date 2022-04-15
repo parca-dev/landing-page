@@ -6,6 +6,9 @@ import useWindowSize from 'hooks/use-window-size';
 
 import Title from './title';
 
+const TEXT_GAP = 12;
+const TEXT_WIDTH = 22;
+const TEXT_HEIGHT = 16;
 const isBrowser = typeof window !== 'undefined';
 
 const ibmplexmonoFont =
@@ -82,7 +85,11 @@ const Hero = () => {
         for (let j = 0; j < x; j += 1) {
           context.font = '300 16px IBM Plex Mono';
           context.fillStyle = '#242828';
-          context.fillText(getRandomString(2), 12 + j * 34, i * 28);
+          context.fillText(
+            getRandomString(2),
+            TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
+            i * (TEXT_GAP + TEXT_HEIGHT)
+          );
         }
       }
     });
