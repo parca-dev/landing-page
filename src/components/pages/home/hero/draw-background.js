@@ -21,6 +21,8 @@ function getRandomString(length) {
   return string;
 }
 
+let timer = null;
+
 const drawBackground = ({ canvasRef, width, height }) => {
   const canvas = canvasRef.current;
   const context = canvas.getContext('2d');
@@ -31,17 +33,36 @@ const drawBackground = ({ canvasRef, width, height }) => {
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
   context.scale(ratio, ratio);
+  context.font = '300 16px IBM Plex Mono';
+  context.fillStyle = '#242828';
 
-  const x = Math.round(width / 25);
-  const y = Math.round(height / 25);
+  const columns = Math.round(width / TEXT_GAP + TEXT_WIDTH);
+  const rows = Math.round(height / TEXT_GAP + TEXT_HEIGHT);
+
+  function updateRandom() {
+    clearTimeout(timer);
+    timer = setInterval(() => {
+      for (let i = 0; i < 50; i += 1) {
+        const rndColumn = Math.round((Math.random() * width) / TEXT_WIDTH);
+        const rndRow = Math.round((Math.random() * height) / TEXT_HEIGHT);
+        const x = TEXT_GAP + rndColumn * (TEXT_GAP + TEXT_WIDTH);
+        const y = TEXT_GAP + rndRow * (TEXT_GAP + TEXT_HEIGHT);
+
+        context.fillStyle = '#181A1B';
+        context.fillRect(x, y, TEXT_WIDTH, TEXT_HEIGHT);
+
+        context.fillStyle = '#242828';
+        context.fillText(getRandomString(2), x, y + TEXT_HEIGHT);
+      }
+    }, 30);
+  }
 
   ibmplexmonoFont.load().then((font) => {
     document.fonts.add(font);
     document.fonts.ready.then(() => {
-      for (let i = 0; i < y; i += 1) {
-        for (let j = 0; j < x; j += 1) {
-          context.font = '300 16px IBM Plex Mono';
-          context.fillStyle = '#242828';
+      updateRandom();
+      for (let i = 0; i < rows; i += 1) {
+        for (let j = 0; j < columns; j += 1) {
           context.fillText(
             getRandomString(2),
             TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
