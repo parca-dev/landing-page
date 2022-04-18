@@ -15,7 +15,7 @@ const arrowPointerVariants = {
 const Arrow = ({ arrowPointerControls, arrowLineControls }) => (
   <>
     <svg
-      className="absolute right-32 top-[calc(100%+1.25rem)] lg:right-24 lg:top-full lg:h-auto lg:w-[600px] md:right-28 md:w-[400px] sm:hidden"
+      className="absolute right-40 top-[calc(100%+0.5rem)] lg:right-24 lg:top-full lg:h-auto lg:w-[600px] md:right-28 md:w-[400px] sm:hidden"
       width="823"
       height="132"
       viewBox="0 0 823 132"
