@@ -74,8 +74,10 @@ const Hero = () => {
   ]);
 
   useEffect(() => {
-    drawBackground({ canvasRef, width, height });
-  }, [canvasRef, height, width]);
+    if (inView) {
+      drawBackground({ canvasRef, width, height });
+    }
+  }, [canvasRef, height, inView, width]);
 
   return (
     <section
