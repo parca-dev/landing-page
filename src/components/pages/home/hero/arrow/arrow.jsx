@@ -80,8 +80,8 @@ const Arrow = ({ arrowPointerControls, arrowLineControls }) => {
         stroke="#181A1B"
         strokeWidth="20"
         initial="initial"
-        variants={arrowPointerVariants}
-        animate={arrowPointerControls}
+        variants={arrowLineVariants}
+        animate={arrowLineControls}
       />
       <motion.path
         d={d2}
