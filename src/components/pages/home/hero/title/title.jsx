@@ -88,7 +88,6 @@ const Title = ({ titleControls }) => {
 
 Title.propTypes = {
   titleControls: PropTypes.object.isRequired,
-  backgroundControls: PropTypes.object.isRequired,
 };
 
 export default Title;
