@@ -11,8 +11,7 @@ import ProminentText from 'components/pages/home/prominent-text';
 import Tools from 'components/pages/home/tools';
 import Layout from 'components/shared/layout';
 
-const text2 =
-  'Thanks to Parca <span>eBPF nature</span>, it operates on a Linux kernel level and provides a continuous profiling without putting pressure on your services.';
+const text2 = `Thanks to <span>eBPF's nature</span>, Parca Agent operates in Linux kernel space allowing it to grab exactly the data needed at low overhead.`;
 
 const HomePage = () => (
   <Layout>

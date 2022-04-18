@@ -12,7 +12,7 @@ const Tools = () => (
         <h2 className={clsx('heading-6xl flat-none lg:flat-breaks')}>
           Broken down{' '}
           <StaticImage
-            className="inline-flex justify-center lg:h-12 md:h-10"
+            className="inline-flex justify-center align-middle lg:h-12 md:h-10"
             src="./images/icons.png"
             lazy="loading"
             quality={95}
