@@ -8,17 +8,16 @@ import OpenSource from 'components/pages/home/open-source';
 import ParcaAgent from 'components/pages/home/parca-agent';
 import Profiling from 'components/pages/home/profiling';
 import ProminentText from 'components/pages/home/prominent-text';
+import Tools from 'components/pages/home/tools';
 import Layout from 'components/shared/layout';
 
-const text1 =
-  'Broken down by method name,<br/> class name, and <span>line number</span>. Without complex overhead, in any language or framework.';
 const text2 =
   'Thanks to Parca <span>eBPF nature</span>, it operates on a Linux kernel level and provides a continuous profiling without putting pressure on your services.';
 
 const HomePage = () => (
   <Layout>
     <Hero />
-    <ProminentText text={text1} />
+    <Tools />
     <ProminentText text={text2} theme="orange" withEBPF />
     <Features />
     <Profiling />

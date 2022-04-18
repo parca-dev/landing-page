@@ -12,7 +12,7 @@ const OpenSource = () => (
       <p className="heading-5xl with-link-blue-5xl flat-none xl:flat-breaks leading-snug lg:leading-snug md:leading-snug sm:leading-snug">
         Parca is Open Source.{' '}
         <StaticImage
-          className="sm inline-flex justify-center lg:h-12 md:h-10"
+          className="inline-flex justify-center lg:h-12 md:h-10"
           src="./images/avatars.png"
           width={452}
           height={59}
