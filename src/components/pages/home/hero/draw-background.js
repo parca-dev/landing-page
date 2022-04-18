@@ -54,7 +54,7 @@ const drawBackground = ({ canvasRef, width, height }) => {
         context.fillStyle = '#242828';
         context.fillText(getRandomString(2), x, y + TEXT_HEIGHT);
       }
-    }, 30);
+    }, 10);
   }
 
   ibmplexmonoFont.load().then((font) => {
