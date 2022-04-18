@@ -13,7 +13,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
     onClick={onClick}
   >
     <motion.span
-      className="absolute top-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
+      className="absolute top-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-white"
       variants={{
         initial: {
           top: 11,
@@ -28,7 +28,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[19px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
+      className="absolute top-[19px] left-[8px] block h-0.5 w-6 rounded-full bg-white"
       variants={{
         initial: {
           display: 'block',
@@ -41,7 +41,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[27px] left-[8px] block h-0.5 w-6 rounded-full bg-black"
+      className="absolute top-[27px] left-[8px] block h-0.5 w-6 rounded-full bg-white"
       variants={{
         initial: {
           bottom: 11,
@@ -56,7 +56,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-black"
+      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-white"
       variants={{
         initial: {
           rotate: '0deg',
@@ -71,7 +71,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-black"
+      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-white"
       variants={{
         initial: {
           rotate: '0deg',

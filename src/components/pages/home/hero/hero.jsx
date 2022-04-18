@@ -10,7 +10,6 @@ import Title from './title';
 const TEXT_GAP = 12;
 const TEXT_WIDTH = 22;
 const TEXT_HEIGHT = 16;
-const MOBILE_WIDTH = 767;
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -31,7 +30,7 @@ function getRandomString(length) {
 
 const arrowLineVariants = {
   initial: { pathLength: 0 },
-  animate: { pathLength: 1, transition: { duration: 0.15, type: 'tween' } },
+  animate: { pathLength: 1, transition: { duration: 0.15 } },
 };
 
 const arrowPointerVariants = {
@@ -47,11 +46,21 @@ const buttonGradientVariants = {
     opacity: [1, 0, 0, 0, 0.5, 1],
     transition: {
       duration: 0.18,
-      times: [0, 0.16, 0.33, 0.66, 1],
     },
   },
-  static: {
+};
+
+const buttonTextColorVariants = {
+  initial: {
     opacity: 1,
+    color: '#181A1B',
+  },
+  animate: {
+    opacity: [1, 0, 0, 0, 0.5, 1],
+    color: '#fff',
+    transition: {
+      duration: 0.18,
+    },
   },
 };
 
@@ -61,34 +70,37 @@ const Hero = () => {
     triggerOnce: true,
   });
   const { width, height } = useWindowSize();
-  const isMobileWidth = width <= MOBILE_WIDTH;
   const titleControls = useAnimation();
+  const backgroundTitleControls = useAnimation();
   const arrowLineControls = useAnimation();
   const arrowPointerControls = useAnimation();
   const buttonGradientControls = useAnimation();
+  const buttonTextColorControls = useAnimation();
 
   useEffect(() => {
     const fn = async () => {
-      if (inView && !isMobileWidth) {
-        await titleControls.start('animate');
+      if (inView) {
+        await Promise.all([
+          titleControls.start('animate'),
+          backgroundTitleControls.start('animate'),
+        ]);
         await arrowLineControls.start('animate');
         await arrowPointerControls.start('animate');
-        await buttonGradientControls.start('animate');
-      }
-
-      if (isMobileWidth) {
-        await titleControls.set('static');
-        await buttonGradientControls.set('static');
+        await Promise.all([
+          buttonGradientControls.start('animate'),
+          buttonTextColorControls.start('animate'),
+        ]);
       }
     };
     fn();
   }, [
+    titleControls,
+    backgroundTitleControls,
     arrowLineControls,
     arrowPointerControls,
     buttonGradientControls,
+    buttonTextColorControls,
     inView,
-    titleControls,
-    isMobileWidth,
   ]);
 
   useEffect(() => {
@@ -131,7 +143,7 @@ const Hero = () => {
       <canvas className="absolute" ref={canvasRef} />
       <div className="max-width z-10 flex flex-col sm:mx-0">
         <div className="relative">
-          <Title titleControls={titleControls} isMobile={isMobileWidth} />
+          <Title titleControls={titleControls} backgroundControls={backgroundTitleControls} />
           <svg
             className="absolute right-32 top-[calc(100%+1.25rem)] lg:right-24 lg:top-full lg:h-auto lg:w-[600px] md:right-28 md:w-[400px] sm:hidden"
             width="823"
@@ -159,10 +171,13 @@ const Hero = () => {
           </svg>
           <ArrowSmSvg className="absolute left-48 top-[calc(100%-1.5rem)] hidden w-[150px] sm:block xs:w-[110px]" />
         </div>
-        <div className="mt-24 self-start bg-black p-2.5 lg:mt-[50px] md:mt-5 sm:mt-16 xs:mt-8">
-          <a
-            className="relative inline-flex items-center bg-black px-[60px] py-[26px] text-[22px] font-medium leading-none text-white transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
+        <div className="mt-24 self-start bg-black p-2.5 lg:mt-[50px] md:mt-5 sm:mt-16 sm:px-4 xs:mt-8">
+          <motion.a
+            className="relative inline-flex items-center bg-white px-[60px] py-[26px] text-[22px] font-medium leading-none transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
             href="#"
+            initial="initial"
+            animate={buttonTextColorControls}
+            variants={buttonTextColorVariants}
           >
             <motion.span
               className="absolute top-0 left-0 right-0 bottom-0 h-full w-full"
@@ -174,7 +189,7 @@ const Hero = () => {
               variants={buttonGradientVariants}
             />
             <span className="relative">Try it Now</span>
-          </a>
+          </motion.a>
         </div>
       </div>
     </section>
