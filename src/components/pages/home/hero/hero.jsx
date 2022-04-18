@@ -8,6 +8,12 @@ import Arrow from './arrow';
 import drawBackground from './draw-background';
 import Title from './title';
 
+async function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 const buttonGradientVariants = {
   initial: {
     opacity: 0,
@@ -50,6 +56,7 @@ const Hero = () => {
   useEffect(() => {
     const fn = async () => {
       if (inView) {
+        await delay(1500);
         await Promise.all([
           titleControls.start('animate'),
           backgroundTitleControls.start('animate'),
