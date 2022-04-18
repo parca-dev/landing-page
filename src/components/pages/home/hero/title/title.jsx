@@ -85,6 +85,7 @@ const Title = ({ titleControls, backgroundControls }) => {
       >
         {itemsWithAnimationData.map(({ value, background, delay }, index) => (
           <motion.span
+            key={index}
             className="first:pl-2.5 last:pr-2.5 sm:first:pl-0 sm:last:pr-0"
             initial="initial"
             variants={titleBackgroundVariants}
@@ -92,7 +93,6 @@ const Title = ({ titleControls, backgroundControls }) => {
             custom={{ delay }}
           >
             <motion.span
-              key={index}
               dangerouslySetInnerHTML={{ __html: value }}
               initial="initial"
               variants={itemVariants}

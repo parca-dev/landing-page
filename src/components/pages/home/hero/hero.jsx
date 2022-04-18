@@ -4,29 +4,9 @@ import { useInView } from 'react-intersection-observer';
 
 import useWindowSize from 'hooks/use-window-size';
 
+import drawBackground from './draw-background';
 import ArrowSmSvg from './images/arrow-sm.inline.svg';
 import Title from './title';
-
-const TEXT_GAP = 12;
-const TEXT_WIDTH = 22;
-const TEXT_HEIGHT = 16;
-
-const isBrowser = typeof window !== 'undefined';
-
-const ibmplexmonoFont =
-  isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplexmono-light.woff2)');
-
-const getPixelRatio = () => {
-  const isDevicePixelRatio = isBrowser && window.devicePixelRatio;
-  return isDevicePixelRatio || 1;
-};
-
-function getRandomString(length) {
-  const digits = 'ABCDEF0123456789';
-  let string = '';
-  for (string; string.length < length; string += digits.charAt(Math.random() * digits.length || 0));
-  return string;
-}
 
 const arrowLineVariants = {
   initial: { pathLength: 0 },
@@ -104,36 +84,8 @@ const Hero = () => {
   ]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
-
-    const ratio = getPixelRatio();
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    context.scale(ratio, ratio);
-
-    const x = Math.round(width / 25);
-    const y = Math.round(height / 25);
-
-    ibmplexmonoFont.load().then((font) => {
-      document.fonts.add(font);
-      document.fonts.ready.then(() => {
-        for (let i = 0; i < y; i += 1) {
-          for (let j = 0; j < x; j += 1) {
-            context.font = '300 16px IBM Plex Mono';
-            context.fillStyle = '#242828';
-            context.fillText(
-              getRandomString(2),
-              TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
-              i * (TEXT_GAP + TEXT_HEIGHT)
-            );
-          }
-        }
-      });
-    });
-  }, [height, width]);
+    drawBackground({ canvasRef, width, height });
+  }, [canvasRef, height, width]);
 
   return (
     <section
@@ -152,6 +104,14 @@ const Hero = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <motion.path
+              d="M822 0V121H0"
+              stroke="#181A1B"
+              strokeWidth="20"
+              initial="initial"
+              variants={arrowPointerVariants}
+              animate={arrowPointerControls}
+            />
             <motion.path
               d="M822 0V121H2"
               stroke="white"
