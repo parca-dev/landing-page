@@ -2,8 +2,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import dashboardIllustration from './images/dashboard.svg';
 import decorSvg from './images/decor.svg';
+import illustration1 from './images/illustration-1.svg';
+import illustration2 from './images/illustration-2.svg';
+import illustration3 from './images/illustration-3.svg';
 
 const SLIDER_DURATION_IN_MS = 5000;
 const SLIDER_DURATION_IN_SECONDS = SLIDER_DURATION_IN_MS / 1000;
@@ -33,7 +35,7 @@ const listItems = [
   },
 ];
 
-const sliderItems = [dashboardIllustration, dashboardIllustration, dashboardIllustration];
+const sliderItems = [illustration1, illustration2, illustration3];
 
 const sliderItemsAnimationProps = {
   initial: {
