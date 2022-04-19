@@ -17,8 +17,9 @@ const Bees = () => {
 
   useEffect(() => {
     if (sectionRef.current) {
-      setAnimationStartPosition(sectionRef.current.offsetTop);
-      setAnimationEndPosition(sectionRef.current.offsetTop + window.innerHeight);
+      const animationStartPosition = sectionRef.current.offsetTop + 200;
+      setAnimationStartPosition(animationStartPosition);
+      setAnimationEndPosition(animationStartPosition + window.innerHeight);
     }
   }, []);
 
@@ -28,7 +29,7 @@ const Bees = () => {
   }, [handleScroll]);
 
   return (
-    <div className="relative h-[200vh]" ref={sectionRef}>
+    <div className="relative h-[calc(200vh+400px)]" ref={sectionRef}>
       <div className="sticky top-0 h-screen w-screen overflow-hidden">
         <ProminentText
           text="Thanks to Parca <span>eBPF nature</span>, it operates on a Linux kernel level and provides a continuous profiling without putting pressure on your services."
