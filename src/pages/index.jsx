@@ -1,6 +1,5 @@
 import React from 'react';
 
-import BeesFramerMotion from 'components/pages/home/bees-framer-motion';
 import BeesScroll from 'components/pages/home/bees-scroll';
 import Benefits from 'components/pages/home/benefits';
 import Community from 'components/pages/home/community';
@@ -17,7 +16,6 @@ const HomePage = () => (
     <Tools />
     <BeesScroll />
     <Profiling />
-    <BeesFramerMotion />
     <Benefits />
     <ParcaAgent />
     <OpenSource />
