@@ -8,18 +8,15 @@
   }
 
   .violet-gradient-text {
-    background: linear-gradient(264.04deg, #f14aff 15.67%, #401aff 82.95%);
-    @apply gradient-text;
+    @apply bg-violet-gradient gradient-text;
   }
 
   .orange-gradient-text {
-    background: linear-gradient(267.19deg, #ffe600 4.02%, #fd6a00 73.58%);
-    @apply gradient-text;
+    @apply bg-orange-gradient gradient-text;
   }
 
   .green-gradient-text {
-    background: linear-gradient(268.85deg, #57f906 -0.04%, #00ccc0 59.56%);
-    @apply gradient-text;
+    @apply bg-green-gradient gradient-text;
   }
 
   .with-violet-gradient-text {

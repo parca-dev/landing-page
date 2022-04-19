@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-export const OPACITY_DURATION = 0.05;
+export const OPACITY_DURATION = 0.06;
 export const BG_DURATION = 0.15;
 export const BG_DELAY = 0.3;
 
@@ -15,7 +15,7 @@ const textGradientStyles = {
 
 const titleItems = [
   {
-    value: 'Memory<span class="sm:hidden">.</span>',
+    value: 'Memory.',
     background: 'linear-gradient(264.04deg, #f14aff 15.67%, #401aff 82.95%)',
   },
   { value: 'CPU.', background: 'linear-gradient(267.19deg, #ffe600 4.02%, #fd6a00 73.58%)' },
@@ -39,10 +39,6 @@ const itemVariants = {
       background: { duration: BG_DURATION, delay: delay.background },
     },
   }),
-  // out: () => ({
-  //   opacity: 1,
-  //   backgroundColor: '#fff',
-  // }),
 };
 
 const Title = ({ titleControls }) => {
@@ -67,8 +63,11 @@ const Title = ({ titleControls }) => {
 
   return (
     <h1 className="flex flex-col text-[38px] font-extrabold uppercase leading-none text-white lg:text-3xl lg:leading-none md:text-2xl md:leading-none sm:text-[22px] sm:leading-none">
-      <span className="mr-auto bg-black px-2.5 py-2.5">Track</span>
-      <span className="k -my-1.5 bg-black px-2.5 text-[8.6rem] text-white lg:text-[106px] md:text-[80px] sm:inline-flex sm:flex-col sm:text-[68px] xs:text-6xl xs:leading-none">
+      <span className="relative z-10 mr-auto mb-1.5 bg-black px-2.5 py-2.5 sm:px-4">Track</span>
+      <motion.span
+        className="-my-1.5 space-x-5 bg-black text-[8.6rem] text-white lg:space-x-2.5 lg:text-[106px] md:text-[80px] sm:flex sm:flex-wrap sm:space-x-0 sm:px-4 sm:text-[68px] xs:text-6xl xs:leading-none"
+        initial="initial"
+      >
         {itemsWithAnimationData.map(({ value, background, delay }, index) => (
           <motion.span
             key={index}
@@ -79,11 +78,14 @@ const Title = ({ titleControls }) => {
             custom={{ background, delay }}
           />
         ))}
+      </motion.span>
+      <span className="ml-auto mt-1.5 bg-black px-2.5 py-2.5 sm:mr-auto sm:ml-0 sm:px-4">
+        Bottlenecks
       </span>
-      <span className="ml-auto bg-black px-2.5 py-2.5 sm:mr-auto sm:ml-0">Bottlenecks</span>
     </h1>
   );
 };
+
 Title.propTypes = {
   titleControls: PropTypes.object.isRequired,
 };

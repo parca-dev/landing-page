@@ -10,28 +10,28 @@ import illustration3 from './images/illustration-3.svg';
 const SLIDER_DURATION_IN_MS = 5000;
 const SLIDER_DURATION_IN_SECONDS = SLIDER_DURATION_IN_MS / 1000;
 
-const title = 'Build faster and <span>more reliable</span> apps with parca';
+const title = 'Build faster and <span>more reliable</span> apps with Parca';
 
 const listItems = [
   {
-    title: 'Save Money',
+    title: 'Reduce cost',
     description:
-      'Many organizations have 20-30% of resources wasted with easily optimized code paths. The Parca Agent aims to lower the entry bar by requiring 0 instrumentation for the whole infrastructure. Deploy in your infrastructure and get started!',
+      'Many organizations have 20-30% of resources wasted in easily optimized code paths. The Parca Agent aims to lower the bar of starting to profile by requiring zero-instrumentation for the whole infrastructure. Deploy in your infrastructure and get started!',
   },
   {
     title: 'Improve Performance',
     description:
-      'Using profiling data collected over time, Parca can (with confidence and statistical significance) determine hot paths to optimize. Additionally it can show differences between any label dimension, such as deploys, versions, and regions.',
+      'Using profiling data collected over time, Parca can (with confidence and statistical significance) determine hot paths to optimize. Additionally, it can show differences between any query, such as comparing versions of software or any other dimension.',
   },
   {
-    title: 'Understand Incidents',
+    title: 'Fast debugging',
     description:
-      'Profiling data provides unique insight and depth into what a process executed over time. Memory leaks, but also momentary spikes in CPU or I/O causing unexpected behavior (which are traditionally difficult to troubleshoot) are a breeze with continuous profiling.',
+      'Profiling data provides unique insight and depth into what code a process executed over time. Situations, traditionally difficult to troubleshoot, memory leaks, but also momentary spikes in CPU or I/O causing unexpected behavior can be easily understood with continuous profiling.',
   },
   {
-    title: 'Reduce carbon emission',
+    title: 'Catch regressions',
     description:
-      'Parca name comes from <span class="font-medium">Program for Arctic Regional Climate Assessment (PARCA)</span> and the practice of ice core profiling that has been done as part of it to study climate change. Hopefully with this open source project we can reduce some carbon emissions produced by unnecessary resource usage of data centers.',
+      'The latest deploy of your application has a performance regression? Understand with a single query where CPU time is spent differently now.',
   },
 ];
 

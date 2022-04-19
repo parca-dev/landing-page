@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import DiscordIcon from './images/discord.inline.svg';
@@ -9,7 +9,6 @@ import SlackIcon from './images/slack.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 import YoutubeIcon from './images/youtube.inline.svg';
 
-const title = 'Join the community! Join users and companies that are using Parca in production:';
 const icons = [
   { label: 'Slack', icon: SlackIcon },
   { label: 'Twitter', icon: TwitterIcon },
@@ -83,7 +82,20 @@ const Community = () => {
   return (
     <section className="safe-paddings mt-96 bg-black pt-40 pb-[200px] text-white lg:mt-64 lg:pt-28 lg:pb-36 md:mt-48 md:pt-20 md:pb-24 sm:mt-28 sm:pt-14 sm:pb-20">
       <div className="container">
-        <h2 className="heading-6xl">{title}</h2>
+        <h2 className="heading-6xl">
+          Join the{' '}
+          <StaticImage
+            className="inline-flex justify-center align-middle lg:h-12 md:h-10"
+            src="./images/community.png"
+            quality={95}
+            width={203}
+            height={56}
+            objectFit="contain"
+            formats={['png']}
+            lazy="loading"
+          />{' '}
+          community! Join users and companies that are using Parca in production:
+        </h2>
         <ul className="mt-16 flex space-x-11 lg:mt-12 lg:space-x-8 md:mt-10 md:space-x-7 sm:mt-7 sm:space-x-5">
           {icons.map(({ label, icon: Icon }) => (
             <li key={label}>

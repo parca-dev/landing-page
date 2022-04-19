@@ -6,7 +6,7 @@ import Link from 'components/shared/link';
 import decorSvg from './images/decor.svg';
 
 const title =
-  'Many organizations have 20-30% of resources wasted with easily optimized code paths. The Parca Agent aims to lower the entry bar by requiring 0 instrumentation for the whole infrastructure.';
+  'Many organizations have 20-30% of resources wasted in easily optimized code paths. The Parca Agent aims to lower the bar of starting to profile by requiring zero-instrumentation for the whole infrastructure.';
 const links = [
   { text: 'Install binary', url: '/' },
   { text: 'Deploy to Kubernetes', url: '/' },
