@@ -36,7 +36,7 @@ const Bees = () => {
   }, [scrollPosition, animationStartPosition, animationEndPosition]);
 
   useEffect(() => {
-    if (progressValue <= 50) {
+    if (progressValue <= 70) {
       if (previousDispatchedEvent !== 'ebpf-bee-trigger-in-animation') {
         document.dispatchEvent(new Event('ebpf-bee-trigger-in-animation'));
         setPreviousDispatchedEvent('ebpf-bee-trigger-in-animation');
