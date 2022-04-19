@@ -4,41 +4,33 @@ import { useInView } from 'react-intersection-observer';
 
 import useWindowSize from 'hooks/use-window-size';
 
+import Arrow from './arrow';
+import drawBackground from './draw-background';
 import Title from './title';
 
-const TEXT_GAP = 12;
-const TEXT_WIDTH = 22;
-const TEXT_HEIGHT = 16;
-const isBrowser = typeof window !== 'undefined';
-
-const ibmplexmonoFont =
-  isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplexmono-light.woff2)');
-
-const getPixelRatio = () => {
-  const isDevicePixelRatio = isBrowser && window.devicePixelRatio;
-  return isDevicePixelRatio || 1;
-};
-
-function getRandomString(length) {
-  const digits = 'ABCDEF0123456789';
-  let string = '';
-  for (string; string.length < length; string += digits.charAt(Math.random() * digits.length || 0));
-  return string;
-}
-
-const arrowVariants = {
-  initial: { pathLength: 0 },
-  animate: { pathLength: 1 },
-};
-
-const buttonVariants = {
+const buttonGradientVariants = {
   initial: {
-    background: '#fff',
+    opacity: 0,
+  },
+  animate: {
+    opacity: [1, 0, 0, 0, 0.5, 1],
+    transition: {
+      duration: 0.18,
+    },
+  },
+};
+
+const buttonTextColorVariants = {
+  initial: {
+    opacity: 1,
     color: '#181A1B',
   },
   animate: {
-    backgroundImage: 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',
+    opacity: [1, 0, 0, 0, 0.5, 1],
     color: '#fff',
+    transition: {
+      duration: 0.18,
+    },
   },
 };
 
@@ -48,52 +40,39 @@ const Hero = () => {
     triggerOnce: true,
   });
   const { width, height } = useWindowSize();
-
   const titleControls = useAnimation();
-  const arrowControls = useAnimation();
-  const buttonControls = useAnimation();
+  const arrowLineControls = useAnimation();
+  const arrowPointerControls = useAnimation();
+  const buttonGradientControls = useAnimation();
+  const buttonTextColorControls = useAnimation();
 
   useEffect(() => {
     const fn = async () => {
       if (inView) {
         await titleControls.start('animate');
-        await arrowControls.start('animate');
-        await buttonControls.start('animate');
+        await arrowLineControls.start('animate');
+        await arrowPointerControls.start('animate');
+        await Promise.all([
+          buttonGradientControls.start('animate'),
+          buttonTextColorControls.start('animate'),
+        ]);
       }
     };
     fn();
-  }, [arrowControls, buttonControls, inView, titleControls]);
+  }, [
+    titleControls,
+    arrowLineControls,
+    arrowPointerControls,
+    buttonGradientControls,
+    buttonTextColorControls,
+    inView,
+  ]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
-
-    const ratio = getPixelRatio();
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    context.scale(ratio, ratio);
-
-    const x = Math.round(width / 25);
-    const y = Math.round(height / 25);
-
-    ibmplexmonoFont.load().then((font) => {
-      document.fonts.add(font);
-
-      for (let i = 0; i < y; i += 1) {
-        for (let j = 0; j < x; j += 1) {
-          context.font = '300 16px IBM Plex Mono';
-          context.fillStyle = '#242828';
-          context.fillText(
-            getRandomString(2),
-            TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
-            i * (TEXT_GAP + TEXT_HEIGHT)
-          );
-        }
-      }
-    });
-  }, [height, width]);
+    if (inView) {
+      drawBackground({ canvasRef, width, height });
+    }
+  }, [canvasRef, height, inView, width]);
 
   return (
     <section
@@ -101,37 +80,32 @@ const Hero = () => {
       ref={sectionRef}
     >
       <canvas className="absolute" ref={canvasRef} />
-      <div className="container-max z-10 flex flex-col sm:mx-0">
+      <div className="max-width z-10 flex flex-col sm:mx-0">
         <div className="relative">
           <Title titleControls={titleControls} />
-          <svg
-            className="absolute right-32 top-[calc(100%+1.25rem)] "
-            width="825"
-            height="132"
-            viewBox="0 0 825 132"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.path
-              d="M823 0V121H3M3 121L14.625 111.375M3 121L14.625 130.625"
-              stroke="#ffffff"
-              strokeWidth="3"
-              initial="initial"
-              variants={arrowVariants}
-              transition={{ duration: 0.15 }}
-              animate={arrowControls}
-            />
-          </svg>
+          <Arrow
+            arrowLineControls={arrowLineControls}
+            arrowPointerControls={arrowPointerControls}
+          />
         </div>
-        <div className="mt-24 self-start bg-black p-2.5 lg:mt-[60px] md:mt-10 sm:mt-[84px]">
+        <div className="mt-20 self-start bg-black p-2.5 lg:mt-[50px] md:mt-5 sm:mt-16 sm:px-4 xs:mt-8 xs:pr-1.5">
           <motion.a
-            className="inline-flex items-center px-[60px] py-[26px] text-[22px] font-medium leading-none  transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
+            className="relative inline-flex items-center bg-white px-[60px] py-[26px] text-[22px] font-medium leading-none transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
+            href="#"
             initial="initial"
-            variants={buttonVariants}
-            transition={{ duration: 0.1 }}
-            animate={buttonControls}
+            animate={buttonTextColorControls}
+            variants={buttonTextColorVariants}
           >
-            Try it Now
+            <motion.span
+              className="absolute top-0 left-0 right-0 bottom-0 h-full w-full"
+              style={{
+                backgroundImage: 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',
+              }}
+              initial="initial"
+              animate={buttonGradientControls}
+              variants={buttonGradientVariants}
+            />
+            <span className="relative">Try it Now</span>
           </motion.a>
         </div>
       </div>
