@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
+import EBPF from '../ebpf';
 import Features from '../features';
-import ProminentText from '../prominent-text';
 
 const Bees = () => {
   const sectionRef = useRef(null);
@@ -31,11 +31,7 @@ const Bees = () => {
   return (
     <div className="relative h-[calc(200vh+400px)]" ref={sectionRef}>
       <div className="sticky top-0 h-screen w-screen overflow-hidden">
-        <ProminentText
-          text="Thanks to Parca <span>eBPF nature</span>, it operates on a Linux kernel level and provides a continuous profiling without putting pressure on your services."
-          theme="orange"
-          withEBPF
-        />
+        <EBPF />
         <div
           className="absolute top-0 left-0 right-0 bottom-0"
           style={{
