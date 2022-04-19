@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { useRive } from 'rive-react';
 
 const EBPF = () => {
-  const [sectionRef, isSectionInView] = useInView({ threshold: 0.5 });
+  const [sectionRef, isSectionInView] = useInView({ threshold: 0.8 });
 
   const { RiveComponent, rive } = useRive({
     src: '/animations/pages/ebpf/bee.riv',
