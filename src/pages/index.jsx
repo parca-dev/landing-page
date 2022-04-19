@@ -2,6 +2,7 @@ import React from 'react';
 
 import Bees from 'components/pages/home/bees';
 import Benefits from 'components/pages/home/benefits';
+import CodeSnippets from 'components/pages/home/code-snippets';
 import Community from 'components/pages/home/community';
 import Hero from 'components/pages/home/hero';
 import OpenSource from 'components/pages/home/open-source';
@@ -14,6 +15,7 @@ const HomePage = () => (
   <Layout>
     <Hero />
     <Tools />
+    <CodeSnippets />
     <Bees />
     <Profiling />
     <Benefits />
