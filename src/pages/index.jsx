@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BeesScroll from 'components/pages/home/bees-scroll';
+import Bees from 'components/pages/home/bees';
 import Benefits from 'components/pages/home/benefits';
 import Community from 'components/pages/home/community';
 import Hero from 'components/pages/home/hero';
@@ -14,7 +14,7 @@ const HomePage = () => (
   <Layout>
     <Hero />
     <Tools />
-    <BeesScroll />
+    <Bees />
     <Profiling />
     <Benefits />
     <ParcaAgent />

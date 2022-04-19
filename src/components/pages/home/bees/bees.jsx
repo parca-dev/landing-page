@@ -5,7 +5,7 @@ import ProminentText from '../prominent-text';
 
 import bees from './images/bees.svg';
 
-const BeesScroll = () => {
+const Bees = () => {
   const sectionRef = useRef(null);
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -69,4 +69,4 @@ const BeesScroll = () => {
   );
 };
 
-export default BeesScroll;
+export default Bees;
