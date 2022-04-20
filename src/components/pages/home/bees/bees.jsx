@@ -30,7 +30,7 @@ const Bees = () => {
 
   return (
     <div className="relative h-[calc(200vh+400px)]" ref={sectionRef}>
-      <div className="sticky top-0 h-screen w-screen overflow-hidden">
+      <div className="sticky top-0 h-screen w-screen max-w-full overflow-hidden">
         <EBPF />
         <div
           className="absolute top-0 left-0 right-0 bottom-0"
