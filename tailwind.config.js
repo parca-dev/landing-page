@@ -8,7 +8,7 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      sans: ['"poppins"', ...defaultTheme.fontFamily.sans],
+      sans: ['"Poppins"', ...defaultTheme.fontFamily.sans],
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,

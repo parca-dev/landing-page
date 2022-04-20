@@ -2,7 +2,7 @@ import { useAnimation } from 'framer-motion';
 import React, { useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-// import frame1 from './images/frame.svg'
+import frame1 from './images/frame.svg';
 import CPlusplus from './snippets/c-plusplus';
 import CPlusplusInactive from './snippets/c-plusplus-inactive';
 import Node from './snippets/node';
@@ -125,8 +125,8 @@ const CodeSnippets = () => {
         alt=""
         aria-hidden="true"
       />
-      <CPlusplus className="absolute left-0 top-0 h-full w-full" />
-      {/* <embed className="absolute top-0 left-0 h-full w-full" src={frame1} alt="" /> */}
+      {/* <CPlusplus className="absolute left-0 top-0 h-full w-full" /> */}
+      <embed className="absolute top-0 left-0 h-full w-full" src={frame1} alt="" />
     </div>
   );
 };
