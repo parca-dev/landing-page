@@ -93,7 +93,7 @@ const Bees = () => {
           <Features />
         </div>
         <RiveComponent
-          className="absolute top-1/2 h-[1200px] w-[400px]"
+          className="absolute top-1/2 h-[1600px] w-[400px]"
           style={{
             left: `${progressValue}vw`,
             transform: `translate(${scrollDirection === 'up' ? -60 : -35}%, -50%)
