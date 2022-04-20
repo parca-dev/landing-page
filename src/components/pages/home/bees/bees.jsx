@@ -55,7 +55,7 @@ const Bees = () => {
       }
     }
 
-    if (progressValue <= 20) {
+    if (progressValue <= 5) {
       if (previousDispatchedEvent !== 'ebpf-bee-trigger-in-animation') {
         document.dispatchEvent(new Event('ebpf-bee-trigger-in-animation'));
         setPreviousDispatchedEvent('ebpf-bee-trigger-in-animation');
