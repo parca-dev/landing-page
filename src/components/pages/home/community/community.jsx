@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import Link from 'components/shared/link';
+
 import DiscordIcon from './images/discord.inline.svg';
 import PlayIcon from './images/play.inline.svg';
 import SlackIcon from './images/slack.inline.svg';
@@ -10,10 +12,10 @@ import TwitterIcon from './images/twitter.inline.svg';
 import YoutubeIcon from './images/youtube.inline.svg';
 
 const icons = [
-  { label: 'Slack', icon: SlackIcon },
-  { label: 'Twitter', icon: TwitterIcon },
-  { label: 'Discord', icon: DiscordIcon },
-  { label: 'YouTube', icon: YoutubeIcon },
+  { label: 'Slack', icon: SlackIcon, url: '/' },
+  { label: 'Twitter', icon: TwitterIcon, url: '/' },
+  { label: 'Discord', icon: DiscordIcon, url: '/' },
+  { label: 'YouTube', icon: YoutubeIcon, url: '/' },
 ];
 const subtitle = 'Join us on a bi-weekly public meetings:';
 
@@ -57,26 +59,32 @@ const Community = () => {
     {
       cover: image1,
       description: 'Parca Office Hours (2022-03-24)',
+      url: '/',
     },
     {
       cover: image2,
       description: 'Parca Office Hours (2022-03-10)',
+      url: '/',
     },
     {
       cover: image3,
       description: 'Parca Office Hours (2022-02-24)',
+      url: '/',
     },
     {
       cover: image4,
       description: 'Parca Office Hours (2022-02-08)',
+      url: '/',
     },
     {
       cover: image5,
       description: 'Parca Office Hours (2022-03-10)',
+      url: '/',
     },
     {
       cover: image6,
       description: 'Parca Office Hours (2022-03-24)',
+      url: '/',
     },
   ];
   return (
@@ -98,12 +106,14 @@ const Community = () => {
           community! Join users and companies that are using Parca in production:
         </h2>
         <ul className="mt-16 flex space-x-11 lg:mt-12 lg:space-x-8 md:mt-10 md:space-x-7 sm:mt-7 sm:space-x-5">
-          {icons.map(({ label, icon: Icon }) => (
+          {icons.map(({ label, url, icon: Icon }) => (
             <li key={label}>
-              <Icon
-                className="h-[104px] w-[104px] lg:h-20 lg:w-20 md:h-[72px] md:w-[72px] sm:h-14 sm:w-14"
-                aria-label={label}
-              />
+              <Link to={url}>
+                <Icon
+                  className="h-[104px] w-[104px] lg:h-20 lg:w-20 md:h-[72px] md:w-[72px] sm:h-14 sm:w-14"
+                  aria-label={label}
+                />
+              </Link>
             </li>
           ))}
         </ul>
@@ -117,9 +127,9 @@ const Community = () => {
               'sm:scrollbar-hidden sm:mt-6 sm:flex sm:gap-x-0 sm:space-x-4 sm:overflow-auto sm:pl-4 sm:after:shrink-0 sm:after:grow-0 sm:after:basis-4'
             )}
           >
-            {items.map(({ cover, description }, index) => (
+            {items.map(({ cover, description, url }, index) => (
               <li className="sm:shrink-0 sm:grow-0 sm:basis-[242px]" key={index}>
-                <div className="relative">
+                <Link className="relative" to={url}>
                   <GatsbyImage
                     className="rounded-lg"
                     imgClassName="rounded-lg"
@@ -131,7 +141,7 @@ const Community = () => {
                     className="absolute top-4 left-4 h-12 w-12 lg:h-10 lg:w-10 md:h-11 md:w-11 sm:top-2.5 sm:left-2.5 sm:h-8 sm:w-8"
                     aria-hidden
                   />
-                </div>
+                </Link>
                 <p className="mt-4 text-lg md:mt-3 md:text-base md:leading-snug sm:text-sm sm:leading-snug">
                   {description}
                 </p>

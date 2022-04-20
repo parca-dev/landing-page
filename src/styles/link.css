@@ -1,6 +1,6 @@
 @layer base {
   .link-blue {
-    @apply inline-flex text-blue underline transition-colors duration-200;
+    @apply inline-flex text-blue transition-colors duration-200;
   }
   .with-link-blue {
     a {
@@ -9,7 +9,7 @@
   }
   .with-link-blue-5xl {
     a {
-      @apply link-blue underline-offset-[10px] lg:underline-offset-8 md:underline-offset-[6px] sm:underline-offset-4;
+      @apply link-blue border-b-[6px] border-blue pb-1 leading-none lg:border-b-[4px] md:border-b-[3px];
     }
   }
 }
