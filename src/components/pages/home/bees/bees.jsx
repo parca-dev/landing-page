@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useRive } from 'rive-react';
 
 import EBPF from '../ebpf';
 import Features from '../features';
@@ -9,6 +10,7 @@ const Bees = () => {
   const sectionRef = useRef();
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState();
 
   const [animationStartPosition, setAnimationStartPosition] = useState(0);
   const [animationEndPosition, setAnimationEndPosition] = useState(0);
@@ -17,7 +19,16 @@ const Bees = () => {
 
   const [previousDispatchedEvent, setPreviousDispatchedEvent] = useState(null);
 
-  const handleScroll = useCallback(() => setScrollPosition(window.pageYOffset), []);
+  const { RiveComponent, rive } = useRive({
+    src: '/animations/pages/ebpf/bees.riv',
+    stateMachines: 'State Machine',
+    autoplay: false,
+  });
+
+  const handleScroll = useCallback(() => {
+    setScrollDirection(scrollPosition > window.scrollY ? 'up' : 'down');
+    setScrollPosition(window.pageYOffset);
+  }, [scrollPosition]);
 
   useEffect(() => {
     if (sectionRef.current) {
@@ -36,7 +47,15 @@ const Bees = () => {
   }, [scrollPosition, animationStartPosition, animationEndPosition]);
 
   useEffect(() => {
-    if (progressValue <= 70) {
+    if (rive) {
+      if (progressValue > -5 && isSectionInView) {
+        if (!rive.isPlaying) rive.play('Animation 1');
+      } else {
+        rive.pause();
+      }
+    }
+
+    if (progressValue <= 20) {
       if (previousDispatchedEvent !== 'ebpf-bee-trigger-in-animation') {
         document.dispatchEvent(new Event('ebpf-bee-trigger-in-animation'));
         setPreviousDispatchedEvent('ebpf-bee-trigger-in-animation');
@@ -45,7 +64,7 @@ const Bees = () => {
       document.dispatchEvent(new Event('ebpf-bee-trigger-out-animation'));
       setPreviousDispatchedEvent('ebpf-bee-trigger-out-animation');
     }
-  }, [progressValue, previousDispatchedEvent]);
+  }, [progressValue, previousDispatchedEvent, isSectionInView, rive]);
 
   useEffect(() => {
     if (sectionRef.current) sectionRefFunction(sectionRef.current);
@@ -73,6 +92,14 @@ const Bees = () => {
         >
           <Features />
         </div>
+        <RiveComponent
+          className="absolute top-1/2 h-[1200px] w-[400px]"
+          style={{
+            left: `${progressValue}vw`,
+            transform: `translate(${scrollDirection === 'up' ? -60 : -35}%, -50%)
+                        rotate(${scrollDirection === 'up' ? '180' : '0'}deg)`,
+          }}
+        />
       </div>
     </div>
   );
