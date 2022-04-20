@@ -11,7 +11,7 @@ const styles = {
       'text-2xl leading-none font-semibold underline-offset-4 lg:text-xl lg:leading-none sm:text-base sm:leading-none',
   },
   theme: {
-    blue: 'text-blue underline',
+    blue: 'text-blue pb-1 border-b-[3px] border-blue',
     black: 'text-black',
     white: 'text-white',
   },
