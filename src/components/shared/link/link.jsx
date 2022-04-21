@@ -12,8 +12,8 @@ const styles = {
   },
   theme: {
     blue: 'text-blue pb-1 border-b-[3px] border-blue hover:border-b-transparent',
-    black: 'text-black hover:bg-clip-text hover:violet-gradient-text',
-    white: 'text-white hover:violet-gradient-text',
+    black: 'text-black hover:bg-clip-text hover:text-blue',
+    white: 'text-white hover:text-pink',
   },
 };
 

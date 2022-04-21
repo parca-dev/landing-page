@@ -28,7 +28,7 @@ const Footer = () => (
         <span className="mt-auto text-sm font-medium sm:hidden">
           Design by{' '}
           <Link
-            className="hover:violet-gradient-text"
+            className="transition-colors duration-200 hover:text-blue"
             to="https://pixelpoint.io/"
             target="_blank"
             rel="noopener"
@@ -58,7 +58,7 @@ const Footer = () => (
       <span className="mt-10 hidden text-sm font-medium sm:block">
         Design by{' '}
         <Link
-          className="hover:violet-gradient-text"
+          className="transition-colors duration-200 hover:text-blue"
           to="https://pixelpoint.io/"
           target="_blank"
           rel="noopener"

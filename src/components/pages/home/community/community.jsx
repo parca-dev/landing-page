@@ -108,7 +108,12 @@ const Community = () => {
         <ul className="mt-16 flex space-x-11 lg:mt-12 lg:space-x-8 md:mt-10 md:space-x-7 sm:mt-7 sm:space-x-5">
           {icons.map(({ text, icon: Icon, to }, index) => (
             <li key={index}>
-              <Link to={to} target="_blank" rel="noopener">
+              <Link
+                className="block transition-opacity duration-200 hover:opacity-80"
+                to={to}
+                target="_blank"
+                rel="noopener"
+              >
                 <Icon
                   className="h-[104px] w-[104px] lg:h-20 lg:w-20 md:h-[72px] md:w-[72px] sm:h-14 sm:w-14"
                   aria-label={text}
@@ -129,7 +134,12 @@ const Community = () => {
           >
             {items.map(({ cover, description, to }, index) => (
               <li className="sm:shrink-0 sm:grow-0 sm:basis-[242px]" key={index}>
-                <Link className="relative" to={to} target="_blank" rel="noopener">
+                <Link
+                  className="relative transition-opacity duration-200 hover:opacity-80"
+                  to={to}
+                  target="_blank"
+                  rel="noopener"
+                >
                   <GatsbyImage
                     className="rounded-lg"
                     imgClassName="rounded-lg"
