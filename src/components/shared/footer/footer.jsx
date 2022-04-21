@@ -27,9 +27,14 @@ const Footer = () => (
         </Link>
         <span className="mt-auto text-sm font-medium sm:hidden">
           Design by{' '}
-          <a href="https://pixelpoint.io/" target="_blank" rel="noopener noreferrer">
+          <Link
+            className="hover:violet-gradient-text"
+            to="https://pixelpoint.io/"
+            target="_blank"
+            rel="noopener"
+          >
             Pixel Point
-          </a>
+          </Link>
         </span>
       </div>
       <nav className="flex max-w-[625px] items-baseline space-x-[74px] xl:max-w-none lg:space-x-14 md:items-start sm:mt-10 sm:flex-col sm:space-x-0 sm:space-y-10">
@@ -51,10 +56,15 @@ const Footer = () => (
         <CtaButtons className="shrink-0 md:h-full md:grow md:flex-col-reverse md:justify-between md:space-x-0 sm:h-auto sm:flex-row sm:space-x-5" />
       </nav>
       <span className="mt-10 hidden text-sm font-medium sm:block">
-        Design by {/* eslint-disable-next-line react/jsx-no-target-blank */}
-        <a href="https://pixelpoint.io/" target="_blank" rel="noopener">
+        Design by{' '}
+        <Link
+          className="hover:violet-gradient-text"
+          to="https://pixelpoint.io/"
+          target="_blank"
+          rel="noopener"
+        >
           Pixel Point
-        </a>
+        </Link>
       </span>
     </div>
   </footer>

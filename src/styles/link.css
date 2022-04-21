@@ -9,7 +9,7 @@
   }
   .with-link-blue-5xl {
     a {
-      @apply link-blue border-b-[6px] border-blue pb-1 leading-none lg:border-b-[4px] md:border-b-[3px];
+      @apply link-blue border-b-[6px] border-blue pb-1 leading-none transition-colors hover:border-b-transparent lg:border-b-[4px] md:border-b-[3px];
     }
   }
 }

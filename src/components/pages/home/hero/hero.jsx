@@ -87,7 +87,7 @@ const Hero = () => {
           >
             <span>Try it Now</span>
             <motion.span
-              className="absolute top-0 left-0 right-0 bottom-0 flex h-full w-full items-center justify-center text-white"
+              className="group absolute top-0 left-0 right-0 bottom-0 flex h-full w-full items-center justify-center text-white"
               style={{
                 backgroundImage: 'linear-gradient(264.04deg, #F14AFF 15.67%, #401AFF 82.95%)',
               }}
@@ -95,7 +95,10 @@ const Hero = () => {
               animate={buttonGradientControls}
               variants={buttonGradientVariants}
             >
-              Try it Now
+              <span className="relative z-10 transition-colors group-hover:text-black">
+                Try it Now
+              </span>
+              <span className="absolute top-0 left-0 bottom-0 right-0 bg-white opacity-0 transition-opacity group-hover:opacity-100" />
             </motion.span>
           </Link>
         </div>
