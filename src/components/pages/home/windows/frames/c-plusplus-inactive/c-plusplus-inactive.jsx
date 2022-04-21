@@ -134,7 +134,7 @@ const CPlusplusInactive = ({ className }) => (
       letterSpacing="0em"
     >
       <tspan x="777.109" y="114.9">
-        &#x421;++
+        C++
       </tspan>
     </text>
     <circle cx="414" cy="110" r="6" fill="#FD0054" />

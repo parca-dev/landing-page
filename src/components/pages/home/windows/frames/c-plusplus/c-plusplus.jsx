@@ -591,7 +591,7 @@ const CPlusplus = ({ className }) => (
       letterSpacing="0em"
     >
       <tspan x="777.109" y="114.9">
-        &#x421;++
+        C++
       </tspan>
     </text>
     <path

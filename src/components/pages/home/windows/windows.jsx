@@ -16,19 +16,19 @@ import Node from './frames/node';
 import NodeInactive from './frames/node-inactive';
 import Rust from './frames/rust';
 import RustInactive from './frames/rust-inactive';
-import frame1 from './images/frame-1.svg';
-import frame10 from './images/frame-10.svg';
-import frame11 from './images/frame-11.svg';
-import frame12 from './images/frame-12.svg';
-import frame13 from './images/frame-13.svg';
-import frame2 from './images/frame-2.svg';
-import frame3 from './images/frame-3.svg';
-import frame4 from './images/frame-4.svg';
-import frame5 from './images/frame-5.svg';
-import frame6 from './images/frame-6.svg';
-import frame7 from './images/frame-7.svg';
-import frame8 from './images/frame-8.svg';
-import frame9 from './images/frame-9.svg';
+// import frame1 from './images/frame-1.svg';
+// import frame10 from './images/frame-10.svg';
+// import frame11 from './images/frame-11.svg';
+// import frame12 from './images/frame-12.svg';
+// import frame13 from './images/frame-13.svg';
+// import frame2 from './images/frame-2.svg';
+// import frame3 from './images/frame-3.svg';
+// import frame4 from './images/frame-4.svg';
+// import frame5 from './images/frame-5.svg';
+// import frame6 from './images/frame-6.svg';
+// import frame7 from './images/frame-7.svg';
+// import frame8 from './images/frame-8.svg';
+// import frame9 from './images/frame-9.svg';
 
 const items = [
   CPlusplus,
@@ -46,21 +46,21 @@ const items = [
   Haskell,
 ];
 
-const items2 = [
-  frame1,
-  frame2,
-  frame3,
-  frame4,
-  frame5,
-  frame6,
-  frame7,
-  frame8,
-  frame9,
-  frame10,
-  frame11,
-  frame12,
-  frame13,
-];
+// const items2 = [
+//   frame1,
+//   frame2,
+//   frame3,
+//   frame4,
+//   frame5,
+//   frame6,
+//   frame7,
+//   frame8,
+//   frame9,
+//   frame10,
+//   frame11,
+//   frame12,
+//   frame13,
+// ];
 
 // const items3 = [
 //   <StaticImage src="./images-jpg/frame-1.jpg" width={1731} height={857} />,
@@ -129,7 +129,7 @@ const Windows = () => {
         aria-hidden="true"
       />
 
-      {/* {items.map((Item, index) => (
+      {items.map((Item, index) => (
         <Fragment key={index}>
           {activeItems[index] && (
             <div className="absolute left-0 top-0 h-full w-full">
@@ -137,8 +137,8 @@ const Windows = () => {
             </div>
           )}
         </Fragment>
-      ))} */}
-      {items2.map((item, index) => (
+      ))}
+      {/* {items2.map((item, index) => (
         <Fragment key={index}>
           {activeItems[index] && (
             <div className="absolute left-0 top-0 h-full w-full">
@@ -146,7 +146,7 @@ const Windows = () => {
             </div>
           )}
         </Fragment>
-      ))}
+      ))} */}
       {/* {items3.map((item, index) => (
         <Fragment key={index}>
           {activeItems[index] && <div className="absolute left-0 top-0 h-full w-full">{item}</div>}
