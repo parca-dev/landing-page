@@ -2,14 +2,15 @@ import clsx from 'clsx';
 import React from 'react';
 
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 
 import decorSvg from './images/decor.svg';
 
 const title =
   'Many organizations have 20-30% of resources wasted in easily optimized code paths. The Parca Agent aims to lower the bar of starting to profile by requiring zero-instrumentation for the whole infrastructure.';
 const links = [
-  { text: 'Install binary', url: '/' },
-  { text: 'Deploy to Kubernetes', url: '/' },
+  { text: 'Install binary', to: LINKS.binary },
+  { text: 'Deploy to Kubernetes', to: LINKS.kubernetes },
 ];
 
 const items = [
@@ -23,8 +24,8 @@ const ParcaAgent = () => (
     <div className="container">
       <h2 className="heading-5xl">{title}</h2>
       <div className="mt-8 space-x-8 lg:mt-7 md:mt-6 md:space-x-6 sm:mt-4.5 sm:space-x-4 xs:flex xs:flex-col xs:space-x-0 xs:space-y-4">
-        {links.map(({ text, url }, index) => (
-          <Link theme="blue" size="2xl" key={index} to={url}>
+        {links.map(({ text, to }, index) => (
+          <Link theme="blue" size="2xl" to={to} key={index}>
             {text}
           </Link>
         ))}

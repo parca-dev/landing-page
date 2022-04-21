@@ -1,22 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import MENUS from 'constants/menus';
 import LogoSvg from 'images/logo.inline.svg';
 
 import Burger from '../burger';
 import CtaButtons from '../cta-buttons';
 import Link from '../link';
-
-const navigation = [
-  {
-    label: 'Documentation',
-    url: '/',
-  },
-  {
-    label: 'Tutorials',
-    url: '/',
-  },
-];
 
 // eslint-disable-next-line no-unused-vars
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
@@ -28,10 +18,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
       </Link>
       <nav className="flex items-center space-x-10 bg-black px-5 py-2.5 md:hidden">
         <ul className="flex space-x-6">
-          {navigation.map(({ label, url }) => (
-            <li key={label}>
-              <Link size="sm" theme="white" to={url}>
-                {label}
+          {MENUS.header.map(({ text, to }, index) => (
+            <li key={index}>
+              <Link size="sm" theme="white" to={to}>
+                {text}
               </Link>
             </li>
           ))}

@@ -1,6 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import Link from 'components/shared/link';
+import LINKS from 'constants/links';
+
 import DroneLogo from './images/drone.inline.svg';
 import KubernetesLogo from './images/kubernetes.inline.svg';
 import PrometheusLogo from './images/prometheus.inline.svg';
@@ -12,10 +15,10 @@ const OpenSource = () => (
       <div className="heading-5xl with-link-blue-5xl flat-none xl:flat-breaks leading-snug lg:leading-snug md:leading-snug sm:leading-snug">
         Parca is Open Source.{' '}
         <StaticImage
-          className="inline-flex justify-center lg:h-12 md:h-10"
+          className="mt-1 inline-flex justify-center lg:h-12 md:h-10"
           src="./images/avatars.png"
           width={452}
-          height={59}
+          height={56}
           quality={95}
           objectFit="contain"
           formats={['png']}
@@ -44,8 +47,8 @@ const OpenSource = () => (
           <DroneLogo className="mb-1 mr-4 h-14 w-14 self-center xl:mr-2 xl:h-12 xl:w-12 lg:h-10 lg:w-10 md:h-7 md:w-7" />
           Drone
         </span>{' '}
-        and more. All components are available under the <a href="#">Apache 2 License</a> on{' '}
-        <a href="#">GitHub</a>.
+        and more. All components are available under the{' '}
+        <Link to={LINKS.license}>Apache 2 License</Link> on <Link to={LINKS.github}>GitHub</Link>.
       </div>
     </div>
   </div>

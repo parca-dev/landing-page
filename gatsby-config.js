@@ -10,7 +10,6 @@ module.exports = {
     siteImage: '/images/social-preview.jpg',
     siteLanguage: 'en',
     siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || 'http://localhost:8000',
-    authorName: 'Pixel Point',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

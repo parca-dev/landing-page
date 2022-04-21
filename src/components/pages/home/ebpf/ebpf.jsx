@@ -1,19 +1,71 @@
-import React from 'react';
+// TODO: Uncomment when Bees section comes back or delete if we decide to remove it
+// import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useRive } from 'rive-react';
 
-import Bee from './images/bee.inline.svg';
+const EBPF = () => {
+  const [sectionRef, isSectionInView] = useInView({ threshold: 0.8 });
 
-const EBPF = () => (
-  <section className="safe-paddings h-screen">
-    <div className="container flex h-full items-center justify-center">
-      <div className="relative">
-        <h2 className="heading-6xl flat-none lg:flat-breaks with-orange-gradient-text">
-          Thanks to Parca <span>eBPF nature</span>, it operates on a Linux kernel level and provides
-          a continuous profiling without putting pressure on your services.
-        </h2>
-        <Bee className="absolute right-[-4.9%] bottom-[-41%] h-auto w-20 xl:right-0 lg:bottom-[-35%] lg:w-[60px] sm:bottom-[-18%] sm:right-[5%] sm:h-auto sm:w-12" />
+  const { RiveComponent, rive } = useRive({
+    src: '/animations/pages/ebpf/bee.riv',
+    stateMachines: 'State Machine',
+    autoplay: false,
+  });
+
+  // TODO: Uncomment when Bees section comes back or delete if we decide to remove it
+  // const handleInAnimationEvent = useCallback(() => {
+  //   if (rive) rive.play(['State Machine']);
+  // }, [rive]);
+
+  // const handleOutAnimationEvent = useCallback(() => {
+  //   if (rive) {
+  //     rive.reset();
+  //     rive.play(['Out']);
+  //   }
+  // }, [rive]);
+
+  // useEffect(() => {
+  //   document.addEventListener('ebpf-bee-trigger-in-animation', handleInAnimationEvent);
+  //   document.addEventListener('ebpf-bee-trigger-out-animation', handleOutAnimationEvent);
+
+  //   return () => {
+  //     document.removeEventListener('ebpf-bee-trigger-in-animation', handleInAnimationEvent);
+  //     document.removeEventListener('ebpf-bee-trigger-out-animation', handleOutAnimationEvent);
+  //   };
+  // }, [handleInAnimationEvent, handleOutAnimationEvent]);
+
+  // useEffect(() => {
+  //   if (isSectionInView && rive && !rive.isPlaying) rive.play(['State Machine']);
+  // }, [isSectionInView, rive]);
+
+  useEffect(() => {
+    // Uncomment and
+    // if (isSectionInView && rive && !rive.isPlaying) rive.play(['State Machine']);
+
+    if (rive) {
+      if (isSectionInView) {
+        rive.play(['State Machine']);
+      } else {
+        rive.reset();
+        rive.play(['Out']);
+      }
+    }
+  }, [isSectionInView, rive]);
+
+  return (
+    <section className="safe-paddings relative overflow-hidden py-48" ref={sectionRef}>
+      <div className="container flex h-full items-center justify-center">
+        <div className="relative">
+          <h2 className="heading-6xl flat-none lg:flat-breaks with-orange-gradient-text">
+            Thanks to <span>eBPF's nature</span>, Parca Agent operates in Linux kernel space
+            allowing it to grab exactly the data needed at low overhead.
+          </h2>
+        </div>
+        <RiveComponent className="absolute top-[54vh] left-[53vw] h-[520px] w-[1920px]" />
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default EBPF;
