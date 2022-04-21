@@ -59,33 +59,33 @@ const Community = () => {
   const items = [
     {
       cover: image1,
+      description: 'Parca Office Hours (2022-04-07)',
+      to: 'https://www.youtube.com/watch?v=vnNNsMfk2g0',
+    },
+    {
+      cover: image2,
       description: 'Parca Office Hours (2022-03-24)',
       to: 'https://www.youtube.com/watch?v=OryfFttWECc',
     },
     {
-      cover: image2,
+      cover: image3,
       description: 'Parca Office Hours (2022-03-10)',
       to: 'https://www.youtube.com/watch?v=c0YIBlBjkXE',
     },
     {
-      cover: image3,
+      cover: image4,
       description: 'Parca Office Hours (2022-02-24)',
       to: 'https://www.youtube.com/watch?v=_p1yC1cJcUk',
     },
     {
-      cover: image4,
+      cover: image5,
       description: 'Parca Office Hours (2022-02-08)',
       to: 'https://www.youtube.com/watch?v=SJGu3cn_guc',
     },
     {
-      cover: image5,
-      description: 'Parca Office Hours (2022-03-10)',
-      to: '/',
-    },
-    {
       cover: image6,
-      description: 'Parca Office Hours (2022-03-24)',
-      to: '/',
+      description: 'Parca Office Hours (2022-01-25)',
+      to: 'https://www.youtube.com/watch?v=KvQJR4LsVk0',
     },
   ];
   return (
