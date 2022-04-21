@@ -135,7 +135,7 @@ const Community = () => {
             {items.map(({ cover, description, to }, index) => (
               <li className="sm:shrink-0 sm:grow-0 sm:basis-[242px]" key={index}>
                 <Link
-                  className="relative transition-opacity duration-200 hover:opacity-80"
+                  className="relative block transition-opacity duration-200 hover:opacity-80"
                   to={to}
                   target="_blank"
                   rel="noopener"
