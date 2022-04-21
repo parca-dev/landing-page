@@ -533,7 +533,6 @@ const NextjsInactive = ({ className }) => (
         x2="170"
         y2="757"
         gradientUnits="userSpaceOnUse"
-        W
       >
         <stop stopColor="#FCFDFD" />
         <stop offset="1" stopColor="#F4F5F6" />
