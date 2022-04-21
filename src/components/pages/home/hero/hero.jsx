@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 import useWindowSize from 'hooks/use-window-size';
 
 import Arrow from './arrow';
@@ -82,7 +83,7 @@ const Hero = () => {
         <div className="mt-20 self-start bg-black p-2.5 lg:mt-[50px] md:mt-5 sm:mt-16 sm:px-4 xs:mt-8 xs:pr-1.5">
           <Link
             className="relative inline-flex items-center bg-white px-[60px] py-[26px] text-[22px] font-medium leading-none transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
-            to="/"
+            to={LINKS.demo}
           >
             <span>Try it Now</span>
             <motion.span

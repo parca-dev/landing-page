@@ -4,6 +4,7 @@ import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 
 import DiscordIcon from './images/discord.inline.svg';
 import PlayIcon from './images/play.inline.svg';
@@ -12,10 +13,10 @@ import TwitterIcon from './images/twitter.inline.svg';
 import YoutubeIcon from './images/youtube.inline.svg';
 
 const icons = [
-  { label: 'Slack', icon: SlackIcon, url: '/' },
-  { label: 'Twitter', icon: TwitterIcon, url: '/' },
-  { label: 'Discord', icon: DiscordIcon, url: '/' },
-  { label: 'YouTube', icon: YoutubeIcon, url: '/' },
+  { text: 'Slack', icon: SlackIcon, to: LINKS.slack },
+  { text: 'Twitter', icon: TwitterIcon, to: LINKS.twitter },
+  { text: 'Discord', icon: DiscordIcon, to: LINKS.discord },
+  { text: 'YouTube', icon: YoutubeIcon, to: LINKS.youtube },
 ];
 const subtitle = 'Join us on a bi-weekly public meetings:';
 
@@ -59,32 +60,32 @@ const Community = () => {
     {
       cover: image1,
       description: 'Parca Office Hours (2022-03-24)',
-      url: '/',
+      to: 'https://www.youtube.com/watch?v=OryfFttWECc',
     },
     {
       cover: image2,
       description: 'Parca Office Hours (2022-03-10)',
-      url: '/',
+      to: 'https://www.youtube.com/watch?v=c0YIBlBjkXE',
     },
     {
       cover: image3,
       description: 'Parca Office Hours (2022-02-24)',
-      url: '/',
+      to: 'https://www.youtube.com/watch?v=_p1yC1cJcUk',
     },
     {
       cover: image4,
       description: 'Parca Office Hours (2022-02-08)',
-      url: '/',
+      to: 'https://www.youtube.com/watch?v=SJGu3cn_guc',
     },
     {
       cover: image5,
       description: 'Parca Office Hours (2022-03-10)',
-      url: '/',
+      to: '/',
     },
     {
       cover: image6,
       description: 'Parca Office Hours (2022-03-24)',
-      url: '/',
+      to: '/',
     },
   ];
   return (
@@ -105,12 +106,12 @@ const Community = () => {
           community! Join users and companies that are using Parca in production:
         </h2>
         <ul className="mt-16 flex space-x-11 lg:mt-12 lg:space-x-8 md:mt-10 md:space-x-7 sm:mt-7 sm:space-x-5">
-          {icons.map(({ label, url, icon: Icon }) => (
-            <li key={label}>
-              <Link to={url}>
+          {icons.map(({ text, icon: Icon, to }, index) => (
+            <li key={index}>
+              <Link to={to} target="_blank" rel="noopener">
                 <Icon
                   className="h-[104px] w-[104px] lg:h-20 lg:w-20 md:h-[72px] md:w-[72px] sm:h-14 sm:w-14"
-                  aria-label={label}
+                  aria-label={text}
                 />
               </Link>
             </li>
@@ -126,9 +127,9 @@ const Community = () => {
               'sm:scrollbar-hidden sm:mt-6 sm:flex sm:gap-x-0 sm:space-x-4 sm:overflow-auto sm:pl-4 sm:after:shrink-0 sm:after:grow-0 sm:after:basis-4'
             )}
           >
-            {items.map(({ cover, description, url }, index) => (
+            {items.map(({ cover, description, to }, index) => (
               <li className="sm:shrink-0 sm:grow-0 sm:basis-[242px]" key={index}>
-                <Link className="relative" to={url}>
+                <Link className="relative" to={to} target="_blank" rel="noopener">
                   <GatsbyImage
                     className="rounded-lg"
                     imgClassName="rounded-lg"
