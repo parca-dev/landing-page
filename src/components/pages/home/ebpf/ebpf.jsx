@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect } from 'react';
+// TODO: Uncomment when Bees section comes back or delete if we decide to remove it
+// import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useRive } from 'rive-react';
 
@@ -11,29 +13,44 @@ const EBPF = () => {
     autoplay: false,
   });
 
-  const handleInAnimationEvent = useCallback(() => {
-    if (rive) rive.play(['State Machine']);
-  }, [rive]);
+  // TODO: Uncomment when Bees section comes back or delete if we decide to remove it
+  // const handleInAnimationEvent = useCallback(() => {
+  //   if (rive) rive.play(['State Machine']);
+  // }, [rive]);
 
-  const handleOutAnimationEvent = useCallback(() => {
+  // const handleOutAnimationEvent = useCallback(() => {
+  //   if (rive) {
+  //     rive.reset();
+  //     rive.play(['Out']);
+  //   }
+  // }, [rive]);
+
+  // useEffect(() => {
+  //   document.addEventListener('ebpf-bee-trigger-in-animation', handleInAnimationEvent);
+  //   document.addEventListener('ebpf-bee-trigger-out-animation', handleOutAnimationEvent);
+
+  //   return () => {
+  //     document.removeEventListener('ebpf-bee-trigger-in-animation', handleInAnimationEvent);
+  //     document.removeEventListener('ebpf-bee-trigger-out-animation', handleOutAnimationEvent);
+  //   };
+  // }, [handleInAnimationEvent, handleOutAnimationEvent]);
+
+  // useEffect(() => {
+  //   if (isSectionInView && rive && !rive.isPlaying) rive.play(['State Machine']);
+  // }, [isSectionInView, rive]);
+
+  useEffect(() => {
+    // Uncomment and
+    // if (isSectionInView && rive && !rive.isPlaying) rive.play(['State Machine']);
+
     if (rive) {
-      rive.reset();
-      rive.play(['Out']);
+      if (isSectionInView) {
+        rive.play(['State Machine']);
+      } else {
+        rive.reset();
+        rive.play(['Out']);
+      }
     }
-  }, [rive]);
-
-  useEffect(() => {
-    document.addEventListener('ebpf-bee-trigger-in-animation', handleInAnimationEvent);
-    document.addEventListener('ebpf-bee-trigger-out-animation', handleOutAnimationEvent);
-
-    return () => {
-      document.removeEventListener('ebpf-bee-trigger-in-animation', handleInAnimationEvent);
-      document.removeEventListener('ebpf-bee-trigger-out-animation', handleOutAnimationEvent);
-    };
-  }, [handleInAnimationEvent, handleOutAnimationEvent]);
-
-  useEffect(() => {
-    if (isSectionInView && rive && !rive.isPlaying) rive.play(['State Machine']);
   }, [isSectionInView, rive]);
 
   return (
