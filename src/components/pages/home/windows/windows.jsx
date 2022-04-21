@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+// import { StaticImage } from 'gatsby-plugin-image';
 import React, { Fragment, useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import CLang from './frames/c-lang';
 import CLangInactive from './frames/c-lang-inactive';
@@ -60,7 +62,21 @@ const items2 = [
   frame13,
 ];
 
+// const items3 = [
+//   <StaticImage src="./images-jpg/frame-1.jpg" width={1731} height={857} />,
+//   <StaticImage src="./images-jpg/frame-2.jpg" width={1731} height={857} />,
+//   <StaticImage src="./images-jpg/frame-3.jpg" width={1731} height={857} />,
+//   <StaticImage src="./images-jpg/frame-4.jpg" width={1731} height={857} />,
+//   <StaticImage src="./images-jpg/frame-5.jpg" width={1731} height={857} />,
+//   <StaticImage src="./images-jpg/frame-6.jpg" width={1731} height={857} />,
+//   <StaticImage src="./images-jpg/frame-7.jpg" width={1731} height={857} />,
+// ];
+
 const Windows = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
   const [activeItems, setActiveItems] = useState({ 0: true });
 
   useEffect(() => {
@@ -76,32 +92,35 @@ const Windows = () => {
         return;
       }
 
-      setActiveItems((previousActiveItems) => {
-        const activeItems = { ...previousActiveItems };
-        activeItems[previousActiveItem] = false;
-        activeItems[previousActiveItem + 1] = true;
-        activeItems[previousActiveItem + 2] = true;
-        previousActiveItem += 2;
+      if (inView) {
+        setActiveItems((previousActiveItems) => {
+          const activeItems = { ...previousActiveItems };
+          activeItems[previousActiveItem] = false;
+          activeItems[previousActiveItem + 1] = true;
+          activeItems[previousActiveItem + 2] = true;
+          previousActiveItem += 2;
 
-        return activeItems;
-      });
+          return activeItems;
+        });
+      }
     }, 500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [inView]);
 
   return (
     <motion.div
       className="relative mx-auto max-w-[1731px] overflow-hidden"
-      initial={{ opacity: 0, scale: 1.2 }}
-      animate={{
-        opacity: 1,
-        scale: 0.9,
-        transition: {
-          opacity: { duration: 0.2, ease: [0.5, 0.5, 0.25, 1] },
-          scale: { duration: 2.5 },
-        },
-      }}
+      ref={ref}
+      // initial={{ opacity: 0, scale: 1.2 }}
+      // animate={{
+      //   opacity: 1,
+      //   scale: 0.9,
+      //   transition: {
+      //     opacity: { duration: 0.2, ease: [0.5, 0.5, 0.25, 1] },
+      //     scale: { duration: 2.5 },
+      //   },
+      // }}
     >
       <img
         className="w-full"
@@ -109,6 +128,7 @@ const Windows = () => {
         alt=""
         aria-hidden="true"
       />
+
       {/* {items.map((Item, index) => (
         <Fragment key={index}>
           {activeItems[index] && (
@@ -127,6 +147,11 @@ const Windows = () => {
           )}
         </Fragment>
       ))}
+      {/* {items3.map((item, index) => (
+        <Fragment key={index}>
+          {activeItems[index] && <div className="absolute left-0 top-0 h-full w-full">{item}</div>}
+        </Fragment>
+      ))} */}
     </motion.div>
   );
 };
