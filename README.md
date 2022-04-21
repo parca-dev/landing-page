@@ -1,4 +1,4 @@
-# Pixel Point Gatsby Tailwind Starter
+# Parca Gatsby
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@
 1. Clone this repository or hit "Use this template" button
 
 ```bash
-git clone git@github.com:pixel-point/gatsby-tailwind-starter.git
+git clone git@github.com:pixel-point/parca-gatsby.git
 ```
 
 2. Install dependencies
