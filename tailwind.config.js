@@ -10,6 +10,18 @@ module.exports = {
     fontFamily: {
       sans: ['"poppins"', ...defaultTheme.fontFamily.sans],
     },
+    fontSize: {
+      '6xl': ['3.625rem', defaultTheme.lineHeight.tight],
+      '5xl': [defaultTheme.fontSize['5xl'][0], defaultTheme.lineHeight.tight],
+      '4xl': [defaultTheme.fontSize['4xl'][0], defaultTheme.lineHeight.tight],
+      '3xl': [defaultTheme.fontSize['3xl'][0], defaultTheme.lineHeight.tight],
+      '2xl': [defaultTheme.fontSize['2xl'][0], defaultTheme.lineHeight.tight],
+      xl: [defaultTheme.fontSize.xl[0], defaultTheme.lineHeight.snug],
+      lg: [defaultTheme.fontSize.lg[0], defaultTheme.lineHeight.snug],
+      base: [defaultTheme.fontSize.base[0], defaultTheme.lineHeight.snug],
+      sm: [defaultTheme.fontSize.sm[0], defaultTheme.lineHeight.snug],
+      xs: [defaultTheme.fontSize.xs[0], defaultTheme.lineHeight.snug],
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
@@ -37,19 +49,6 @@ module.exports = {
       md: { max: '1023px' },
       sm: { max: '767px' },
       xs: { max: '359px' },
-    },
-
-    fontSize: {
-      '6xl': ['3.625rem', defaultTheme.lineHeight.tight],
-      '5xl': [defaultTheme.fontSize['5xl'][0], defaultTheme.lineHeight.tight],
-      '4xl': [defaultTheme.fontSize['4xl'][0], defaultTheme.lineHeight.tight],
-      '3xl': [defaultTheme.fontSize['3xl'][0], defaultTheme.lineHeight.tight],
-      '2xl': [defaultTheme.fontSize['2xl'][0], defaultTheme.lineHeight.tight],
-      xl: [defaultTheme.fontSize.xl[0], defaultTheme.lineHeight.snug],
-      lg: [defaultTheme.fontSize.lg[0], defaultTheme.lineHeight.snug],
-      base: [defaultTheme.fontSize.base[0], defaultTheme.lineHeight.snug],
-      sm: [defaultTheme.fontSize.base[0], defaultTheme.lineHeight.snug],
-      xs: [defaultTheme.fontSize.base[0], defaultTheme.lineHeight.snug],
     },
     extend: {
       spacing: {
