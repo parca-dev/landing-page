@@ -111,6 +111,11 @@ const Benefits = () => {
                         '0px 20px 40px rgba(20, 29, 31, 0.1), 0px 10px 20px rgba(20, 29, 31, 0.1), 0px 0px 0px rgba(20, 29, 31, 0.1)',
                     }}
                     key={index}
+                    onClick={() => {
+                      setActiveSliderItemIndex(
+                        (activeSliderItemIndex) => (activeSliderItemIndex + 1) % sliderItems.length
+                      );
+                    }}
                     {...sliderItemsAnimationProps}
                   />
                 ) : null
@@ -126,28 +131,32 @@ const Benefits = () => {
               aria-hidden
             />
           </div>
-          <div className="mt-10 flex items-center space-x-5 lg:mt-8 md:mt-6 sm:mt-5">
+          <ul className="mt-10 flex items-center space-x-5 lg:mt-8 md:mt-6 sm:mt-5">
             {sliderItems.map((_, index) => (
-              <span
-                className="h-1.5 w-14 overflow-hidden rounded-2xl bg-gray-90 md:h-1 md:w-11"
-                key={index}
-              >
-                {index === activeSliderItemIndex && isSliderInView && (
-                  <motion.span
-                    className="block h-full rounded-2xl"
-                    initial={{ width: 0 }}
-                    animate={{
-                      width: '100%',
-                      transition: { duration: SLIDER_DURATION_IN_SECONDS },
-                    }}
-                    style={{
-                      background: 'linear-gradient(267.71deg, #57F906 -0.04%, #00CCC0 68.91%)',
-                    }}
-                  />
-                )}
-              </span>
+              <li key={index}>
+                <button
+                  className="h-1.5 w-14 overflow-hidden rounded-2xl bg-gray-90 md:h-1 md:w-11"
+                  type="button"
+                  aria-label={`Go to illustration ${index + 1}`}
+                  onClick={() => setActiveSliderItemIndex(index)}
+                >
+                  {index === activeSliderItemIndex && isSliderInView && (
+                    <motion.span
+                      className="block h-full rounded-2xl"
+                      initial={{ width: 0 }}
+                      animate={{
+                        width: '100%',
+                        transition: { duration: SLIDER_DURATION_IN_SECONDS },
+                      }}
+                      style={{
+                        background: 'linear-gradient(267.71deg, #57F906 -0.04%, #00CCC0 68.91%)',
+                      }}
+                    />
+                  )}
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
