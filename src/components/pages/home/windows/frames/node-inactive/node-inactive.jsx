@@ -1,19 +1,14 @@
-import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const NodeInactive = ({ className, controls, variants, delay }) => (
-  <motion.svg
+const NodeInactive = ({ className }) => (
+  <svg
     className={className}
     width="1731"
     height="857"
     viewBox="0 0 1731 857"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    initial="initial"
-    custom={{ delay }}
-    animate={controls}
-    variants={variants}
   >
     <circle cx="1413" cy="389" r="72" fill="url(#paint0_linear_1112_10243)" />
     <text
@@ -156,7 +151,7 @@ const NodeInactive = ({ className, controls, variants, delay }) => (
         app.
       </tspan>
       <tspan x="732.857" y="372.938">
-        (&#39;/search/:query?&#39;,{' '}
+        (&apos;/search/:query?&apos;,{' '}
       </tspan>
       <tspan x="968.287" y="372.938">
         (req, res){'{'}&#10;
@@ -217,7 +212,7 @@ const NodeInactive = ({ className, controls, variants, delay }) => (
         app.
       </tspan>
       <tspan x="732.857" y="540.938">
-        (&#39;/client.js&#39;,{' '}
+        (&apos;/client.js&apos;,{' '}
       </tspan>
       <tspan x="926.246" y="540.938">
         (req, res){'{'}&#10;
@@ -230,7 +225,7 @@ const NodeInactive = ({ className, controls, variants, delay }) => (
         (path.
       </tspan>
       <tspan x="875.797" y="561.938">
-        (__dirname, &#39;client.js&#39;));&#10;
+        (__dirname, &apos;client.js&apos;));&#10;
       </tspan>
       <tspan x="674" y="582.938">
         {'}'});&#10;
@@ -258,7 +253,7 @@ const NodeInactive = ({ className, controls, variants, delay }) => (
         console.
       </tspan>
       <tspan x="783.307" y="687.938">
-        (&#39;Express started on port 3000&#39;);&#10;
+        (&apos;Express started on port 3000&apos;);&#10;
       </tspan>
       <tspan x="674" y="708.938">
         {'}'}
@@ -468,14 +463,11 @@ const NodeInactive = ({ className, controls, variants, delay }) => (
         <rect width="130" height="36" fill="white" transform="translate(1142 678)" />
       </clipPath>
     </defs>
-  </motion.svg>
+  </svg>
 );
 
 NodeInactive.propTypes = {
   className: PropTypes.string,
-  controls: PropTypes.object.isRequired,
-  delay: PropTypes.object.isRequired,
-  variants: PropTypes.object.isRequired,
 };
 
 NodeInactive.defaultProps = {

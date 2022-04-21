@@ -1,19 +1,14 @@
-import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const CPlusplus = ({ className, controls, variants, delay }) => (
-  <motion.svg
+const CPlusplus = ({ className }) => (
+  <svg
     className={className}
     width="1731"
     height="857"
     viewBox="0 0 1731 857"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    initial="initial"
-    custom={{ delay }}
-    animate={controls}
-    variants={variants}
   >
     <circle opacity="0.08" cx="212" cy="216" r="124" fill="url(#paint0_linear_1112_9467)" />
     <circle opacity="0.08" cx="212" cy="216" r="104" fill="url(#paint1_linear_1112_9467)" />
@@ -705,14 +700,11 @@ const CPlusplus = ({ className, controls, variants, delay }) => (
         <rect width="66" height="72" fill="white" transform="translate(1102 556)" />
       </clipPath>
     </defs>
-  </motion.svg>
+  </svg>
 );
 
 CPlusplus.propTypes = {
   className: PropTypes.string,
-  controls: PropTypes.object.isRequired,
-  delay: PropTypes.object.isRequired,
-  variants: PropTypes.object.isRequired,
 };
 
 CPlusplus.defaultProps = {
