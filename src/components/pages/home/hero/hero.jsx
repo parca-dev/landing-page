@@ -68,11 +68,11 @@ const Hero = () => {
 
   return (
     <section
-      className="safe-paddings relative flex h-screen w-screen max-w-full items-center justify-center overflow-hidden bg-black sm:justify-start"
+      className="safe-paddings relative flex h-screen min-h-[774px] w-screen max-w-full items-center justify-center overflow-hidden bg-black"
       ref={sectionRef}
     >
       <canvas className="absolute" ref={canvasRef} />
-      <div className="max-width z-10 flex flex-col sm:mx-0">
+      <div className="max-width z-10 flex flex-col">
         <div className="relative">
           <Title titleControls={titleControls} />
           <Arrow

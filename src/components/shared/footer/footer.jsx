@@ -10,7 +10,7 @@ import decorSvg from './images/decor.svg';
 
 const Footer = () => (
   <footer className="safe-paddings">
-    <div className="container relative flex justify-between py-16 lg:py-10 md:py-11 sm:flex-col sm:overflow-hidden sm:pt-10 sm:pb-12">
+    <div className="container relative flex justify-between py-16 lg:py-10 md:py-11 sm:flex-col sm:overflow-hidden sm:py-10">
       <img
         className="absolute -top-[70%] left-[15%] -z-10 w-[27.5%] lg:top-[-47.8%] lg:left-[14%] lg:w-[19.5%] md:hidden sm:top-[-117px] sm:left-auto sm:right-[5%] sm:block sm:w-[190px]"
         src={decorSvg}
@@ -28,7 +28,7 @@ const Footer = () => (
         <span className="mt-auto text-sm font-medium sm:hidden">
           Design by{' '}
           <Link
-            className="hover:violet-gradient-text"
+            className="transition-colors duration-200 hover:text-blue"
             to="https://pixelpoint.io/"
             target="_blank"
             rel="noopener"
@@ -41,7 +41,7 @@ const Footer = () => (
         <ul className="flex space-x-11 lg:space-x-14 md:py-2.5 sm:space-x-11 sm:py-0 xs:flex-col xs:space-x-0 xs:space-y-8">
           {MENUS.footer.map((menu, index) => (
             <li key={index}>
-              <ul className="flex flex-col space-y-6 sm:space-y-4">
+              <ul className="flex flex-col space-y-6 sm:space-y-5">
                 {menu.map(({ text, to }, index) => (
                   <li className="inline leading-none" key={index}>
                     <Link className="whitespace-nowrap" size="sm" theme="black" to={to}>
@@ -58,7 +58,7 @@ const Footer = () => (
       <span className="mt-10 hidden text-sm font-medium sm:block">
         Design by{' '}
         <Link
-          className="hover:violet-gradient-text"
+          className="transition-colors duration-200 hover:text-blue"
           to="https://pixelpoint.io/"
           target="_blank"
           rel="noopener"
