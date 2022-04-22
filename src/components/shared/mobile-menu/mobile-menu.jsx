@@ -54,7 +54,7 @@ const MobileMenu = ({ isOpen }) => {
 
   return (
     <motion.nav
-      className="absolute inset-0 z-[-1] hidden h-full flex-col bg-white px-8 pt-[62px] pb-6 before:absolute before:inset-x-0 before:top-[62px] before:h-px before:w-full before:bg-gray-90 lg:flex sm:px-4"
+      className="fixed inset-0 z-[-1] hidden h-full flex-col bg-white px-8 pt-[62px] pb-6 before:absolute before:inset-x-0 before:top-[62px] before:h-px before:w-full before:bg-gray-90 lg:flex sm:px-4"
       initial="from"
       animate={controls}
       variants={variants}
