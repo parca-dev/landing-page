@@ -1,5 +1,3 @@
-import { motion, useAnimation } from 'framer-motion';
-// import { StaticImage } from 'gatsby-plugin-image';
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -33,21 +31,6 @@ const items = [
   Haskell,
 ];
 
-const wrapperVariants = {
-  initial: {
-    opacity: 0,
-    scale: 1.2,
-  },
-  animate: {
-    opacity: 1,
-    scale: 0.9,
-    transition: {
-      opacity: { duration: 0.2 },
-      scale: { duration: 2.5, ease: [0.5, 0.5, 0.25, 1] },
-    },
-  },
-};
-
 const intervals = [500, 500, 500, 350, 350, 250, 250, 200, 200, 200, 200, 200, 200];
 
 const Windows = () => {
@@ -58,7 +41,6 @@ const Windows = () => {
   const [activeItems, setActiveItems] = useState({ 0: true });
   const [idx, setIdx] = useState(0);
   const [previousActiveItem, setPreviousActiveItem] = useState(0);
-  const wrapperControls = useAnimation();
   const showWindows = useCallback(() => {
     if (typeof intervals[idx] !== 'undefined' && inView && previousActiveItem < items.length - 1) {
       setActiveItems((previousActiveItems) => {
@@ -71,22 +53,15 @@ const Windows = () => {
 
       setPreviousActiveItem(previousActiveItem + 2);
       setIdx((idx) => idx + 1);
-      wrapperControls.start('animate');
     }
-  }, [idx, inView, previousActiveItem, wrapperControls]);
-  console.time();
+  }, [idx, inView, previousActiveItem]);
+
   useEffect(() => {
     const timer = setTimeout(showWindows, intervals[idx]);
     return () => clearTimeout(timer);
   }, [idx, inView, showWindows]);
   return (
-    <motion.div
-      className="relative mx-auto max-w-[1731px] overflow-hidden"
-      ref={ref}
-      initial="initial"
-      variants={wrapperVariants}
-      animate={inView && 'animate'}
-    >
+    <div className="relative mx-auto max-w-[1731px] overflow-hidden" ref={ref}>
       <img
         className="w-full"
         src="data:image/svg+xml;charset=utf-8,%3Csvg width='1731' height='857' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
@@ -103,7 +78,7 @@ const Windows = () => {
           )}
         </Fragment>
       ))}
-    </motion.div>
+    </div>
   );
 };
 
