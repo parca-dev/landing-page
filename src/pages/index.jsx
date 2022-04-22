@@ -10,6 +10,7 @@ import OpenSource from 'components/pages/home/open-source';
 import ParcaAgent from 'components/pages/home/parca-agent';
 import Profiling from 'components/pages/home/profiling';
 import Tools from 'components/pages/home/tools';
+import CodeSnippets from 'components/pages/home/windows';
 import Layout from 'components/shared/layout';
 
 const HomePage = () => (
@@ -17,6 +18,7 @@ const HomePage = () => (
     <Hero />
     <Tools />
     {/* <Bees /> */}
+    <CodeSnippets />
     <EBPF />
     <Features />
     <Profiling />

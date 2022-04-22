@@ -102,6 +102,7 @@ const Community = () => {
             objectFit="contain"
             formats={['png']}
             lazy="loading"
+            alt="Community icons"
           />{' '}
           community! Join users and companies that are using Parca in production:
         </h2>

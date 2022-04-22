@@ -6,7 +6,7 @@ import BracesIcon from './images/braces.inline.svg';
 import InfinityIcon from './images/infinity.inline.svg';
 
 const Tools = () => (
-  <div className="safe-paddings h-screen">
+  <div className="safe-paddings pt-48 pb-24 lg:pt-40 md:pt-32">
     <div className="container flex h-full items-center justify-center">
       <div className="relative">
         <h2 className={clsx('heading-6xl flat-none lg:flat-breaks')}>

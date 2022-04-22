@@ -5,7 +5,7 @@ const TEXT_HEIGHT = 16;
 const isBrowser = typeof window !== 'undefined';
 
 const ibmplexmonoFont =
-  isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplexmono-light.woff2)');
+  isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplex-mono-light.woff2)');
 
 const getPixelRatio = () => {
   const isDevicePixelRatio = isBrowser && window.devicePixelRatio;

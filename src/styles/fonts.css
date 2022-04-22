@@ -1,8 +1,51 @@
 @layer base {
   @font-face {
     font-family: 'IBM Plex Mono';
-    src: url('/fonts/ibmplexmono-light.woff2') format('woff2');
+    src: url('/fonts/ibmplex-mono-light.woff2') format('woff2');
     font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Roboto Mono';
+    src: url('/fonts/roboto-mono-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-extrabold.woff2') format('woff2');
+    font-weight: 800;
     font-style: normal;
     font-display: swap;
   }

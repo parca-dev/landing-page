@@ -54,7 +54,10 @@ const EBPF = () => {
   }, [isSectionInView, rive]);
 
   return (
-    <section className="safe-paddings relative h-screen overflow-hidden" ref={sectionRef}>
+    <section
+      className="safe-paddings relative overflow-hidden pt-48 pb-80 lg:pt-40 lg:pb-64 md:pb-40 sm:pt-32 sm:pb-32"
+      ref={sectionRef}
+    >
       <div className="container flex h-full items-center justify-center">
         <div className="relative">
           <h2 className="heading-6xl flat-none lg:flat-breaks with-orange-gradient-text">
@@ -62,7 +65,7 @@ const EBPF = () => {
             allowing it to grab exactly the data needed at low overhead.
           </h2>
         </div>
-        <RiveComponent className="absolute top-[54vh] left-[calc(100vw_-_890px)] h-[520px] w-[1920px] xl:left-[calc(100vw_-_490px)] xl:w-[1420px] sm:left-[calc(100vw_-_365px)] sm:h-[300px] sm:w-[1120px]" />
+        <RiveComponent className="absolute top-[53%] left-[calc(100vw_-_890px)] h-[520px] w-[1920px] xl:left-[calc(100vw_-_490px)] xl:w-[1420px] lg:top-[45%] sm:top-[55%] sm:left-[calc(100vw_-_365px)] sm:h-[300px] sm:w-[1120px] xs:top-[60%]" />
       </div>
     </section>
   );

@@ -68,7 +68,7 @@ const Hero = () => {
 
   return (
     <section
-      className="safe-paddings relative flex h-screen w-screen max-w-full items-center justify-center overflow-hidden bg-black"
+      className="safe-paddings relative flex h-screen min-h-[774px] w-screen max-w-full items-center justify-center overflow-hidden bg-black"
       ref={sectionRef}
     >
       <canvas className="absolute" ref={canvasRef} />

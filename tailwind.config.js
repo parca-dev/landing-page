@@ -8,7 +8,7 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      sans: ['"poppins"', ...defaultTheme.fontFamily.sans],
+      sans: ['"Poppins"', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       '6xl': ['3.625rem', defaultTheme.lineHeight.tight],

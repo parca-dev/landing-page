@@ -12,7 +12,7 @@ import ThanosLogo from './images/thanos.inline.svg';
 const OpenSource = () => (
   <div className="safe-paddings mt-96 lg:mt-64 md:mt-48 sm:mt-28">
     <div className="container">
-      <p className="heading-5xl with-link-blue-5xl flat-none xl:flat-breaks leading-snug lg:leading-snug md:leading-snug sm:leading-snug">
+      <div className="heading-5xl with-link-blue-5xl flat-none xl:flat-breaks leading-snug lg:leading-snug md:leading-snug sm:leading-snug">
         Parca is Open Source.{' '}
         <StaticImage
           className="mt-1 inline-flex justify-center lg:h-11 md:h-8 sm:h-7"
@@ -49,7 +49,7 @@ const OpenSource = () => (
         </span>{' '}
         and more. All components are available under the{' '}
         <Link to={LINKS.license}>Apache 2 License</Link> on <Link to={LINKS.github}>GitHub</Link>.
-      </p>
+      </div>
     </div>
   </div>
 );
