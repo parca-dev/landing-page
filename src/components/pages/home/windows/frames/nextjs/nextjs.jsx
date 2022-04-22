@@ -239,7 +239,7 @@ const Nextjs = ({ className }) => (
         {' '}
       </tspan>
       <tspan x="486" y="461.938">
-        {' '}
+        {'        '}
         {'{'}websites.
       </tspan>
       <tspan x="662.572" y="461.938">
@@ -331,7 +331,7 @@ const Nextjs = ({ className }) => (
         {' '}
       </tspan>
       <tspan x="486" y="650.938">
-        {' '}
+        {'         '}
         )){'}'}&#10;
       </tspan>
       <tspan x="486" y="671.938">

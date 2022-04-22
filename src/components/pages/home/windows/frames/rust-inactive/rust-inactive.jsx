@@ -214,8 +214,7 @@ const RustInactive = ({ className }) => (
         &#60;$kind
       </tspan>
       <tspan x="362" y="365.938">
-        {' '}
-        (
+        {'        '}(
       </tspan>
       <tspan x="446.082" y="365.938">
         ..k).
@@ -330,8 +329,7 @@ const RustInactive = ({ className }) => (
         ())&#10;
       </tspan>
       <tspan x="362" y="596.938">
-        {' '}
-        .
+        {'            '}.
       </tspan>
       <tspan x="496.531" y="596.938">
         (

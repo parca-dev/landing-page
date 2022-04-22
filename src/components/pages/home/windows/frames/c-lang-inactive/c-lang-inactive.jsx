@@ -109,7 +109,7 @@ const CLangInactive = ({ className }) => (
         letterSpacing="0em"
       >
         <tspan x="1012.04" y="274.9">
-          &#x421;
+          C
         </tspan>
       </text>
       <circle cx="726" cy="270" r="6" fill="#FD0054" />

@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 // import { StaticImage } from 'gatsby-plugin-image';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import CLang from './frames/c-lang';
@@ -16,19 +16,6 @@ import Node from './frames/node';
 import NodeInactive from './frames/node-inactive';
 import Rust from './frames/rust';
 import RustInactive from './frames/rust-inactive';
-// import frame1 from './images/frame-1.svg';
-// import frame10 from './images/frame-10.svg';
-// import frame11 from './images/frame-11.svg';
-// import frame12 from './images/frame-12.svg';
-// import frame13 from './images/frame-13.svg';
-// import frame2 from './images/frame-2.svg';
-// import frame3 from './images/frame-3.svg';
-// import frame4 from './images/frame-4.svg';
-// import frame5 from './images/frame-5.svg';
-// import frame6 from './images/frame-6.svg';
-// import frame7 from './images/frame-7.svg';
-// import frame8 from './images/frame-8.svg';
-// import frame9 from './images/frame-9.svg';
 
 const items = [
   CPlusplus,
@@ -46,31 +33,22 @@ const items = [
   Haskell,
 ];
 
-// const items2 = [
-//   frame1,
-//   frame2,
-//   frame3,
-//   frame4,
-//   frame5,
-//   frame6,
-//   frame7,
-//   frame8,
-//   frame9,
-//   frame10,
-//   frame11,
-//   frame12,
-//   frame13,
-// ];
+const wrapperVariants = {
+  initial: {
+    opacity: 0,
+    scale: 1.2,
+  },
+  animate: {
+    opacity: 1,
+    scale: 0.9,
+    transition: {
+      opacity: { duration: 0.2 },
+      scale: { duration: 2.5, ease: [0.5, 0.5, 0.25, 1] },
+    },
+  },
+};
 
-// const items3 = [
-//   <StaticImage src="./images-jpg/frame-1.jpg" width={1731} height={857} />,
-//   <StaticImage src="./images-jpg/frame-2.jpg" width={1731} height={857} />,
-//   <StaticImage src="./images-jpg/frame-3.jpg" width={1731} height={857} />,
-//   <StaticImage src="./images-jpg/frame-4.jpg" width={1731} height={857} />,
-//   <StaticImage src="./images-jpg/frame-5.jpg" width={1731} height={857} />,
-//   <StaticImage src="./images-jpg/frame-6.jpg" width={1731} height={857} />,
-//   <StaticImage src="./images-jpg/frame-7.jpg" width={1731} height={857} />,
-// ];
+const intervals = [500, 500, 500, 350, 350, 250, 250, 200, 200, 200, 200, 200, 200];
 
 const Windows = () => {
   const [ref, inView] = useInView({
@@ -78,49 +56,36 @@ const Windows = () => {
     triggerOnce: true,
   });
   const [activeItems, setActiveItems] = useState({ 0: true });
+  const [idx, setIdx] = useState(0);
+  const [previousActiveItem, setPreviousActiveItem] = useState(0);
+  const wrapperControls = useAnimation();
+  const showWindows = useCallback(() => {
+    if (typeof intervals[idx] !== 'undefined' && inView && previousActiveItem < items.length - 1) {
+      setActiveItems((previousActiveItems) => {
+        const activeItems = { ...previousActiveItems };
+        activeItems[previousActiveItem] = false;
+        activeItems[previousActiveItem + 1] = true;
+        activeItems[previousActiveItem + 2] = true;
+        return activeItems;
+      });
 
+      setPreviousActiveItem(previousActiveItem + 2);
+      setIdx((idx) => idx + 1);
+      wrapperControls.start('animate');
+    }
+  }, [idx, inView, previousActiveItem, wrapperControls]);
+  console.time();
   useEffect(() => {
-    let previousActiveItem = 0;
-
-    const interval = setInterval(() => {
-      if (
-        previousActiveItem > items.length - 1 ||
-        previousActiveItem + 1 > items.length - 1 ||
-        previousActiveItem + 2 > items.length - 1
-      ) {
-        clearInterval(interval);
-        return;
-      }
-
-      if (inView) {
-        setActiveItems((previousActiveItems) => {
-          const activeItems = { ...previousActiveItems };
-          activeItems[previousActiveItem] = false;
-          activeItems[previousActiveItem + 1] = true;
-          activeItems[previousActiveItem + 2] = true;
-          previousActiveItem += 2;
-
-          return activeItems;
-        });
-      }
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, [inView]);
-
+    const timer = setTimeout(showWindows, intervals[idx]);
+    return () => clearTimeout(timer);
+  }, [idx, inView, showWindows]);
   return (
     <motion.div
       className="relative mx-auto max-w-[1731px] overflow-hidden"
       ref={ref}
-      // initial={{ opacity: 0, scale: 1.2 }}
-      // animate={{
-      //   opacity: 1,
-      //   scale: 0.9,
-      //   transition: {
-      //     opacity: { duration: 0.2, ease: [0.5, 0.5, 0.25, 1] },
-      //     scale: { duration: 2.5 },
-      //   },
-      // }}
+      initial="initial"
+      variants={wrapperVariants}
+      animate={inView && 'animate'}
     >
       <img
         className="w-full"
@@ -138,26 +103,8 @@ const Windows = () => {
           )}
         </Fragment>
       ))}
-      {/* {items2.map((item, index) => (
-        <Fragment key={index}>
-          {activeItems[index] && (
-            <div className="absolute left-0 top-0 h-full w-full">
-              <img className="h-full w-full" src={item} alt="" />
-            </div>
-          )}
-        </Fragment>
-      ))} */}
-      {/* {items3.map((item, index) => (
-        <Fragment key={index}>
-          {activeItems[index] && <div className="absolute left-0 top-0 h-full w-full">{item}</div>}
-        </Fragment>
-      ))} */}
     </motion.div>
   );
 };
-
-Windows.propTypes = {};
-
-Windows.defaultProps = {};
 
 export default Windows;
