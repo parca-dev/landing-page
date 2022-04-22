@@ -12,13 +12,16 @@ import Link from '../link';
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
   <header className="safe-paddings absolute inset-x-0 top-0 z-50">
     <div className={clsx('flex max-w-full items-center justify-between')}>
-      <Link className={clsx(' px-5 py-4.5 lg:px-7 lg:py-3.5 sm:py-5 sm:pl-4')} to="/">
+      <Link
+        className={clsx('bg-black px-5 py-4.5 lg:px-7 lg:py-3.5 md:bg-transparent sm:py-5 sm:pl-4')}
+        to="/"
+      >
         <span className="sr-only">Parca logo</span>
         <LogoSvg
-          className={clsx('h-7 w-auto  sm:h-6', isMobileMenuOpen ? 'text-black' : 'text-white')}
+          className={clsx('h-7 w-auto sm:h-6', isMobileMenuOpen ? 'text-black' : 'text-white')}
         />
       </Link>
-      <nav className={clsx('flex items-center space-x-10 px-5 py-2.5 md:hidden')}>
+      <nav className={clsx('flex items-center space-x-10 bg-black px-5 py-2.5 md:hidden')}>
         <ul className="flex space-x-6">
           {MENUS.header.map(({ text, to }, index) => (
             <li key={index}>
@@ -30,7 +33,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
         </ul>
         <CtaButtons isBlackBg />
       </nav>
-      <div className={clsx('hidden px-5 py-2.5 md:block sm:pr-2')}>
+      <div className={clsx('hidden bg-black px-5 py-2.5 md:block md:bg-transparent sm:pr-2')}>
         <Burger isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
       </div>
     </div>
