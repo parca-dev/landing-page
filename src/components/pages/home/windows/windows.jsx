@@ -31,7 +31,7 @@ const items = [
   Haskell,
 ];
 
-const intervals = [500, 500, 500, 350, 350, 250, 250, 200, 200, 200, 200, 200, 200];
+const intervals = [500, 350, 250, 200, 200, 200];
 
 const Windows = () => {
   const [ref, inView] = useInView({
