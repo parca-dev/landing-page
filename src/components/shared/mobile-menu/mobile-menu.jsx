@@ -59,7 +59,7 @@ const MobileMenu = ({ isOpen }) => {
       animate={controls}
       variants={variants}
     >
-      <ul className="flex flex-grow flex-col items-center justify-center space-y-10 overflow-x-hidden overflow-y-scroll text-center">
+      <ul className="flex flex-grow flex-col items-center justify-center space-y-11 overflow-x-hidden overflow-y-scroll text-center">
         {MENUS.mobile.map(({ text, to }, index) => (
           <li key={index}>
             <Link className="block text-xl font-medium leading-none" to={to}>
