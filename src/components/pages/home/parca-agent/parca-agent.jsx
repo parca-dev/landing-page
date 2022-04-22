@@ -31,19 +31,10 @@ const ParcaAgent = () => (
         ))}
       </div>
       <div className="relative mt-20 lg:mt-16 md:mt-12 sm:mt-10">
-        <img
-          className="absolute left-[-116px] -bottom-32 -z-10 lg:-bottom-28 sm:left-[-23%] sm:bottom-[-23%] sm:h-auto sm:w-[190px]"
-          src={decorSvg}
-          alt=""
-          width={320}
-          height={320}
-          loading="lazy"
-          aria-hidden
-        />
         <ul className="grid max-w-[952px] auto-rows-fr grid-cols-3 gap-x-14 lg:gap-x-7 md:gap-x-5 sm:grid-cols-1 sm:gap-y-4">
           {items.map(({ className, text }, index) => (
             <li
-              className="flex flex-col items-center justify-center border-4 border-black bg-white py-[87px] font-extrabold uppercase leading-[1.125] lg:py-[85px] lg:leading-[1.125] md:py-[70px] md:leading-[1.125] sm:h-40 sm:py-10 sm:leading-[1.125]"
+              className="flex flex-col items-center justify-center border-4 border-black bg-white py-[87px] font-extrabold uppercase leading-[1.125] lg:py-[78px] md:py-[62px] sm:h-40 sm:py-10"
               key={index}
             >
               <span className="text-[38px] lg:text-[32px] md:text-3xl sm:text-[26px]">Parca</span>
@@ -53,6 +44,16 @@ const ParcaAgent = () => (
             </li>
           ))}
         </ul>
+
+        <img
+          className="absolute left-[-116px] -bottom-32 -z-10 lg:-bottom-28 md:-left-24 md:-bottom-20 md:w-[280px] sm:-bottom-16 sm:-left-20 sm:w-[190px]"
+          src={decorSvg}
+          alt=""
+          width={320}
+          height={320}
+          loading="lazy"
+          aria-hidden
+        />
       </div>
     </div>
   </section>

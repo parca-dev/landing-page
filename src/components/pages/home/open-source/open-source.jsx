@@ -15,7 +15,7 @@ const OpenSource = () => (
       <p className="heading-5xl with-link-blue-5xl flat-none xl:flat-breaks leading-snug lg:leading-snug md:leading-snug sm:leading-snug">
         Parca is Open Source.{' '}
         <StaticImage
-          className="mt-1 inline-flex justify-center lg:h-12 md:h-10"
+          className="mt-1 inline-flex justify-center lg:h-11 md:h-8 sm:h-7"
           src="./images/avatars.png"
           width={452}
           height={56}
@@ -29,22 +29,22 @@ const OpenSource = () => (
         Parca was originally created by Polar Signals
         <br /> and people who contributed to projects such as{' '}
         <span className="inline-flex items-baseline">
-          <PrometheusLogo className="mb-1 mr-4 h-14 w-14 self-center xl:mr-2 xl:h-12 xl:w-12 lg:h-10 lg:w-10 md:h-7 md:w-7" />
+          <PrometheusLogo className="mb-1 mr-4 h-14 w-14 self-center lg:h-11 lg:w-11 md:mr-3 md:h-8 md:w-8 sm:mr-2 sm:h-6 sm:w-6" />
           Prometheus
         </span>
         ,{' '}
         <span className="inline-flex items-baseline">
-          <ThanosLogo className="mb-1 mr-4 h-14 w-14 self-center xl:mr-2 xl:h-12 xl:w-12 lg:h-10 lg:w-10 md:h-7 md:w-7" />
+          <ThanosLogo className="mb-1 mr-4 h-14 w-14 self-center lg:h-11 lg:w-11 md:mr-3 md:h-8 md:w-8 sm:mr-2 sm:h-6 sm:w-6" />
           Thanos
         </span>
         ,{' '}
         <span className="inline-flex items-baseline">
-          <KubernetesLogo className="mb-1 mr-4 h-14 w-14 self-center xl:mr-2 xl:h-12 xl:w-12 lg:h-10 lg:w-10 md:h-7 md:w-7" />
+          <KubernetesLogo className="mb-1 mr-4 h-14 w-14 self-center lg:h-11 lg:w-11 md:mr-3 md:h-8 md:w-8 sm:mr-2 sm:h-6 sm:w-6" />
           Kubernetes
         </span>
         , <br />
         <span className="inline-flex items-baseline">
-          <DroneLogo className="mb-1 mr-4 h-14 w-14 self-center xl:mr-2 xl:h-12 xl:w-12 lg:h-10 lg:w-10 md:h-7 md:w-7" />
+          <DroneLogo className="mb-1 mr-4 h-14 w-14 self-center lg:h-11 lg:w-11 md:mr-3 md:h-8 md:w-8 sm:mr-2 sm:h-6 sm:w-6" />
           Drone
         </span>{' '}
         and more. All components are available under the{' '}

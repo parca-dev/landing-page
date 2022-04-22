@@ -62,7 +62,7 @@ const EBPF = () => {
             allowing it to grab exactly the data needed at low overhead.
           </h2>
         </div>
-        <RiveComponent className="absolute top-[54vh] left-[53vw] h-[520px] w-[1920px]" />
+        <RiveComponent className="absolute top-[54vh] left-[calc(100vw_-_890px)] h-[520px] w-[1920px] xl:left-[calc(100vw_-_490px)] xl:w-[1420px] sm:left-[calc(100vw_-_365px)] sm:h-[300px] sm:w-[1120px]" />
       </div>
     </section>
   );

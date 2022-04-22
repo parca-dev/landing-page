@@ -23,9 +23,9 @@ const Tools = () => (
             alt="Icons"
           />{' '}
           by method name, class name, and{' '}
-          <BracesIcon className="mb-1.5 inline-flex h-14 w-14 items-center xl:h-12 xl:w-12 lg:h-10 lg:w-10 md:h-7 md:w-7" />{' '}
+          <BracesIcon className="mb-1.5 inline-flex h-14 w-14 items-center lg:h-12 lg:w-12 md:h-10 md:w-10 sm:h-7 sm:w-7" />{' '}
           line number. Without complex overhead, in{' '}
-          <InfinityIcon className="mb-1.5 inline-flex h-14 w-14 items-center xl:h-12 xl:w-12 lg:h-10 lg:w-10 md:h-7 md:w-7" />{' '}
+          <InfinityIcon className="mb-1.5 inline-flex h-14 w-14 items-center lg:h-12 lg:w-12 md:h-10 md:w-10 sm:h-7 sm:w-7" />{' '}
           any language or framework.
         </h2>
       </div>
