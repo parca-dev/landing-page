@@ -54,15 +54,15 @@ const MobileMenu = ({ isOpen }) => {
 
   return (
     <motion.nav
-      className="absolute inset-0 z-[-1] hidden flex-col bg-white px-8 pt-[62px] pb-6 before:absolute before:inset-x-0 before:top-[62px] before:h-px before:w-full before:bg-gray-90 lg:flex sm:px-4"
+      className="absolute inset-0 z-[-1] hidden h-screen flex-col bg-white px-8 pt-[62px] pb-6 before:absolute before:inset-x-0 before:top-[62px] before:h-px before:w-full before:bg-gray-90 lg:flex sm:px-4"
       initial="from"
       animate={controls}
       variants={variants}
     >
-      <ul className="flex flex-grow flex-col items-center justify-center space-y-11 overflow-x-hidden overflow-y-scroll text-center">
+      <ul className="flex flex-grow flex-col justify-center space-y-3 overflow-x-hidden overflow-y-scroll text-center">
         {MENUS.mobile.map(({ text, to }, index) => (
           <li key={index}>
-            <Link className="block text-xl font-medium leading-none" to={to}>
+            <Link className="block py-4 text-xl font-medium leading-none" to={to}>
               {text}
             </Link>
           </li>
