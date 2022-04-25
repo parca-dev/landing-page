@@ -59,16 +59,18 @@ const MobileMenu = ({ isOpen }) => {
       animate={controls}
       variants={variants}
     >
-      <ul className="flex flex-grow flex-col justify-center space-y-3 overflow-x-hidden overflow-y-scroll text-center">
-        {MENUS.mobile.map(({ text, to }, index) => (
-          <li key={index}>
-            <Link className="block py-4 text-xl font-medium leading-none" to={to}>
-              {text}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-auto flex flex-col space-y-3">
+      <div className="my-auto flex h-full w-full overflow-x-hidden overflow-y-scroll">
+        <ul className="my-auto flex w-full flex-col space-y-3 text-center">
+          {MENUS.mobile.map(({ text, to }, index) => (
+            <li key={index}>
+              <Link className="block py-4 text-xl font-medium leading-none" to={to}>
+                {text}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-auto flex shrink-0 flex-col space-y-3">
         {buttons.map(({ logo: Logo, text, to, theme }, index) => (
           <Button
             className="inline-flex justify-center"
