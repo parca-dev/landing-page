@@ -46,7 +46,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[27px] left-[8px] block h-0.5 w-6 rounded-full bg-current"
+      className="absolute bottom-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-current"
       variants={{
         initial: {
           bottom: 11,
@@ -54,7 +54,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
           transition: { duration: ANIMATION_DURATION, delay: ANIMATION_DURATION },
         },
         toggled: {
-          bottom: 17,
+          bottom: 20,
           transition: { duration: ANIMATION_DURATION },
           transitionEnd: { display: 'none' },
         },
