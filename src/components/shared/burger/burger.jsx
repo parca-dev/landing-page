@@ -7,13 +7,17 @@ const ANIMATION_DURATION = 0.2;
 
 const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
   <motion.button
-    className={clsx('relative h-10 w-10', additionalClassName)}
+    className={clsx(
+      'relative h-10 w-10',
+      additionalClassName,
+      isToggled ? 'text-black' : 'text-white'
+    )}
     type="button"
     animate={isToggled ? 'toggled' : 'initial'}
     onClick={onClick}
   >
     <motion.span
-      className="absolute top-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-white"
+      className={clsx('absolute top-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-current')}
       variants={{
         initial: {
           top: 11,
@@ -28,7 +32,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[19px] left-[8px] block h-0.5 w-6 rounded-full bg-white"
+      className="absolute top-[19px] left-[8px] block h-0.5 w-6 rounded-full bg-current"
       variants={{
         initial: {
           display: 'block',
@@ -41,7 +45,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[27px] left-[8px] block h-0.5 w-6 rounded-full bg-white"
+      className="absolute bottom-[11px] left-[8px] block h-0.5 w-6 rounded-full bg-current"
       variants={{
         initial: {
           bottom: 11,
@@ -49,14 +53,14 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
           transition: { duration: ANIMATION_DURATION, delay: ANIMATION_DURATION },
         },
         toggled: {
-          bottom: 17,
+          bottom: 20,
           transition: { duration: ANIMATION_DURATION },
           transitionEnd: { display: 'none' },
         },
       }}
     />
     <motion.span
-      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-white"
+      className="absolute top-[18px] left-[8px] hidden h-0.5 w-6 rounded-full bg-current"
       variants={{
         initial: {
           rotate: '0deg',
@@ -71,7 +75,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       }}
     />
     <motion.span
-      className="absolute top-[17px] left-[8px] hidden h-0.5 w-5 rounded-full bg-white"
+      className="absolute top-[18px] left-[8px] hidden h-0.5 w-6 rounded-full bg-current"
       variants={{
         initial: {
           rotate: '0deg',

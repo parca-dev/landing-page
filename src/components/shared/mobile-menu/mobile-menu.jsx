@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
+import GithubLogo from 'icons/github.inline.svg';
+
+import Button from '../button';
 
 const ANIMATION_DURATION = 0.2;
 
 const variants = {
   from: {
     opacity: 0,
-    translateY: 30,
+    translateY: -10,
     transition: {
       duration: ANIMATION_DURATION,
     },
@@ -19,7 +23,7 @@ const variants = {
     },
   },
   to: {
-    zIndex: 999,
+    zIndex: 40,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -28,40 +32,58 @@ const variants = {
   },
 };
 
+const buttons = [
+  { logo: GithubLogo, text: 'Star Us', to: LINKS.github, theme: 'black-outline' },
+  { text: 'Try it Now', to: LINKS.demo, theme: 'black-filled' },
+];
+
 const MobileMenu = ({ isOpen }) => {
   const controls = useAnimation();
 
   useEffect(() => {
     if (isOpen) {
       controls.start('to');
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
     } else {
       controls.start('from');
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     }
   }, [isOpen, controls]);
 
   return (
     <motion.nav
-      // TODO: Add "top" value equal to the header's height so mobile menu would be positioned right after the header, e.g. "top-20"
-      //       Check out this screenshot for better understanding — https://user-images.githubusercontent.com/20713191/144218387-afd19e0c-c33d-4c8f-8cfe-b6e6214d236c.png
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute right-8 left-8 z-[-1] hidden rounded-md px-8 pt-4 pb-7 lg:block md:right-4 md:left-4"
+      className="fixed inset-0 z-[-1] hidden h-full flex-col bg-white px-8 pt-[62px] pb-6 before:absolute before:inset-x-0 before:top-[62px] before:h-px before:w-full before:bg-gray-90 lg:flex sm:px-4"
       initial="from"
       animate={controls}
       variants={variants}
-      // TODO: Replace the color to the one from the color palette
-      style={{ boxShadow: '0px 10px 20px rgba(26, 26, 26, 0.4)' }}
     >
-      <ul className="flex flex-col text-center">
-        {MENUS.mobile.map(({ text, to }, index) => (
-          <li key={index}>
-            {/* TODO: Add needed props so the link would have styles */}
-            <Link className="block py-4" to={to}>
-              {text}
-            </Link>
-          </li>
+      <div className="my-auto flex h-full w-full overflow-x-hidden overflow-y-scroll">
+        <ul className="my-auto flex w-full flex-col space-y-3 text-center">
+          {MENUS.mobile.map(({ text, to }, index) => (
+            <li key={index}>
+              <Link className="block py-4 text-xl font-medium leading-none" to={to}>
+                {text}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-auto flex shrink-0 flex-col space-y-3">
+        {buttons.map(({ logo: Logo, text, to, theme }, index) => (
+          <Button
+            className="inline-flex justify-center"
+            to={to}
+            key={index}
+            theme={theme}
+            size="sm"
+          >
+            {Logo && <Logo className="h-4 w-6" />}
+            <span>{text}</span>
+          </Button>
         ))}
-      </ul>
-      {/* TODO: Add a button if needed */}
+      </div>
     </motion.nav>
   );
 };

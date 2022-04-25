@@ -10,7 +10,6 @@ const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
   return (
     <>
       <SEO />
