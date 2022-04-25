@@ -14,7 +14,6 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
     )}
     type="button"
     animate={isToggled ? 'toggled' : 'initial'}
-    style={{ WebkitAppearance: 'button', backgroundColor: 'transparent', backgroundImage: 'none' }}
     onClick={onClick}
   >
     <motion.span
