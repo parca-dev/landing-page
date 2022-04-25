@@ -94,7 +94,7 @@ const Community = () => {
         <h2 className="heading-6xl">
           Join the{' '}
           <StaticImage
-            className="inline-flex justify-center align-middle lg:h-12 md:h-10 sm:h-8"
+            className="inline-flex w-auto justify-center align-middle lg:max-w-[174px] md:max-w-[145px] sm:max-w-[116px]"
             src="./images/community.png"
             quality={95}
             width={203}
