@@ -68,8 +68,9 @@ const Hero = () => {
 
   return (
     <section
-      className="safe-paddings relative flex h-screen w-screen max-w-full items-center justify-center overflow-hidden bg-black"
+      className="safe-paddings relative flex h-screen min-h-screen w-screen max-w-full items-center justify-center overflow-hidden bg-black"
       ref={sectionRef}
+      style={{ minHeight: '-webkit-fill-available' }}
     >
       <canvas className="absolute" ref={canvasRef} />
       <div className="max-width z-10 flex flex-col">
