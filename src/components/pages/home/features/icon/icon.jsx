@@ -5,7 +5,6 @@ import { useRive } from 'rive-react';
 const Icon = ({ isSectionInView, iconName }) => {
   const { RiveComponent, rive } = useRive({
     src: '/animations/pages/features/icons.riv',
-    stateMachines: 'State Machine',
     autoplay: false,
     animations: iconName,
     artboard: iconName,
@@ -14,7 +13,7 @@ const Icon = ({ isSectionInView, iconName }) => {
   useEffect(() => {
     if (rive) {
       if (isSectionInView) {
-        rive.play(['State Machine']);
+        rive.play();
       }
     }
   }, [isSectionInView, rive]);
