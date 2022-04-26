@@ -104,7 +104,7 @@ const Community = () => {
             lazy="loading"
             alt="Community icons"
           />{' '}
-          community! Join users and companies that are using Parca in production:
+          community!
         </h2>
         <ul className="mt-16 flex space-x-11 lg:mt-12 lg:space-x-8 md:mt-10 md:space-x-7 sm:mt-7 sm:space-x-5">
           {icons.map(({ text, icon: Icon, to }, index) => (
