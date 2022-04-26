@@ -32,7 +32,7 @@ const items = [
 ];
 
 const Features = () => {
-  const [sectionRef, isSectionInView] = useInView({ threshold: 0.9 });
+  const [sectionRef, isSectionInView] = useInView({ threshold: 0.5 });
   return (
     <section
       className="safe-paddings bg-black pt-40 pb-52 text-white lg:pt-28 lg:pb-40 md:pt-20 md:pb-28 sm:pt-14 sm:pb-20"
