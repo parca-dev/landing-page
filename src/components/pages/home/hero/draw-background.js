@@ -4,9 +4,6 @@ const TEXT_HEIGHT = 16;
 
 const isBrowser = typeof window !== 'undefined';
 
-const ibmplexmonoFont =
-  isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplex-mono-light.woff2)');
-
 const getPixelRatio = () => {
   const isDevicePixelRatio = isBrowser && window.devicePixelRatio;
   return isDevicePixelRatio || 1;
@@ -19,6 +16,26 @@ function getRandomString(length) {
   const randomStr = digits.charAt(random * digits.length || 0);
   for (string; string.length < length; string += randomStr);
   return string;
+}
+
+async function drawNumbers({ rows, columns, context, updateRandom }) {
+  const ibmplexmonoFont =
+    isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplex-mono-light.woff2)');
+  await ibmplexmonoFont.load().then((font) => {
+    document.fonts.add(font);
+    document.fonts.ready.then(() => {
+      updateRandom();
+      for (let i = 0; i < rows; i += 1) {
+        for (let j = 0; j < columns; j += 1) {
+          context.fillText(
+            getRandomString(2),
+            TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
+            i * (TEXT_GAP + TEXT_HEIGHT)
+          );
+        }
+      }
+    });
+  });
 }
 
 let timer = null;
@@ -57,21 +74,7 @@ const drawBackground = ({ canvasRef, width, height }) => {
     }, 10);
   }
 
-  ibmplexmonoFont.load().then((font) => {
-    document.fonts.add(font);
-    document.fonts.ready.then(() => {
-      updateRandom();
-      for (let i = 0; i < rows; i += 1) {
-        for (let j = 0; j < columns; j += 1) {
-          context.fillText(
-            getRandomString(2),
-            TEXT_GAP + j * (TEXT_GAP + TEXT_WIDTH),
-            i * (TEXT_GAP + TEXT_HEIGHT)
-          );
-        }
-      }
-    });
-  });
+  drawNumbers({ rows, columns, context, updateRandom });
 };
 
 export default drawBackground;
