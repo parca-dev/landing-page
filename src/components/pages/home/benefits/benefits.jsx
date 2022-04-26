@@ -74,7 +74,7 @@ const Benefits = () => {
   }, [activeSliderItemIndex, isSliderInView]);
 
   return (
-    <section className="safe-paddings mt-96 lg:mt-64 lg:overflow-hidden lg:pb-28 md:mt-[132px] md:pb-16 sm:mt-[86px] sm:pb-24">
+    <section className="safe-paddings mt-52 lg:mt-40 lg:overflow-hidden lg:pb-28 md:mt-28 md:pb-16 sm:mt-20 sm:pb-24">
       <div className="container">
         <h2
           className="with-green-gradient-text heading-6xl max-w-[1040px] lg:max-w-[782px]"
