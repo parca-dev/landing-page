@@ -89,7 +89,7 @@ const Community = () => {
     },
   ];
   return (
-    <section className="safe-paddings mt-96 bg-black pt-40 pb-[200px] text-white lg:mt-64 lg:pt-28 lg:pb-36 md:mt-48 md:pt-20 md:pb-24 sm:mt-28 sm:pt-14 sm:pb-20">
+    <section className="safe-paddings mt-80 bg-black pt-40 pb-[200px] text-white lg:mt-64 lg:pt-28 lg:pb-36 md:mt-48 md:pt-20 md:pb-24 sm:mt-28 sm:pt-14 sm:pb-20">
       <div className="container">
         <h2 className="heading-6xl">
           Join the{' '}

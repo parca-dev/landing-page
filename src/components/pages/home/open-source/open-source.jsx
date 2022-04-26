@@ -10,7 +10,7 @@ import PrometheusLogo from './images/prometheus.inline.svg';
 import ThanosLogo from './images/thanos.inline.svg';
 
 const OpenSource = () => (
-  <div className="safe-paddings mt-96 lg:mt-64 md:mt-48 sm:mt-28">
+  <div className="safe-paddings mt-80 lg:mt-64 md:mt-48 sm:mt-28">
     <div className="container">
       <div className="heading-5xl with-link-blue-5xl flat-none xl:flat-breaks leading-snug lg:leading-snug md:leading-snug sm:leading-snug">
         Parca is Open Source.{' '}

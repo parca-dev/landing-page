@@ -20,7 +20,7 @@ const items = [
 ];
 
 const ParcaAgent = () => (
-  <section className="safe-paddings mt-80 lg:mt-24 md:mt-24 sm:mt-0">
+  <section className="safe-paddings mt-52 lg:mt-24 md:mt-24 sm:mt-0 ">
     <div className="container">
       <h2 className="heading-5xl">{title}</h2>
       <div className="mt-8 space-x-8 lg:mt-7 md:mt-6 md:space-x-6 sm:mt-4.5 sm:space-x-4 xs:flex xs:flex-col xs:space-x-0 xs:space-y-4">
