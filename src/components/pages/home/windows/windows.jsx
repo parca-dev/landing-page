@@ -35,7 +35,7 @@ const intervals = [500, 350, 250, 200, 200, 200];
 
 const Windows = () => {
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 0.7,
     triggerOnce: true,
   });
   const [activeItems, setActiveItems] = useState({ 0: true });
