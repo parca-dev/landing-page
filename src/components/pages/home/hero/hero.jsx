@@ -72,7 +72,7 @@ const Hero = () => {
       ref={sectionRef}
     >
       <canvas className="absolute" ref={canvasRef} />
-      <div className="max-width z-10 flex flex-col">
+      <div className="max-width z-10 flex flex-col sm:translate-y-[-5%]">
         <div className="relative">
           <Title titleControls={titleControls} />
           <Arrow
