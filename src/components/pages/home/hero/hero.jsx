@@ -1,10 +1,10 @@
+import useSize from '@react-hook/size';
 import { motion, useAnimation } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Link from 'components/shared/link';
 import LINKS from 'constants/links';
-import useWindowSize from 'hooks/use-window-size';
 
 import Arrow from './arrow';
 import drawBackground from './draw-background';
@@ -36,15 +36,24 @@ const buttonGradientVariants = {
 };
 
 const Hero = () => {
+  const ref = useRef();
   const canvasRef = useRef();
   const [sectionRef, inView] = useInView({
     triggerOnce: true,
   });
-  const { width, height } = useWindowSize();
+  const [width, height] = useSize(ref);
   const titleControls = useAnimation();
   const arrowLineControls = useAnimation();
   const arrowPointerControls = useAnimation();
   const buttonGradientControls = useAnimation();
+
+  const setRefs = useCallback(
+    (node) => {
+      ref.current = node;
+      sectionRef(node);
+    },
+    [sectionRef]
+  );
 
   useEffect(() => {
     const fn = async () => {
@@ -68,10 +77,10 @@ const Hero = () => {
 
   return (
     <section
-      className="safe-paddings relative flex h-screen min-h-screen w-screen max-w-full items-center justify-center overflow-hidden bg-black"
-      ref={sectionRef}
+      className="safe-paddings relative flex h-screen w-screen max-w-full items-center justify-center overflow-hidden bg-black"
+      ref={setRefs}
     >
-      <canvas className="absolute" ref={canvasRef} />
+      <canvas className="absolute inset-0" ref={canvasRef} />
       <div className="max-width z-10 flex flex-col sm:translate-y-[-5%]">
         <div className="relative">
           <Title titleControls={titleControls} />

@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-hook/size": "^2.1.2",
     "clsx": "^1.1.1",
     "framer-motion": "^6.3.0",
     "gatsby": "^4.12.1",
