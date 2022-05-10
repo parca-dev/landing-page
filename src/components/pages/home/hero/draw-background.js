@@ -19,9 +19,9 @@ function getRandomString(length) {
 }
 
 async function drawNumbers({ rows, columns, context, updateRandom }) {
-  const ibmplexmonoFont =
-    isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplex-mono-light.woff2)');
-  await ibmplexmonoFont.load().then((font) => {
+  const robotomonoFont =
+    isBrowser && new FontFace('Roboto Mono', 'url(/fonts/roboto-mono-regular.woff2)');
+  await robotomonoFont.load().then((font) => {
     document.fonts.add(font);
     document.fonts.ready.then(() => {
       updateRandom();

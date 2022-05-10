@@ -7,9 +7,9 @@ import Link from 'components/shared/link';
 const styles = {
   base: 'leading-none inline-flex items-center duration-200 transition-colors',
   size: {
-    sm: 'text-sm h-10 px-4.5 py-[13px] font-medium ',
+    sm: 'text-sm h-10 px-4.5 py-[13px] font-semibold',
     '2xl':
-      'text-[22px] font-medium px-[60px] py-[26px] lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12',
+      'text-[22px] font-semibold px-[60px] py-[26px] lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12',
   },
   theme: {
     'black-filled': 'relative group text-white bg-black',

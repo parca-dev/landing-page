@@ -25,7 +25,7 @@ const Footer = () => (
           <span className="sr-only">Parca logo</span>
           <LogoSvg className="h-7 w-auto" />
         </Link>
-        <span className="mt-auto text-sm font-medium sm:hidden">
+        <span className="mt-auto text-sm font-semibold sm:hidden">
           Design by{' '}
           <Link
             className="transition-colors duration-200 hover:text-blue"
@@ -55,7 +55,7 @@ const Footer = () => (
         </ul>
         <CtaButtons className="shrink-0 md:h-full md:grow md:flex-col-reverse md:justify-between md:space-x-0 sm:h-auto sm:flex-row sm:space-x-5" />
       </nav>
-      <span className="mt-10 hidden text-sm font-medium sm:block">
+      <span className="mt-10 hidden text-sm font-semibold sm:block">
         Design by{' '}
         <Link
           className="transition-colors duration-200 hover:text-blue"
