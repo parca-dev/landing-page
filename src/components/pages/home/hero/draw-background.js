@@ -1,9 +1,10 @@
+import { robotomonoFont } from 'utils/load-roboto-mono-font';
+
 const TEXT_GAP = 12;
 const TEXT_WIDTH = 22;
 const TEXT_HEIGHT = 16;
 
 const isBrowser = typeof window !== 'undefined';
-
 const getPixelRatio = () => {
   const isDevicePixelRatio = isBrowser && window.devicePixelRatio;
   return isDevicePixelRatio || 1;
@@ -19,8 +20,6 @@ function getRandomString(length) {
 }
 
 async function drawNumbers({ rows, columns, context, updateRandom }) {
-  const robotomonoFont =
-    isBrowser && new FontFace('Roboto Mono', 'url(/fonts/roboto-mono-regular.woff2)');
   await robotomonoFont.load().then((font) => {
     document.fonts.add(font);
     document.fonts.ready.then(() => {
