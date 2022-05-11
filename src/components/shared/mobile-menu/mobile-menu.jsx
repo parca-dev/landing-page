@@ -63,7 +63,7 @@ const MobileMenu = ({ isOpen }) => {
         <ul className="my-auto flex w-full flex-col space-y-3 text-center">
           {MENUS.mobile.map(({ text, to }, index) => (
             <li key={index}>
-              <Link className="block py-4 text-xl font-medium leading-none" to={to}>
+              <Link className="block py-4 text-xl font-semibold leading-none" to={to}>
                 {text}
               </Link>
             </li>

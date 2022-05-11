@@ -1,9 +1,10 @@
+import { robotomonoFont } from 'utils/load-roboto-mono-font';
+
 const TEXT_GAP = 12;
 const TEXT_WIDTH = 22;
 const TEXT_HEIGHT = 16;
 
 const isBrowser = typeof window !== 'undefined';
-
 const getPixelRatio = () => {
   const isDevicePixelRatio = isBrowser && window.devicePixelRatio;
   return isDevicePixelRatio || 1;
@@ -19,9 +20,7 @@ function getRandomString(length) {
 }
 
 async function drawNumbers({ rows, columns, context, updateRandom }) {
-  const ibmplexmonoFont =
-    isBrowser && new FontFace('IBM Plex Mono', 'url(/fonts/ibmplex-mono-light.woff2)');
-  await ibmplexmonoFont.load().then((font) => {
+  await robotomonoFont.load().then((font) => {
     document.fonts.add(font);
     document.fonts.ready.then(() => {
       updateRandom();
@@ -50,7 +49,7 @@ const drawBackground = ({ canvasRef, width, height }) => {
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
   context.scale(ratio, ratio);
-  context.font = '300 16px IBM Plex Mono';
+  context.font = '300 16px Roboto Mono';
   context.fillStyle = '#242828';
 
   const columns = Math.round(width / TEXT_GAP + TEXT_WIDTH);

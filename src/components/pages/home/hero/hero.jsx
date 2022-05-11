@@ -77,7 +77,7 @@ const Hero = () => {
 
   return (
     <section
-      className="safe-paddings relative flex h-screen w-screen max-w-full items-center justify-center overflow-hidden bg-black"
+      className="safe-paddings relative flex h-screen min-h-[748px] w-screen max-w-full items-center justify-center overflow-hidden bg-black md:min-h-[557px]"
       ref={setRefs}
     >
       <canvas className="absolute inset-0" ref={canvasRef} />
@@ -91,7 +91,7 @@ const Hero = () => {
         </div>
         <div className="mt-20 self-start bg-black p-2.5 lg:mt-[50px] md:mt-5 sm:mt-16 sm:px-4 xs:mt-8 xs:pr-1.5">
           <Link
-            className="relative inline-flex items-center bg-white px-[60px] py-[26px] text-[22px] font-medium leading-none transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
+            className="relative inline-flex items-center bg-white px-[60px] py-[26px] text-[22px] font-semibold leading-none transition-colors duration-200 lg:py-6 lg:px-16 lg:text-lg lg:leading-none md:py-4.5 md:px-12"
             to={LINKS.demo}
           >
             <span>Try it Now</span>
