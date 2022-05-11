@@ -50,7 +50,7 @@ const drawBackground = ({ canvasRef, width, height }) => {
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
   context.scale(ratio, ratio);
-  context.font = '300 16px IBM Plex Mono';
+  context.font = '300 16px Roboto Mono';
   context.fillStyle = '#242828';
 
   const columns = Math.round(width / TEXT_GAP + TEXT_WIDTH);
@@ -66,7 +66,7 @@ const drawBackground = ({ canvasRef, width, height }) => {
         const y = TEXT_GAP + rndRow * (TEXT_GAP + TEXT_HEIGHT);
 
         context.fillStyle = '#181A1B';
-        context.fillRect(x, y, TEXT_WIDTH, TEXT_HEIGHT);
+        context.fillRect(x, y, TEXT_WIDTH + 1, TEXT_HEIGHT + 1);
 
         context.fillStyle = '#242828';
         context.fillText(getRandomString(2), x, y + TEXT_HEIGHT);
