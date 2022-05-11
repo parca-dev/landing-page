@@ -66,7 +66,7 @@ const drawBackground = ({ canvasRef, width, height }) => {
         const y = TEXT_GAP + rndRow * (TEXT_GAP + TEXT_HEIGHT);
 
         context.fillStyle = '#181A1B';
-        context.fillRect(x, y, TEXT_WIDTH + 1, TEXT_HEIGHT + 1);
+        context.fillRect(x, y, TEXT_WIDTH, TEXT_HEIGHT);
 
         context.fillStyle = '#242828';
         context.fillText(getRandomString(2), x, y + TEXT_HEIGHT);
