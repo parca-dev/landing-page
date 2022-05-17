@@ -45,10 +45,14 @@ const MobileMenu = ({ isOpen }) => {
       controls.start('to');
       document.body.style.overflow = 'hidden';
       document.body.style.touchAction = 'none';
+      document.body.style.position = 'fixed';
+      document.body.style.top = 0;
     } else {
       controls.start('from');
       document.body.style.overflow = '';
       document.body.style.touchAction = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
     }
   }, [isOpen, controls]);
 
