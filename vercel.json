@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/docs/:path*", "destination": "https://parca-docs.vercel.app/docs/:path*" }
+  ]
+}
