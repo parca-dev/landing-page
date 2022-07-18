@@ -59,33 +59,33 @@ const Community = () => {
   const items = [
     {
       cover: image1,
-      description: 'Parca Office Hours (2022-04-07)',
-      to: 'https://www.youtube.com/watch?v=vnNNsMfk2g0',
+      description: 'Parca Office Hours (2022-07-14)',
+      to: 'https://www.youtube.com/watch?v=wyVDhmhJXXo',
     },
     {
       cover: image2,
-      description: 'Parca Office Hours (2022-03-24)',
-      to: 'https://www.youtube.com/watch?v=OryfFttWECc',
+      description: 'Parca Office Hours (2022-06-30)',
+      to: 'https://www.youtube.com/watch?v=sgrzKpxeAII',
     },
     {
       cover: image3,
-      description: 'Parca Office Hours (2022-03-10)',
-      to: 'https://www.youtube.com/watch?v=c0YIBlBjkXE',
+      description: 'Parca Office Hours (2022-06-16)',
+      to: 'https://www.youtube.com/watch?v=6oQS2S6fYQE',
     },
     {
       cover: image4,
-      description: 'Parca Office Hours (2022-02-24)',
-      to: 'https://www.youtube.com/watch?v=_p1yC1cJcUk',
+      description: 'Parca Office Hours (2022-06-02)',
+      to: 'https://www.youtube.com/watch?v=bcHIhAEKyNg',
     },
     {
       cover: image5,
-      description: 'Parca Office Hours (2022-02-08)',
-      to: 'https://www.youtube.com/watch?v=SJGu3cn_guc',
+      description: 'Parca Office Hours (2022-05-05)',
+      to: 'https://www.youtube.com/watch?v=x3KjJnWhyIQ',
     },
     {
       cover: image6,
-      description: 'Parca Office Hours (2022-01-25)',
-      to: 'https://www.youtube.com/watch?v=KvQJR4LsVk0',
+      description: 'Parca Office Hours (2022-04-07)',
+      to: 'https://www.youtube.com/watch?v=vnNNsMfk2g0',
     },
   ];
   return (
