@@ -10,6 +10,7 @@ export default {
   twitter: 'https://twitter.com/ParcaDev',
   discord: 'https://discord.com/invite/ZgUpYgpzXy',
   youtube: 'https://www.youtube.com/channel/UCRrqAGuajRqIX_E_arNnYCw',
+  mastodon: 'https://fosstodon.org/@parca',
   slack: 'https://cloud-native.slack.com/archives/C01BB0M6K1U',
   license: 'https://www.apache.org/licenses/LICENSE-2.0',
 };

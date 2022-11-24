@@ -7,6 +7,7 @@ import Link from 'components/shared/link';
 import LINKS from 'constants/links';
 
 import DiscordIcon from './images/discord.inline.svg';
+import MastodonIcon from './images/mastodon.inline.svg';
 import PlayIcon from './images/play.inline.svg';
 import SlackIcon from './images/slack.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
@@ -17,6 +18,7 @@ const icons = [
   { text: 'Twitter', icon: TwitterIcon, to: LINKS.twitter },
   { text: 'Discord', icon: DiscordIcon, to: LINKS.discord },
   { text: 'YouTube', icon: YoutubeIcon, to: LINKS.youtube },
+  { text: 'Mastodon', icon: MastodonIcon, to: LINKS.mastodon, rel: 'me' },
 ];
 const subtitle = 'Join us on a bi-weekly public meetings:';
 
@@ -107,13 +109,13 @@ const Community = () => {
           community!
         </h2>
         <ul className="mt-16 flex space-x-11 lg:mt-12 lg:space-x-8 md:mt-10 md:space-x-7 sm:mt-7 sm:space-x-5">
-          {icons.map(({ text, icon: Icon, to }, index) => (
+          {icons.map(({ text, icon: Icon, to, rel }, index) => (
             <li key={index}>
               <Link
                 className="block transition-opacity duration-200 hover:opacity-80"
                 to={to}
                 target="_blank"
-                rel="noopener"
+                rel={rel ?? 'noopener'}
               >
                 <Icon
                   className="h-[104px] w-[104px] lg:h-20 lg:w-20 md:h-[72px] md:w-[72px] sm:h-14 sm:w-14"
