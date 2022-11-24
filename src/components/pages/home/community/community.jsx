@@ -7,6 +7,7 @@ import Link from 'components/shared/link';
 import LINKS from 'constants/links';
 
 import DiscordIcon from './images/discord.inline.svg';
+import MastodonIcon from './images/mastodon.inline.svg';
 import PlayIcon from './images/play.inline.svg';
 import SlackIcon from './images/slack.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
@@ -17,6 +18,7 @@ const icons = [
   { text: 'Twitter', icon: TwitterIcon, to: LINKS.twitter },
   { text: 'Discord', icon: DiscordIcon, to: LINKS.discord },
   { text: 'YouTube', icon: YoutubeIcon, to: LINKS.youtube },
+  { text: 'Mastodon', icon: MastodonIcon, to: LINKS.mastodon },
 ];
 const subtitle = 'Join us on a bi-weekly public meetings:';
 
