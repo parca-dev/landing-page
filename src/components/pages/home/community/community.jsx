@@ -25,32 +25,32 @@ const subtitle = 'Join us on a bi-weekly public meetings:';
 const Community = () => {
   const { image1, image2, image3, image4, image5, image6 } = useStaticQuery(graphql`
     query {
-      image1: file(relativePath: { eq: "pages/home/community/image-1.jpg" }) {
+      image1: file(relativePath: { eq: "pages/home/community/image-1.webp" }) {
         childImageSharp {
           gatsbyImageData(width: 500)
         }
       }
-      image2: file(relativePath: { eq: "pages/home/community/image-2.jpg" }) {
+      image2: file(relativePath: { eq: "pages/home/community/image-2.webp" }) {
         childImageSharp {
           gatsbyImageData(width: 500)
         }
       }
-      image3: file(relativePath: { eq: "pages/home/community/image-3.jpg" }) {
+      image3: file(relativePath: { eq: "pages/home/community/image-3.webp" }) {
         childImageSharp {
           gatsbyImageData(width: 500)
         }
       }
-      image4: file(relativePath: { eq: "pages/home/community/image-4.jpg" }) {
+      image4: file(relativePath: { eq: "pages/home/community/image-4.webp" }) {
         childImageSharp {
           gatsbyImageData(width: 500)
         }
       }
-      image5: file(relativePath: { eq: "pages/home/community/image-5.jpg" }) {
+      image5: file(relativePath: { eq: "pages/home/community/image-5.webp" }) {
         childImageSharp {
           gatsbyImageData(width: 500)
         }
       }
-      image6: file(relativePath: { eq: "pages/home/community/image-6.jpg" }) {
+      image6: file(relativePath: { eq: "pages/home/community/image-6.webp" }) {
         childImageSharp {
           gatsbyImageData(width: 500)
         }
@@ -61,33 +61,37 @@ const Community = () => {
   const items = [
     {
       cover: image1,
-      description: 'Parca Office Hours (2022-07-14)',
-      to: 'https://www.youtube.com/watch?v=wyVDhmhJXXo',
+      description: 'Incoming Parca v0.15, Debuginfo signed upload API, Agent BTF support',
+      to: 'https://www.youtube.com/watch?v=Bd3qPMlQdNI',
     },
     {
       cover: image2,
-      description: 'Parca Office Hours (2022-06-30)',
-      to: 'https://www.youtube.com/watch?v=sgrzKpxeAII',
+      description:
+        'Parca Agent v0.10, System-wide profiling, stack unwinding using DWARF, and Grafana 9.3.0 with Parca',
+      to: 'https://www.youtube.com/watch?v=gAoq-qFlBmQ',
     },
     {
       cover: image3,
-      description: 'Parca Office Hours (2022-06-16)',
-      to: 'https://www.youtube.com/watch?v=6oQS2S6fYQE',
+      description:
+        'Parca v0.14.0 Reduce API responsize, Auto-complete improvements; Parca Agent v0.10.0-rc.0 highlights',
+      to: 'https://www.youtube.com/watch?v=KQR94iUL-k4',
     },
     {
       cover: image4,
-      description: 'Parca Office Hours (2022-06-02)',
-      to: 'https://www.youtube.com/watch?v=bcHIhAEKyNg',
+      description:
+        'Parca as Grafana Core plugin, DWARF-based native unwinding updates, Callgraph improvements',
+      to: 'https://www.youtube.com/watch?v=5qLgqY_EaIs',
     },
     {
       cover: image5,
-      description: 'Parca Office Hours (2022-05-05)',
-      to: 'https://www.youtube.com/watch?v=x3KjJnWhyIQ',
+      description:
+        'Parca v0.13.0, Grafana plugin, Parca Agents on targets page, Callgraph imporvements, Performance',
+      to: 'https://www.youtube.com/watch?v=oGIVGQzpcyg',
     },
     {
       cover: image6,
-      description: 'Parca Office Hours (2022-04-07)',
-      to: 'https://www.youtube.com/watch?v=vnNNsMfk2g0',
+      description: 'Impressive Query Performance Improvements, Stack Unwinding Updates',
+      to: 'https://www.youtube.com/watch?v=jgDDk9kkkO8',
     },
   ];
   return (
