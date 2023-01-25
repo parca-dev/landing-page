@@ -8,7 +8,7 @@ const title = 'Never miss the important data with a continuous profiling.';
 const description =
   'You never know at which point in time you are going to need profiling data, so always collect it at low overhead.';
 const linkText = 'Learn more';
-const linkUrl = '/';
+const linkUrl = '/docs/querying-parca';
 
 const Profiling = () => (
   <section className="safe-paddings mt-52 lg:mt-40 lg:overflow-hidden md:mt-28 sm:mt-20">
