@@ -1,6 +1,7 @@
 export default {
   demo: 'https://demo.parca.dev/',
   documentation: 'https://www.parca.dev/docs/overview',
+  download: 'https://www.parca.dev/docs/binary',
   tutorials: 'https://www.parca.dev/docs/binary',
   binary: 'https://www.parca.dev/docs/binary',
   kubernetes: 'https://www.parca.dev/docs/kubernetes',
