@@ -2,7 +2,7 @@ import LINKS from './links';
 
 export default {
   header: [
-    { text: 'Download', to: LINKS.download },
+    { text: 'Quick Start', to: LINKS.quickstart },
     { text: 'Documentation', to: LINKS.documentation },
     { text: 'Tutorials', to: LINKS.tutorials },
   ],
@@ -19,7 +19,7 @@ export default {
     ],
   ],
   mobile: [
-    { text: 'Download', to: LINKS.download },
+    { text: 'Quick Start', to: LINKS.quickstart },
     { text: 'Documentation', to: LINKS.documentation },
     { text: 'Tutorials', to: LINKS.tutorials },
   ],
