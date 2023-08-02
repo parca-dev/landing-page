@@ -12,7 +12,7 @@ const Footer = () => (
   <footer className="safe-paddings">
     <div className="container relative flex justify-between py-16 lg:py-10 md:py-11 sm:flex-col sm:overflow-hidden sm:py-10">
       <img
-        className="absolute -top-[70%] left-[15%] -z-10 w-[27.5%] lg:top-[-47.8%] lg:left-[14%] lg:w-[19.5%] md:hidden sm:top-[-117px] sm:left-auto sm:right-[5%] sm:block sm:w-[190px]"
+        className="absolute -top-[70%] left-[15%] -z-10 w-[27.5%] lg:left-[14%] lg:top-[-47.8%] lg:w-[19.5%] md:hidden sm:left-auto sm:right-[5%] sm:top-[-117px] sm:block sm:w-[190px]"
         src={decorSvg}
         width={335}
         height={180}
