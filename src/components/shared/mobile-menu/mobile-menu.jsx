@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import Link from 'components/shared/link';
 import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
+import DiscordLogo from 'icons/discord.inline.svg';
 import GithubLogo from 'icons/github.inline.svg';
 
 import Button from '../button';
@@ -33,6 +34,7 @@ const variants = {
 };
 
 const buttons = [
+  { logo: DiscordLogo, text: 'Join us on Discord', to: LINKS.discord, theme: 'black-outline' },
   { logo: GithubLogo, text: 'Star Us', to: LINKS.github, theme: 'black-outline' },
   { text: 'Try it Now', to: LINKS.demo, theme: 'black-filled' },
 ];
@@ -58,7 +60,7 @@ const MobileMenu = ({ isOpen }) => {
 
   return (
     <motion.nav
-      className="fixed inset-0 z-[-1] hidden h-full flex-col bg-white px-8 pt-[62px] pb-6 before:absolute before:inset-x-0 before:top-[62px] before:h-px before:w-full before:bg-gray-90 lg:flex sm:px-4"
+      className="fixed inset-0 z-[-1] hidden h-full flex-col bg-white px-8 pb-6 pt-[62px] before:absolute before:inset-x-0 before:top-[62px] before:h-px before:w-full before:bg-gray-90 lg:flex sm:px-4"
       initial="from"
       animate={controls}
       variants={variants}
@@ -83,7 +85,7 @@ const MobileMenu = ({ isOpen }) => {
             theme={theme}
             size="sm"
           >
-            {Logo && <Logo className="h-4 w-6" />}
+            {Logo && <Logo className="mr-1 h-4 w-6" />}
             <span>{text}</span>
           </Button>
         ))}
