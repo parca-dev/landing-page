@@ -10714,10 +10714,10 @@ table@^6.0.9:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
 
-tailwindcss-safe-area@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/tailwindcss-safe-area/-/tailwindcss-safe-area-0.2.2.tgz#ba64869e2c9f0901f2c2e0a4a85accfe8fb28bde"
-  integrity sha512-sygGuEFFBBzjqR6d2gB9hDW9xX/4yLt7ymhR2E/XVa6Ar4B86Net8/9EmPAsqFUvXY40+W0HnXwFavFJEM+eCQ==
+tailwindcss-safe-area@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-safe-area/-/tailwindcss-safe-area-0.3.0.tgz#f596b895ac6f3bae7cf1366da649a1370d2dadc0"
+  integrity sha512-FKsCmMOG+WU4FNfr60T6FiCQPBj9m4oCyHHQN0jJAiEXCk0H31HwBWs7In7v/W8hG8+qgLsrMaB+SX/mhxPECg==
 
 tailwindcss@^3.0.24:
   version "3.3.3"
