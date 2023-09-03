@@ -17,19 +17,19 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@react-hook/size": "^2.1.2",
-    "clsx": "^1.1.1",
-    "framer-motion": "^6.3.0",
-    "gatsby": "^5.0.0",
-    "gatsby-plugin-image": "^3.0.0",
-    "gatsby-plugin-netlify": "^4.3.0",
-    "prop-types": "^15.8.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-helmet": "^6.1.0",
-    "react-intersection-observer": "^8.34.0",
-    "rive-react": "^3.0.0",
-    "tailwindcss": "^3.0.24"
+    "@react-hook/size": "2.1.2",
+    "clsx": "1.2.1",
+    "framer-motion": "6.5.1",
+    "gatsby": "5.12.3",
+    "gatsby-plugin-image": "3.12.0",
+    "gatsby-plugin-netlify": "4.4.0",
+    "prop-types": "15.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-helmet": "6.1.0",
+    "react-intersection-observer": "8.34.0",
+    "rive-react": "3.0.57",
+    "tailwindcss": "3.3.3"
   },
   "devDependencies": {
     "@babel/core": "7.22.11",
