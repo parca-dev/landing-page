@@ -2,7 +2,8 @@
   "rewrites": [
     { "source": "/docs", "destination": "https://parca-docs.vercel.app/docs" },
     { "source": "/docs/", "destination": "https://parca-docs.vercel.app/docs/" },
-    { "source": "/docs/:path*", "destination": "https://parca-docs.vercel.app/docs/:path*" }
+    { "source": "/docs/:path*", "destination": "https://parca-docs.vercel.app/docs/:path*" },
+    { "source": "/docs/:path*/", "destination": "https://parca-docs.vercel.app/docs/:path*/" }
   ],
   "cleanUrls": true
 }
