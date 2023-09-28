@@ -10652,10 +10652,10 @@ table@^6.0.9:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
 
-tailwindcss-safe-area@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss-safe-area/-/tailwindcss-safe-area-0.4.0.tgz#0dc3d4d31a121482e7a0ed35dcf2bd311519aada"
-  integrity sha512-V6UFT+LCYJOg9780fcQwA4k0RDCmyjRab7G8fwdeoasT9NOCpmXdCV1q79PSI9AK/KtimTIzGeQfeRH583lH5A==
+tailwindcss-safe-area@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-safe-area/-/tailwindcss-safe-area-0.4.1.tgz#e340bd606c92d182de5316d6511a4c30a8287fe9"
+  integrity sha512-6EOe8D39F8N8poKWkeOcIt2SchyJ8CVfm/k5iZak6+QgOzii0TukNIfItdGbf7ylVtq3CF2CK/Oxo5xvtLwVmQ==
 
 tailwindcss@3.3.3:
   version "3.3.3"
