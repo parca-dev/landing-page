@@ -29,7 +29,7 @@
     "react-helmet": "6.1.0",
     "react-intersection-observer": "8.34.0",
     "rive-react": "3.0.57",
-    "tailwindcss": "3.4.2"
+    "tailwindcss": "3.4.3"
   },
   "devDependencies": {
     "@babel/core": "7.24.3",
