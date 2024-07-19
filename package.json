@@ -20,7 +20,7 @@
     "@react-hook/size": "2.1.2",
     "clsx": "1.2.1",
     "framer-motion": "6.5.1",
-    "gatsby": "5.13.6",
+    "gatsby": "5.13.7",
     "gatsby-plugin-image": "3.13.1",
     "gatsby-plugin-netlify": "5.1.1",
     "prop-types": "15.8.1",
